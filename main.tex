@@ -16,9 +16,11 @@
 \usepackage{color}    % Possibilita o uso de cores no documento
 \usepackage{pdfpages} % Possibilita a inclusão da ficha catalográfica
 \usepackage{listings}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 %----------------------------------------------------------------------
 % Comandos criados pelo usuário
-\newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
+%\newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
+\newcommand{\itodo}[1]{{\todo[inline]{#1}}} % Para destacar uma parte a ser trabalhada
 %\newcommand{\ABNTbibliographyname}{REFERÊNCIAS} % Necessário para abnTeX 0.8.2
 
 %----------------------------------------------------------------------
@@ -33,13 +35,13 @@
 \autor{Patrick José Pereira}
 \grau{Engenheiro}
 \local{Florianópolis} % Opcional (Florianópolis é o padrão)
-\data{04}{junho}{2013}
+\data{30}{Novembro}{2016}
 \orientador[Orientador\\Universidade Federal de Santa Catarina]{Prof. Dr. Danilo Silva}
 %\coorientador[Coorientador\\Universidade ...]{Prof. Dr.}
 \coordenador[Coordenador\\Universidade Santa Catarina]{Prof. Dr. Djones Vinicius Lettnin}
 
 \numerodemembrosnabanca{4} % Isso decide se haverá uma folha adicional
-\orientadornabanca{nao} % Se faz parte da banca definir como sim
+\orientadornabanca{sim} % Se faz parte da banca definir como sim
 \coorientadornabanca{nao} % Se faz parte da banca definir como sim
 \bancaMembroA{Primeiro membro\\Universidade ...} %Nome do presidente da banca
 \bancaMembroB{Segundo membro\\Universidade ...}      % Nome do membro da Banca
@@ -53,14 +55,14 @@
 
 \agradecimento{Agradeço aos colaboradores à execução do trabalho.}
 
-\epigrafe{Texto da Epígrafe. Citação relativa ao tema do trabalho. É opcional. A epígrafe pode também aparecer na abertura de cada seção ou capítulo.}
-{(Autor da epígrafe, ano)}
+\epigrafe{\itodo{Texto da Epígrafe. Citação relativa ao tema do trabalho. É opcional. A epígrafe pode também aparecer na abertura de cada seção ou capítulo.}}
+{\itodo{(Autor da epígrafe, ano)}}
 
-\textoResumo {O texto do resumo deve ser digitado, em um único bloco, sem espaço de parágrafo. O resumo deve ser significativo, composto de uma sequência de frases concisas, afirmativas e não de uma enumeração de tópicos. Não deve conter citações. Deve usar o verbo na voz passiva. Abaixo do resumo, deve-se informar as palavras-chave (palavras ou expressões significativas retiradas do texto) ou, termos retirados de thesaurus da área.}
-\palavrasChave {Palavra-chave 1. Palavra-chave 2.  Palavra-chave 3. }
+\textoResumo{\itodo{O texto do resumo deve ser digitado, em um único bloco, sem espaço de parágrafo. O resumo deve ser significativo, composto de uma sequência de frases concisas, afirmativas e não de uma enumeração de tópicos. Não deve conter citações. Deve usar o verbo na voz passiva. Abaixo do resumo, deve-se informar as palavras-chave (palavras ou expressões significativas retiradas do texto) ou, termos retirados de thesaurus da área.}}
+\palavrasChave{\itodo{Palavra-chave 1. Palavra-chave 2.  Palavra-chave 3.}}
  
-\textAbstract {Resumo traduzido para outros idiomas, neste caso, inglês. Segue o formato do resumo feito na língua vernácula. As palavras-chave traduzidas, versão em língua estrangeira, são colocadas abaixo do texto precedidas pela expressão ``Keywords'', separadas por ponto.}
-\keywords {Keyword 1. Keyword 2. Keyword 3.}
+\textAbstract{\itodo{Resumo traduzido para outros idiomas, neste caso, inglês. Segue o formato do resumo feito na língua vernácula. As palavras-chave traduzidas, versão em língua estrangeira, são colocadas abaixo do texto precedidas pela expressão ``Keywords'', separadas por ponto.}}
+\keywords{\itodo{Keyword 1. Keyword 2. Keyword 3.}}
 
 %----------------------------------------------------------------------
 % Início do documento                                
