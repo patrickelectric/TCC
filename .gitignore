@@ -1,0 +1,9 @@
+main.pdf
+*.aux
+*.lof
+*.log
+*.lot
+*.gz
+*.toc
+*.las
+*.lsb
