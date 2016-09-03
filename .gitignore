@@ -7,3 +7,5 @@ main.pdf
 *.toc
 *.las
 *.lsb
+*.bbl
+*.blg
