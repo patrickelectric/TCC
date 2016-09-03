@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Universidade Federal de Santa Catarina             
-% Biblioteca Universit·ria                     
+% Biblioteca Universit√°ria                     
 %----------------------------------------------------------------------
-% Exemplo de utilizaÁ„o da documentclass ufscThesis
+% Exemplo de utiliza√ß√£o da documentclass ufscThesis
 %----------------------------------------------------------------------                                                           
 % (c)2013 Roberto Simoni (roberto.emc@gmail.com)
 %         Carlos R Rocha (cticarlo@gmail.com)
@@ -12,36 +12,37 @@
 
 %----------------------------------------------------------------------
 % Pacotes usados especificamente neste documento
-\usepackage{graphicx} % Possibilita o uso de figuras e gr·ficos
+\usepackage{graphicx} % Possibilita o uso de figuras e gr√°ficos
 \usepackage{color}    % Possibilita o uso de cores no documento
-\usepackage{pdfpages} % Possibilita a inclus„o da ficha catalogr·fica
+\usepackage{pdfpages} % Possibilita a inclus√£o da ficha catalogr√°fica
 \usepackage{listings}
+\usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 %----------------------------------------------------------------------
-% Comandos criados pelo usu·rio
+% Comandos criados pelo usu√°rio
 %\newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
 \newcommand{\itodo}[1]{{\todo[inline]{#1}}} % Para destacar uma parte a ser trabalhada
-%\newcommand{\ABNTbibliographyname}{REFER NCIAS} % Necess·rio para abnTeX 0.8.2
+%\newcommand{\ABNTbibliographyname}{REFER√äNCIAS} % Necess√°rio para abnTeX 0.8.2
 
 %----------------------------------------------------------------------
 % Identificadores do trabalho
-% Usados para preencher os elementos prÈ-textuais
+% Usados para preencher os elementos pr√©-textuais
 \instituicao[a]{Universidade Federal de Santa Catarina} % Opcional
-\departamento[a]{Biblioteca Universit·ria}
-\curso[o]{Programa de GraduaÁ„o em Engenharia EletrÙnica}
-\documento[a]{Tese} % [o] para dissertaÁ„o [a] para tese
+\departamento[a]{Biblioteca Universit√°ria}
+\curso[o]{Programa de Gradua√ß√£o em Engenharia Eletr√¥nica}
+\documento[a]{Tese} % [o] para disserta√ß√£o [a] para tese
 \titulo{KDev-Embedded}
 \subtitulo{Plugin para desenvolvimento de sistemas embarcados} % Opcional
-\autor{Patrick JosÈ Pereira}
+\autor{Patrick Jos√© Pereira}
 \grau{Engenheiro}
-\local{FlorianÛpolis} % Opcional (FlorianÛpolis È o padr„o)
+\local{Florian√≥polis} % Opcional (Florian√≥polis √© o padr√£o)
 \data{30}{Novembro}{2016}
 \orientador[Orientador\\Universidade Federal de Santa Catarina]{Prof. Dr. Danilo Silva}
 %\coorientador[Coorientador\\Universidade ...]{Prof. Dr.}
 \coordenador[Coordenador\\Universidade Santa Catarina]{Prof. Dr. Djones Vinicius Lettnin}
 
-\numerodemembrosnabanca{4} % Isso decide se haver· uma folha adicional
+\numerodemembrosnabanca{4} % Isso decide se haver√° uma folha adicional
 \orientadornabanca{sim} % Se faz parte da banca definir como sim
 \coorientadornabanca{nao} % Se faz parte da banca definir como sim
 \bancaMembroA{Primeiro membro\\Universidade ...} %Nome do presidente da banca
@@ -50,17 +51,17 @@
 \bancaMembroD{Quarto membro\\Universidade ...}       % Nome do membro da Banca
 %\bancaMembroE{Quinto membro\\Universidade ...}       % Nome do membro da Banca
 %\bancaMembroF{Sexto membro\\Universidade ...}        % Nome do membro da Banca
-%\bancaMembroG{SÈtimo membro\\Universidade ...}       % Nome do membro da Banca
+%\bancaMembroG{S√©timo membro\\Universidade ...}       % Nome do membro da Banca
 
-\dedicatoria{Este trabalho È dedicado aos meus colegas de classe e aos meus queridos pais.}
+\dedicatoria{Este trabalho √© dedicado aos meus colegas de classe e aos meus queridos pais.}
 
-\agradecimento{AgradeÁo aos colaboradores ‡ execuÁ„o do trabalho.}
+\agradecimento{Agrade√ßo aos colaboradores √† execu√ß√£o do trabalho.}
 
-\epigrafe{\itodo{Texto da EpÌgrafe. CitaÁ„o relativa ao tema do trabalho. … opcional. A epÌgrafe pode tambÈm aparecer na abertura de cada seÁ„o ou capÌtulo.}}
-{\itodo{(Autor da epÌgrafe, ano)}}
+\epigrafe{\itodo{Texto da Ep√≠grafe. Cita√ß√£o relativa ao tema do trabalho. √â opcional. A ep√≠grafe pode tamb√©m aparecer na abertura de cada se√ß√£o ou cap√≠tulo.}}
+{\itodo{(Autor da ep√≠grafe, ano)}}
 %%%%
 \textoResumo{
-O mundo do desenvolvimento de software para sistemas embarcados se encontra em constante evoluÁ„o e adaptaÁ„o para as novas tecnologias que surgem para suprir as necessidades da IoT, IoSM e IoIT. Os padrıes est„o sendo redefinidos, tanto quanto a tecnologia quanto a metodologia de desenvolvimento existentes, fazendo com que as industrias aderissem a abordagens n„o ortodoxas para realizarem tarefas de alto grau de complexidade. O Objetivo deste trabalho È o desenvolvimento de uma ferramenta capaz de permitir ao elaborador de software para sistemas embarcados a capacidade de criar, aprimorar e verificar seu trabalho sem a necessidade de ferramentas propriet·rias e outros limitantes. O trabalho alÈm de relatar o desenvolvimento de tal ferramenta, elabora o contexto das atualizaÁıes que est„o sendo realizadas dentro mercado de desenvolvimento das grandes empresas, para a realizaÁ„o desta tarefa t„o complexa que È o desenvolvimento de sistemas embarcados num mercado t„o heterogÍneo e n„o padronizado.
+O mundo do desenvolvimento de software para sistemas embarcados se encontra em constante evolu√ß√£o e adapta√ß√£o para as novas tecnologias que surgem para suprir as necessidades da IoT, IoSM e IoIT. Os padr√µes est√£o sendo redefinidos, tanto quanto a tecnologia quanto a metodologia de desenvolvimento existentes, fazendo com que as industrias aderissem a abordagens n√£o ortodoxas para realizarem tarefas de alto grau de complexidade. O Objetivo deste trabalho √© o desenvolvimento de uma ferramenta capaz de permitir ao elaborador de software para sistemas embarcados a capacidade de criar, aprimorar e verificar seu trabalho sem a necessidade de ferramentas propriet√°rias e outros limitantes. O trabalho al√©m de relatar o desenvolvimento de tal ferramenta, elabora o contexto das atualiza√ß√µes que est√£o sendo realizadas dentro mercado de desenvolvimento das grandes empresas, para a realiza√ß√£o desta tarefa t√£o complexa que √© o desenvolvimento de sistemas embarcados num mercado t√£o heterog√™neo e n√£o padronizado.
 
 \itodo{Resumo precisa ser verificado !}
 
@@ -73,16 +74,17 @@ O mundo do desenvolvimento de software para sistemas embarcados se encontra em c
 
 %%%%
  
-\textAbstract{\itodo{Resumo traduzido para outros idiomas, neste caso, inglÍs. Segue o formato do resumo feito na lÌngua vern·cula. As palavras-chave traduzidas, vers„o em lÌngua estrangeira, s„o colocadas abaixo do texto precedidas pela express„o ``Keywords'', separadas por ponto.}}
+\textAbstract{\itodo{Resumo traduzido para outros idiomas, neste caso, ingl√™s. Segue o formato do resumo feito na l√≠ngua vern√°cula. As palavras-chave traduzidas, vers√£o em l√≠ngua estrangeira, s√£o colocadas abaixo do texto precedidas pela express√£o ``Keywords'', separadas por ponto.}}
 \keywords{\itodo{Keyword 1. Keyword 2. Keyword 3.}}
 
 %----------------------------------------------------------------------
-% InÌcio do documento                                
+% In√≠cio do documento                                
 \begin{document}
 %--------------------------------------------------------
-% Elementos prÈ-textuais
-%\capa  
-\folhaderosto[comficha] % Se nao quiser imprimir a ficha, È sÛ n„o usar o par‚metro
+% Elementos pr√©-textuais
+\capa  
+\includepdf{Ficha_Catalografica.pdf}
+%\folhaderosto[comficha] % Se nao quiser imprimir a ficha, √© s√≥ n√£o usar o par√¢metro
 \folhaaprovacao
 \paginadedicatoria
 \paginaagradecimento
@@ -90,7 +92,7 @@ O mundo do desenvolvimento de software para sistemas embarcados se encontra em c
 \paginaresumo
 \paginaabstract
 %\pretextuais % Substitui todos os elementos pre-textuais acima
-\listadefiguras % as listas dependem da necessidade do usu·rio
+\listadefiguras % as listas dependem da necessidade do usu√°rio
 \listadetabelas 
 \listadeabreviaturas
 \listadesimbolos
@@ -98,124 +100,26 @@ O mundo do desenvolvimento de software para sistemas embarcados se encontra em c
 %--------------------------------------------------------
 % Elementos textuais
 
-\chapter{IntroduÁ„o}
-\lipsum
+\input{chapters/introducao.tex}
 
-\section{MotivaÁ„o}
-\lipsum[1-4]
+\input{chapters/fundamentos_teoricos.tex}
 
-\section{Objetivo Geral}
+\input{chapters/estado_da_arte.tex}
 
-\lipsum[1-4]
+\input{chapters/tracado_inicial.tex}
 
-\subsection{Objetivos EspecÌficos}
+\input{chapters/desenvolvimento.tex}
 
-\lipsum[1-4]
-
-\chapter{Funadmentos teÛricos}
-
-\lipsum[1-4]
-
-\section{KDE}
-
-\lipsum[1-4]
-
-\subsection{Comunidade Open Source}
-
-\lipsum[1-4]
-
-\subsection{KDevelop}
-
-\lipsum[1-4]
-
-\subsection{Plugins}
-
-\lipsum[1-4]
-
-\section{Sistema de Controle de Vers„o}
-
-\lipsum[1-4]
-
-\section{Sistemas Embarcados}
-
-\lipsum[1-4]
-
-\chapter{Estado da Arte}
-
-\lipsum[1-4]
-
-\section{Ferramentas Existentes}
-
-\lipsum[1-4]
-
-\section{Dificuldades}
-
-\lipsum[1-4]
-
-\section{EvoluÁıes}
-
-\lipsum[1-4]
-
-\chapter{TraÁado Inicial}
-
-\lipsum[1-4]
-
-\section{Projeto do desenvolvimento}
-
-\lipsum[1-4]
-
-\section{Possibilidade de uso}
-
-\lipsum[1-4]
-
-\chapter{Desenvolvimento}
-
-\lipsum[1-4]
-
-\section{EXPOSI«√O DO TEMA OU MAT…RIA}
-
-\lipsum[1-4]
-
-\subsection{Ferramentas Utilizadas}
-
-\lipsum[1-4]
-
-\subsection{ProtÛtipo de funcionamento}
-
-\lipsum[1-4]
-
-\subsection{IntegraÁ„o com KDevelop}
-
-\lipsum[1-4]
-
-\section{IntegraÁ„o com fluxo de trabalho}
-
-\lipsum[1-4]
-
-\chapter{Conclus„o}
-
-\lipsum[1-4]
-
-\section{ContribuiÁıes}
-
-\lipsum[1-4]
-
-\section{Futuros}
-
-\lipsum[1-4]
-
-\section{Trabalhos de Pesquisa}
-
-\lipsum[1-4]
+\input{chapters/conclusao.tex}
 
 \bibliographystyle{ufscThesis/ufsc-alf}
 \bibliography{bibliografia}
 
 %--------------------------------------------------------
-% Elementos pÛs-textuais
+% Elementos p√≥s-textuais
 \apendice
-\chapter{Exemplificando um ApÍndice}
-Texto do ApÍndice aqui. 
+\chapter{Exemplificando um Ap√™ndice}
+Texto do Ap√™ndice aqui. 
 
 \anexo
 \chapter{Exemplificando um Anexo}
