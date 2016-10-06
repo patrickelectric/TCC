@@ -1,11 +1,84 @@
 \chapter{Introdução}
-\lipsum
+Nos ultimos 40 anos existiram varias predições para o futuro da humanidade, o inicio do conceito de IoT\cite{gates1995estrada} e ambiente ubíquo \footnote{\itodo{lembrar da referencia de ambiente ubíquo.}}, imaginando o futuro baseado nas propostas tecnológicas como a \textit{lei de Moore}\footnote{Citação famosa utilizada para Gordon Earle Moore, que tinha como proposta a duplicação do numero de transistores a cada 18 meses} e limitações inexistentes ou pouco citadas como a limitações da tecnologia planar de circuitos integrados e o tamanho minimo do transistor. Como consequência, muitas das propostas realizadas durante os anos foram concebidas, continuam em desenvolvimento ou foram abandonadas por limitações tecnológicas ou de capital.
+
+\iffalse
+Muitas das propostas que continuam ativas são extremamente dependentes do desenvolvimento da eletrônica para a sua concepção, encontrando desafios não só para a confecção destes, como também sua utilização pelos desenvolvedores.
+\fi
+
+Hoje, o resultado dos sucessos no desenvolvimento e dos produtos que se sustentaram no mercado tecnológico, possibilitaram uma fácil aquisição de um sistema computacional, com preços na ordem de grandezas muito inferiores dos mesmos utilizados a décadas atrás. Isto possibilitou a pequenas empresas e pessoas comuns o acesso a sistemas programáveis, possibilitando o avanço do \textit{Software} e hardware aberto. Contudo, mesmo sendo possível essa aquisição, como descrito anteriormente, as ferramentas existentes podem ser precárias, limitadas ou com valor alto valor monetário.
+
+A comunidade de desenvolvedores de software para sistemas embarcados tende a utilizar inúmeras ferramentas para resolver os desafios do projeto, podem ser tanto interfaces de desenvolvimento integradas como assistentes, permitindo algumas funções básicas como: \textit{Debug}, comunicação, \textit{flash}, entre outros. Algumas dessas tendem a resolver mais de um problema ao mesmo tempo, resultando num sistema completo. Estes possuem a tendenciam de serem extremamente assistencialistas, abstraindo os sistemas que se executam em \textit{background}\footnote{Abaixo da camada de software que o usuário tem acesso.}, dificultando a personalização do fluxo de trabalho e dos sistemas utilizados pelo desenvolvedor.
+
+
+\iffalse
+O intuito deste trabalho é a realização de um sistema para possibilitar aos desenvolvedores a programação de sistemas embarcados, sem a necessidade de utilizar sistemas assistencialistas que possam limitar a evolução do trabalho ou a utilização do produto final concebido.
+\fi
 
 \section{Motivação}
-\lipsum[1-4]
+
+\subsection{Padronização}
+Com o desenvolvimento tecnológico e a evolução do hardware heterogêneo, muitos dos sistemas disponíveis para desenvolvimento não seguem um padrão estabelecido, as empresas acabam criando empecilhos que dificultam o desenvolvimento sem a utilização das ferramentas proprietárias distribuídas pelo próprio fornecedor, muitas vezes pagas, com alta restrição de desempenho e utilização visando a venda de diferentes versões e licenças para problemas.
+
+\subsubsection{Ferramentas proprietárias}
+Pela falta de um padrão definido, muitas empresas resolveram criar seus próprios, fundamentados em seus interesses ou na suas definições de utilização do que deveria ou não conter em suas soluções. Como consequência disso, são criados visões limitadas da realidade, resultante do modo de atuação interno vivida pela empresa, pela sua falta de conhecimento da realidade atual do mercado e suas utilizações.
+
+Como consequência disso, a gama de padrões de protocolos de comunicação, \textit{bootloaders} \footnote{\itodo{Adicionar footnote the bootloader}}, ICSPs, compiladores e outros materiais utilizados no desenvolvimento de sistemas embarcados, dificulta a realização do trabalho do desenvolvedor, principalmente se tais periféricos utilizados tem documentação e código fonte fechados, não permitindo seu conhecimento de funcionamento.
+
+\abreviatura{ICSP}{\textit{In Chip Serial Programmer}}
+
+%\subsubsection{Padronização}
 
 \section{Objetivo Geral}
-\lipsum[1-4]
+O projeto tem como realização a solução dos problemas descritos anteriormente, não providenciando alguma padronização ou mais uma alternativa entre as várias já existentes pelo mercado, mas sim um suporte de alto nível para todos estes que já existem. Tendo como foco de usuário o desenvolvedor, no qual tem conhecimento de como o desenvolvimento ocorre, mas permitindo um ambiente mais inteligente para que isso ocorra. Tais propostas já existem, mas será dissertado sobre elas mais adiante.
 
-\subsection{Objetivos Especificos}
-\lipsum[1-4]
+%comment
+\iffalse
+O objetivo geral deve responder as seguintes perguntas:
+1) O que a sua organização deseja realizar com o Projeto?
+2) Qual problema em especial se quer solucionar?
+3) Que mudanças se quer alcançar?
+4) Que diferença o projeto quer fazer?
+
+Deve ser escrito em tempo infinitivo (por exemplo: ampliar, capacitar, entre outros) e redigido com claridade. O objetivo precisa ser alcançável, não pode ser genérico, de forma que o projeto não consiga resolver (ex: terminar com a fome no mundo). Por outro lado deve ser ousado, capaz de sinalizar mudanças mais profundas que poderão ser alcançadas pelo projeto a médio e longo prazo.}
+\fi
+
+\subsection{Objetivos Específicos}
+\label{ss:objetivosespecificos}
+Para realizar os objetivos, os seguintes passos são listados:
+\begin{enumerate}
+\item Estudo inicial das ferramentas utilizadas para desenvolvimento de sistemas embarcados.
+\item Escolha das ferramentas inicialmente suportadas.
+\item Estudo inicial sobre KDevelop.
+\item Contato inicial com a comunidade do KDevelop\footnote{adicionar nota de roda pé sobre o KDevelop, botar isso onde primeiramente acontece.} no irc \itodo{Adicionar abreviatura de irc} \footnote{Adicionar footnote sobre irc}.
+\item Estudo para traçado inicial de estrutura e objetivo.
+\item \textbf{Inicio do desenvolvimento}.
+\item Carregamento do plugin.
+\item Selecionar primeiro sistema embarcado para desenvolvimento.
+\item Desenvolvimento do instalador de dependências.
+\item Desenvolvimento de interface de programação.
+\item Realização de testes utilizando o sistema selecionado.
+\item Aprimoramento do sistema.
+\item Selecionar outro sistema sistema embarcado para realizar o desenvolvimento.
+\item Atualização do sistema de instalação.
+\item Repetir passo 10 em diante.
+\end{enumerate}
+
+Todas as partes sitadas para a concepção do objetivo final, são de grande valia, tendo como maior importância o planejamento e a realização da primeira camada de software, este será o responsável pelo desenvolvimento do sistemas, e caso bem feito, todos os demais passos não deveram ter dificuldades para suas realizações e para futuras atualização do sistema proposto com novos sistemas embarcados.
+
+\section{Estudo do fluxo de trabalho}
+
+As tarefas descritas na subseção \ref{ss:objetivosespecificos} serão realizadas conforme a descrição feita das mesmas. A utilização dos resultados destes, serão integrados dentro do fluxo de trabalho de desenvolvimento incorporado na interface de desenvolvimento KDevelop, a mesma foi escolhida por ser uma das mais eficientes na sua velocidade de execução e de performance, possibilitando ao desenvolvedor que a utiliza o menor tempo de prototipagem comparado com as alternativas existentes.
+
+A Filosofia da interface de projeto existente no KDevelop, permiti que boa parte das especificações de projeto fiquem nos sistemas de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo ao programador o desenvolvimento de software sem a integração do projeto com a interface, utilizando arquivos intermediários de configuração\footnote{Arquivos que contem informações sobre compilador, estilo de código, execução e etc.}. Esta flexibilidade de integração de projetos no KDevelop acrescenta um grau de dificuldade na realização do plugin, pois as informações necessárias para o \textit{upload} do binário para o sistema embarcado necessita a localização do mesmo dentro do sistema onde está sendo desenvolvido, localização da porta de comunicação com o hardware e entre outras dificuldades. \itodo{ADICIONAR MAIS INFORMAÇÕES DE FLUXO}
+
+\section{Estrutura do Trabalho}
+
+\begin{enumerate}
+\item \textbf{Introdução} - Tema e contextualização do que será abordado no trabalho.
+\item \textbf{Fundamentos teóricos} - Revisão dos assuntos abordados e necessários, fundamentais para realização do projeto.
+\item \textbf{Estado da arte} - Comparação dos sistemas existentes que abordam o assunto e tentam aplicar uma proposta de solução.
+\item \textbf{Projeto da Ferramenta} - Rascunhos iniciais de interface e arquitetura de software.
+\item \textbf{Desenvolvimento} - Relato do trabalho realizado, contendo informações do projeto e seu andamento.
+\item \textbf{Conclusão} - Exposição dos resultados.
+\end{enumerate}
+\itodo{Expandir de forma mais detalhada}
