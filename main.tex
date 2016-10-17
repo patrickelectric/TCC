@@ -18,12 +18,38 @@
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{bytefield} % draw memory table
+% START maquina de estados
+\usepackage{pgf}
+\usepackage{tikz}
+
+\usepackage{booktabs} % tabela abnt
+\usepackage{rotating} % rotaciona
+
+\usetikzlibrary{arrows,automata}
+% END maquina de estados
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 %----------------------------------------------------------------------
 % Comandos criados pelo usuário
 %\newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
 \newcommand{\itodo}[1]{{\todo[inline]{#1}}} % Para destacar uma parte a ser trabalhada
+\newcommand{\figref}[1]{{Figura \ref{#1}}} % Para destacar uma parte a ser trabalhada
+\newcommand{\tabref}[1]{{Tabela \ref{#1}}} % Para destacar uma parte a ser trabalhada
 %\newcommand{\ABNTbibliographyname}{REFERÊNCIAS} % Necessário para abnTeX 0.8.2
+
+% facilitates the creation of memory maps. Start address at the bottom, end address at the top.
+% syntax: \memsection{end address}{start address}{height in lines}{text in box}
+\newcommand{\memsection}[4]{
+\bytefieldsetup{bitheight=#3\baselineskip}    % define the height of the memsection
+\bitbox[]{10}{
+\texttt{#1}     % print end address
+\\ \vspace{#3\baselineskip} \vspace{-2\baselineskip} \vspace{-#3pt} % do some spacing
+\texttt{#2} % print start address
+}
+\bitbox{16}{#4} % print box with caption
+}
 
 %----------------------------------------------------------------------
 % Identificadores do trabalho
