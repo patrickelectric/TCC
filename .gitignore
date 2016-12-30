@@ -9,4 +9,7 @@ main.pdf
 *.lsb
 *.bbl
 *.blg
+*.dvi
+*.out
+*.backup
 artigos
