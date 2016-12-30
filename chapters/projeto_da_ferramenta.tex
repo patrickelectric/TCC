@@ -1,8 +1,46 @@
+%http://www.linux-magazine.com/Online/Blogs/Paw-Prints-Writings-of-the-maddog/Brazil-Free-and-Open-Source-Culture-Is-Economics-Not-Politics
+%https://books.google.com.br/books?id=pxAVCgAAQBAJ&pg=PA166&lpg=PA166&dq=Brazil:+Free+and+Open+Source+Culture+Is+Economics,+Not+Politics&source=bl&ots=k5M51pGklX&sig=tCPn4l7OnL7Xzne9cKYowUbYTvo&hl=pt-BR&sa=X&ved=0ahUKEwihkIec0-HPAhUGjpAKHdv6AcwQ6AEIOzAE#v=onepage&q=Brazil%3A%20Free%20and%20Open%20Source%20Culture%20Is%20Economics%2C%20Not%20Politics&f=false
+%http://pear.accc.uic.edu/ojs/index.php/fm/article/view/904/813
+%https://books.google.com.br/books?id=fEP2smsHVCwC&pg=PA14&lpg=PA14&dq=Brazil:+Free+and+Open+Source+Culture+Is+Economics,+Not+Politics&source=bl&ots=FsxRuW6joV&sig=l_PNwCwjTLl-XBATmeSIVO70Fcs&hl=pt-BR&sa=X&ved=0ahUKEwihkIec0-HPAhUGjpAKHdv6AcwQ6AEISzAG#v=onepage&q=Brazil%3A%20Free%20and%20Open%20Source%20Culture%20Is%20Economics%2C%20Not%20Politics&f=false
 \chapter{Projeto da ferramenta}
-\lipsum[1-4]
+O rascunho inicial da proposta, tem como intuito facilitar a visualização da ferramenta, facilitando desta forma tanto o planejamento
+do plugin final como também o do projeto, podendo desta forma, prever problemas que teriam a possibilidade de ocorrer.
+
+\itodo{Descrição da janela de instalação}
+\itodo{Adicionar mockup da janela de instalação}
+
+\itodo{Descrição da janela de configuração de projeto}
+\itodo{Adicionar mockup da janela de configuração}
 
 \section{Projeto do desenvolvimento}
-\lipsum[1-4]
+Com os primeiros desenhos da interface realizados, foi feito um estudo sobre a trajetória de desenvolvimento do código para o projeto
+na integração do plugin no KDevelop, pode-se inumerar as atividades realizadas no projeto como:
+
+\begin{itemize}
+ \item Contato com os desenvolvedores pelo canal de comunicação conhecido como IRC.
+ \item Download do projeto KDevelop e estudo do código.
+ \item Estudo da organização de código e estrutural.
+ \item \itodo{Adicionar mais coisas}
+\end{itemize}
+
+\abreviatura{IRC}{\textit{Internet Relay Chat}}
+
+KDE é conhecido por utilizar as ferramentas e bibliotecas disponibilizadas pela \textit{QT Project}\footnote{Empresa desenvolvedora
+de software, famosa pelas suas bibliotecas e \textit{IDEs} de desenvolvimento} para a realização do desenvolvimento dos seus projetos.
+O conhecimento inicial de como utilizar tais ferramentas é de grande valia para o projeto do desenvolvimento da proposta,
+principalmente pelo fato de se conhecer as possibilidades que tais ferramentas possibilitar realizar.
 
 \section{Possibilidade de uso}
-\lipsum[1-4]
+O usuario deve ser capaz de utilizar o plugin para realizar a programação de sistemas embarcados, com a ajuda de um bootloader, ou
+utilizando programadores direto no hardware. Além de ser possivel programar, dependendo do caso, o desenvolvedor seria capaz de
+utilizar o plugin para a realização de debug do projeto dentro do próprio sistema em desenvolvimento, caso o sistema utilizado por ele
+suportar tal comportamento.
+
+Os primeiros sistemas que serão suportados pelo plugin como prova de conceito, serão o microcontrolador Arduino utilizando avrdude e
+outros sistemas embarcados em geral adicionando o suporte para OpenOCD. A escolha do Arduino se deu ao fato pela sua facil aquisição,
+baixo preço e popularidade dentre a comunidade civil como um dos microcontroladores mais populares, desta forma, seria um bom primeiro
+passo para a realização da estrutura de software a ser desenvolvida para o plugin, facilitando desta maneira futuros suportes a serem
+adicionados, como citado anteriormente, o OpenOCD, a partidar da base criada e testada do Arduino.
+
+\abreviatura{OpenOCD}{\textit{Open On-Chip Debug}}
+%Como objetivo final do projeto, o usuário deve ser capaz de utilizar o
