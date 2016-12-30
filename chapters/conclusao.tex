@@ -1,11 +1,39 @@
+\chapter{Resultados experimentais}
+Após a finalização duma versão usável para qualquer desenvolvedor com conhecimento mediano para avançado sobre o desenvolvimento de
+sistemas embarcados, teve o inicio das execuções experimentais para a validação do sistema proposto pelo trabalho.
+
+Para sua realização,
+
+
 \chapter{Conclusão}
-\lipsum[1-4]
+Dentro do periodo de desenvolvimento, o plugin alcançou todas as espectativas traçadas para para o periodo de desenvolvimento,
+permitindo a gravação dos sistemas embarcados utilizando o KDevelop, mesmo necessitando algumas modificações para ficar
+totalmente integrado ao fluxo de trabalho, o plugin se encontro numa forma usavel.
+
+A integração com o KDevelop foi feita com sucesso, a incorporação de projetos funciona, necessitando que o usuario configure algumas
+coisas
 
 \section{Contribuições}
-\lipsum[1-4]
 
-\section{Futuros}
-\lipsum[1-4]
+\section{Futuros Trabalhos}
 
-\section{Trabalhos de Pesquisa}
-\lipsum[1-4]
+
+\subsection{Instalador}
+Mesmo o instalador sendo completamente funcional, identificando versões instaladas no sistema operacional que está o executando e
+permitindo ao usuario realizar a instação automatica das dependencias com a ajuda da interface gráfica disponivel pelo plugin,
+o mesmo não é de muita ajuda para os usuarios avançados, e até mesmo para os inciantes, pois ambos já teriam conhecimento de como
+instalar e atualizar a ferramenta, pois, como dissertado antes sobre a cultura do KDE de ser \textit{rolling release}, a
+instalação e atualizações de tais dependencias seriam gerenciadas pelo usuario sem problemas, fazendo desta forma que o instalador
+desenvolvido par ao projeto seja removido em futuras versões.
+
+\subsection{Melhora na integração ao sistemas de compilação}
+A integração do plugin desenvolvido com os demais plugins do KDevelop necessita ser melhor desenvolvida e aprimorada, permitindo desta
+forma a integração com os gerenciadores de montagem de software, permitindo com que o kdev-embedded detecte a localização do arquivo
+binario para realizar o processo de programação do sistema embarcado e até mesmo utilizar tal integração para permitir ao plugin
+detectar o processador do sistema embarcado em desenvolvimento que está sendo utilizado para permitir o envio do código binario para
+o hardware.
+
+\subsection{Melhora no identificador de hardware}
+Atualmente o plugin utiliza uma biblioteca desenvolvida pela comunidade do KDE conhecida como Solid, onde permite uma boa integração
+com o hardwre do computador onde o mesmo está sendo executado. Contudo o mesmo tem problemas para identificação
+
