@@ -1,17 +1,65 @@
 \chapter{Desenvolvimento}
-\lipsum[1-4]
 
-\section{EXPOSIÇÃO DO TEMA OU MATÉRIA}
-\lipsum[1-4]
+Diferente de muitos outras interfaces de desenvolvimento, o KDEVElop mermiti o usuario incorporar qualquer projeto na IDE,
+des de que siga alguns padrões já bem estabelecidos na cultura open source de desenvolvimento de software realizado e C++.
+Pois, boa parte das configurações que são buscadas na IDE para a configuração do projeto, vem dos gerenciadores de compilação,
+como antes citados, CMAKE e MAKE. Com isso, não é necessario lidar com as burocracias de incorporaçãode projeto, ou até mesmo
+o vinculo do projeto a uma certa IDE, impossibilitando o desenvolvimento do mesmo em outros ambiente e fluxos de trabalho.
+Os projetos que são realizados com as ferramentas de gerenciamento de compilação, ajuda muito pela sua generalização e
+distribuição, por serem projetos de códigos abertos extremamente populares e comuns em projetos de linguagens não interpretadas.
+
+\section{Exposição do tema ou matéria}
+
+Sendo a área de desenvolvimento de sistemas embarcados potencializado nos utlimos anos pela miniaturuzalão do hardware, permitindo
+a cada dia um paço mais próximo a um abiente ubiquo com contribuição das bases de desenvolvimento das tecnologias de IoT. Contudo,
+como dito anteriormente, os sistemas utilizados atualmente não permitem um fluxo de trabalho agradavel para desevolvedores, muito menos
+para empresas de pequeno, médio e até mesmo de grande porte, que se limita as seguintes categorias:
+
+\begin{itemize}
+ \item \textbf{Ferramentas proprietárias}: Ferramentas de desenvolvimento para resolver problemas criados pela própria empresa que os fornece,
+ obrigando a utilização de periféricos da mesma distribuidora ou parceira, fazendo limitações de liberdade de desenvolvimento via
+ software. Outras permitem o desenvolvimento limitado a licenças de valores ezorbitantes, fazendo com que pequenas empresas que utilizam
+ um baixo capital para se manterem utilizem licenças de baixo custo que limita a utilização do software de maneira praticamente
+ ilega, xomo, por exemplo: Pagar uma licença mais cara para utilizar opções de compilação otimizada para uma especifica arquitetura
+ como (-O2 e -OS do GCC) ou até mesmo opções para utilizar o algumas partes do processador (-mfloat-abi e -mfpu dos processadores ARM,
+ permitindo execução de calculos matriccial ou com ponto flutuante em hardware).
+ \item \textbf{Ferramentas gráficas de código aberto}: Utilizadas por uma parte dos desenvolvedores
+ \item \textbf{Ferramentas com \textit{cli}}: Geralmente utilizadas pelas interfaces gráficas como \textit{back-end} para realizar suas
+ operações em relação ao sistema embarcado, as ferramentas utilizadas seriam: OpenOCD, Avrdude, esptool, dfu-utils entre outros.
+\end{itemize}
+
+\abreviatura{cli}{\textit{Command-line interface}}
+
 
 \subsection{Ferramentas Utilizadas}
-\lipsum[1-4]
+As seguintes ferramentas foram utilizadas para a realização do desenvolvimento do projeto.
+\begin{itemize}
+ \item \textbf{KDevelop}: Editor de código para programar o plugin e realizar os testes do mesmo nos sistemas embarcados utilizados,
+ também utilizado para a realização de debug.
+ \item \textbf{Placas de desenvolvimento}: Arduino mini, nano, mega, due, uno para realizar testes no suporte realizado para Arduino
+ utilizando avrdude. Stellaris LM4F232 para testes utilizando o suporte feito do OpenOCD.
+ \item \textbf{GIT}: Utilizado para realização do controle de versão e documentação do  histórico de desenvolvimento.
+ \item \textbf{Astyle}: Ferramenta utilizada para checar e corrigir estilo do código.
+ \item \textbf{Codespell}: Script para correção ortográfica da documentação e do código.
+ \item \textbf{Doxygen}: Programa assistencialista para geração de documentação.
+ \item \textbf{Arch Linux}: Sistema operacional utilizado para realização do desenvolvimento e execução de programas.
+ \item \textbf{Valgrind}: Utilizado para realizar a analise de execução do código.
+ \item \textbf{KCachegrind}: Ferramenta para visualizar o uso de memória do programa, util para encontrar \textit{memory leaks}.
+ \item \textbf{QT Assistant}: Programa assistencialista para visualização a documentação das bibliotecas fornecidades pela QT.
+ \item \textbf{IRC}: Para retirar duvidas e entrar em contato com outros desenvolvedores do KDevelop.
+\end{itemize}
+
+Com o objetivo do trabalho de seguir a filosofia GNU \cite{filosogia}, todos as ferramentas utilizadas para o desenvolvimento do plugin
+são de código aberto e totalmente gratuitas para qualquer um que queira replicar, modificar e contribuir com o projeto.
 
 \subsection{Protótipo de funcionamento}
-\lipsum[1-4]
 
 \subsection{Integração com KDevelop}
-\lipsum[1-4]
 
 \section{Integração com fluxo de trabalho}
-\lipsum[1-4]
+Além do desenvolvimento do software, permitindo seu uso como projetado inicialmente, foi necessario reservar uma parte do periodo
+do projeto para modificações de interface gráfica e de organização de layout, para permitir o uso relativamente simples para usuarios
+não tão avançados, e ao mesmo tempo, permitir uma flexibilidade aos usuarios com conhecimento profundo do funcionamento do sistema
+utilizado no background do projeto\footnote{OpenOCD, avrdude entre outras futuros sistemas opensources que devem serincorporados no
+plugin}, modificando e personalizando as opções fornecidades pelo ambiente gráfico sem restringir o alto nivel de abstração que essas
+ferramentas já permitem e prejudicar a liberdade de configurações disponiveis para o usuario.
