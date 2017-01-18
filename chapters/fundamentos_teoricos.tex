@@ -14,16 +14,22 @@ Antes de adentrar na especificação do sistema embarcado, será apresentado alg
 \abreviatura{VANT}{\textit{Veículo Aéreo Não Tripulado}}
 \abreviatura{GPS}{\textit{Global Positioning System}}
 
-Numa visão mais ampla, o sistema embarcado pode ser resumido para qualquer sistema, sendo de alta ou baixa performance energética/computacional, que realiza uma única tarefa. Mesmo podendo afirmar isso hoje, as definições de sistemas embarcados foram modificadas ao passar do tempo, como, por exemplo, o baixo processamento, que se tornou inapropriada ao passar dos anos.
+Numa visão mais ampla, o sistema embarcado pode ser resumido para qualquer contendo alta ou baixa performance energética/computacional,
+que realiza uma tarefa especifica. Mesmo podendo afirmar isso hoje, as definições de sistemas embarcados foram modificadas ao passar do
+tempo, como, por exemplo, o baixo processamento, que se tornou inapropriada ao passar dos anos, pelo poderio computacional que pode ser
+encontrado hoje em dia em sistemas tão diminutos.
 
-A evolução do hardware, diminuindo o tamanho e preço de aquisição dos processados, permitiu praticamente a qualquer desenvolvedor de sistemas computacionais embarcados um poder de processamento grande o suficiente para rodar um kernel\footnote{Cerne do sistema operacional, tendo como principal função o escalonamento de tarefas e abstração dos periféricos utilizados da maquina, como, por exemplo: placa de rede, sensores, portas de comunicação e etc.} de sistema operacional complexo, como o Linux, em praticamente qualquer aplicação.
+A evolução do hardware, diminuindo o tamanho e preço de aquisição dos processados, permitiu praticamente a qualquer desenvolvedor de
+sistemas computacionais embarcados, um poder de processamento grande o suficiente para rodar um kernel\footnote{Cerne do sistema
+operacional, tendo como principal função o escalonamento de tarefas e abstração dos periféricos de hardware utilizados da maquina,
+como, por exemplo: placa de rede, sensores, portas de comunicação, \textit{GPIOs} e etc.} de sistema operacional complexo, como o Linux, em praticamente qualquer aplicação.
 
 Muitas das aplicações de sistemas embarcados são utilizados para sistemas cyber-físicos\footnote{Sistemas computacionais
 voltados para interação no mundo físico via atuadores e tendo como entrada informações de transdutores, alguns exemplos
 podem se destacar: Controle de combustível, controladora de VANTs, impressora 3D e etc.}
 
 \subsection{Distinção entre sistemas}
-Dentro do mundo de sistemas embarcados, pode-se destacar algumas categorias.
+Dentro do mundo de sistemas embarcados, por ser uma vastidão de periféricos, utilizações, finalidades, pode-se resumir a certas categorias de destaque em relação a unidade principal de processamento.
 
 \subsubsection{Microcontrolador}
 
@@ -67,12 +73,16 @@ Além do impacto industrial, também se pode destacar, com o barateamento de tai
 comunidade civil, permitindo revoluções dentro do mercado e das culturas de desenvolvimento. \itodo{EXPANDIR ISSO AQUI
 MAIS NA FRENTE.}.
 
+Se nas ultimas décadas, o acesso a computadores se tornou facilitada, nas próximas que estão por vir, o uso e aquisição de sistemas computacionais não será um mero luxo ou aquisição, mas sim uma inevitabilidade. Tudo terá um processador, se não, um sistema computacional simples. Pode-se notar muitas etiquetas de RFID e cada vez mais modernas \cite{ricci2008design}, contendo sistemas computacionais complexos.
+
 \subsubsection{Microprocessador}
 
-Parte principal do microcontrolador, com o objetivo de decodificar e executar as instruções em código de maquina existente
+Parte principal de um sistema computacional, com o objetivo de decodificar e executar as instruções em código de maquina existente
 na memória. A tabela que é interpretada, denominada de \textit{instruction set}, contem todos os padrões binários possíveis
 a serem decodificados, resultando em sinais lógicos para a eletrônica que o executara, podendo realizar comparações, somas,
 multiplexações e leituras/escritas na memória.
+
+Durante as ultimas décadas, o poder de processamento vem tendo um crescimento exponencial, permitindo que os mais diminutos sistemas possam ter processamentos matematicamente complexos alem das antigas lógicas \textit{booleanas}. Tal avanço, permitiu que sistemas simples possam ter grande valor intelectual agregado, podendo ser utilizado como exemplo o termostato da google, vendido atualmente a um montante de \$250, pelo seu processamento permitir e usufruir de um \textit{aprendizado de maquina}\footnote{"Campo de estudo que dá aos computadores a habilidade de aprender sem serem explicitamente programados`` -  Arthur Samuel, 1945.}, proporcionando ao aparelho um melhor gerenciamento da temperatura do ambiente, realizando uma economia energética e um melhoramento na qualidade de vida do usuário.
 
 \subsubsection{SoC}
 
@@ -83,12 +93,17 @@ a adesão de \textit{GPU}, \textit{USB}, módulos de rede, rádio e outros siste
 \abreviatura{GPU}{\textit{Graphics Processing Unit}}
 \abreviatura{USB}{\textit{Universal Serial Bus}}
 
+Nesta categoria, pode-se destacar o desenvolvimento dos sistemas desenvolvidos pela fabricante ARM, tendo ultrapassado a Intel como a maior produtora de processamentos do mundo, após a revolução \textit{mobile} onde a maioria das pessoas comuns começaram a utilizar \textit{smartphones} substituindo o uso de computadores pessoais para realizar as suas rotinas pessoais digitais diárias. Esta revolução, esta fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
+
+
 \subsection{Bootloader}
 
 A vantagem de se utilizar um sistema de carregamento de boot\footnote{Processo no qual o sistema computacional se inicia.} é
 a gravação programa principal com a assistência de um software primário, conhecido como \textit{bootloader}. Um microcontrolador
 com este sistema, também pode ser denominado de auto-programável, pois possui as dependências necessárias para realizar o próprio
 processo de programação.
+
+Contudo, é importante a realização da programação externa, utilizando um \textit{hardware} especializado, que permiti a programação do processador, independente do \textit{software} que já está programado ou em execução. Alguns processadores, que se encontram em estados indevidos ou não planejados, podendo acarretar um mal funcionamento do sistema, podem ser regravados sem a preocupação do \textit{bootloader}, utilizando a gravação com a ferramenta do \textit{hardware} especializado, limpando toda a memória e gravando o programa. O mesmo também é necessario para realizar a gravação do bootloader pela primeira vez no processador, após isso, o próprio bootloader pode se reprogramar ou atualizar.
 
 Para entender melhor o funcionamento, pode-se utilizar uma maquina de estados do \textit{bootloader} utilizado nos microcontroladores
 AVR, para uma melhor visualização na \figref{fig:sm_bootloader} e uma descrição dos estados na \tabref{tab:bootloader}.
@@ -159,7 +174,7 @@ visualizado na \figref{fig:me_bootloader}.
 O plugin proposto foi desenvolvido encima da plataforma conhecida como \textbf{KDevelop}, pertencente a organização \textit{KDE},
 sendo um conceito de \textit{IDE} para programação.
 
-Concebido utilizando as tecnologias de código aberto mais modernas, como C++14, QT 5.7, entre outras bibliotecas e ferramentas
+Concebido utilizando as tecnologias de código aberto mais modernas, como C++14, QT 5.8, entre outras bibliotecas e ferramentas
 utilizadas, podendo assim denominar o sistema como \textit{Rolling release}\footnote{Sistemas de software que atualizam suas bases
 de código para a utilização das ultimas versões das ferramentas empregadas no projeto.}.
 
