@@ -1,16 +1,70 @@
-\chapter{Resultados experimentais}
-Após a finalização duma versão usável para qualquer desenvolvedor com conhecimento mediano para avançado sobre o desenvolvimento de
-sistemas embarcados, teve o inicio das execuções experimentais para a validação do sistema proposto pelo trabalho.
+\chapter{Experimento e Resultados}
+Após a finalização duma versão usável para qualquer desenvolvedor com conhecimento mediano para avançado sobre o desenvolvimento de sistemas embarcados, teve o inicio das execuções experimentais para a validação do sistema proposto pelo trabalho.
 
-Para sua realização,
+\section{Ambiente Experimental}
+
+Todas as placas foram programas com o plugin desenvolvido utilizando um computador com o sistema operacional Linux (distro Arch) com as ultimas versões dos pacotes disponíveis, com o SDK do Arduino versão 1.6.10. A versão do KDevelop utilizado com o plugin foi a 5.0.0, contendo as atualizações da versão do qt 5.8 assim como uma boa parte do código migrado para c++11.
+
+\section{Testes Realizados}
+
+Primeiramente foi feito alguns testes utilizando alguns modelos disponíveis de placadas da Arduíno, entre as versões atuais, as utilizadas foram: Arduino nano, Arduino Mini e Arduino Mega. Sendo utilizadas pela sua popularidade e grande numero disponível entre os usuários das plataformas da Arduino.
+
+O sistema desenvolvido, por conter somente as partes definidas pela realização do upload do binário para o sistema embarcado, o usuário deve definir, gerenciar e providenciar as ferramentas necessárias para tornar o código fonte para código binário de maquina. Contudo, o plugin disponibiliza para o usuário uma ferramenta de instalação do SDK necessário para realizar tanto a compilação do código desenvolvido pelo usuário quando o conjunto de ferramentas necessários para o plugin realizar a programação do \textit{hardware}.
+
+\subsection{Hardware Utilizado}
+
+Os processos de gravação foram realizados via USB, por intermédio de um \textit{hardware} especializado para realizar a gravação ou um adaptador serial-USB para permitir uma comunicação do \textit{software} de programação para com o \textit{bootloader}.
+
+\subsection{Arduino}
+
+\subsubsection{Arduino Mega}
+Utilizando um processador ATmega2560, possuindo 10 entradas analógicas a mais que o \textbf{Arduino UNO}, com 54 pinos digitais, 15 com função de \textit{PWM} e contendo um grande vantagem em memória RAM e EEPROM.
+
+\abreviatura{RAM}{\textit{Random Access Memory}}
+
+
+\subsubsection{Arduino Nano}
+
+Por ser uma placa de desenvolvimento completa, com um tamanho de aproximadamente um quarto do \textbf{Arduino UNO}, se tornou muito popular pela mobilidade e facilidade de desenvolvimento, assim como o \textit{pinout}\footnote{ Referencia utilizada para equidistância entre os pinos ou conexões.} ideal para ser encaixado numa \textit{protoboard}\footnote{Matriz de contato, utilizada para realizar ensaios de circuitos, contem contatos e conexões para montagem.}. Além disso, alguns modelos tem dois pinos a mais de entrada analógica comparado com o \textbf{Arduino Pro Mini} e \textbf{Arduino UNO}.
+
+\subsubsection{Arduino Pro Mini}
+
+Desenvolvido para aplicações com pouco espaço e para instalações permanentes, utiliza um processador ATmega328,  diferente de outras placas da Arduino, está não possui um \textit{hardware} assistencialista para a realização do \textit{upload} do processador na própria placa, logo, tal artefato, necessita ser conectado na placa para realizar a sua programação, apesar disso, contem as demais características do \textbf{Arduino UNO}.
+
+\subsubsection{Arduino UNO}
+
+Sendo a placa de desenvolvimento de lançamento comemorativa do lançamento oficial do arduino da versão 1.0.0, utilizando o processador \textbf{ATmega328P}, sendo a primeira que utiliza USB para realizar o \textit{upload} do código de maquina para o processador via \textit{bootloader}. Contem 6 entradas analógicas, 14 pinos digitais, 6 pinos de \textit{PWM}, 1kb de \textit{SRAM}, 2kb de \textit{EEPROM}, 32kb de flash e 1 serial em \textit{hardware}.
+
+Muito similar ao \textbf{Arduino Nano}, porém, conta com duas portas analógicas a menos.
+
+\abreviatura{SRAM}{\textit{{Static Random Access Memory}}}
+\abreviatura{EEPROM}{\textit{Electrically-Erasable Programmable Read-Only Memory}}
+
+\subsection{ARM}
+
+ARM é uma arquitetura baseada na família RISC de processadores, onde as instruções tendem a ser operações simples, onde as mais complexas são quebradas até chegar em instruções uno.
+
+Atualmente é considera a arquitetura mais popular entre sistemas computacionais após a revolução \textit{mobile} dos telefones e \textit{smartphones}.
+
+Muitas placas de desenvolvimento, tanto para profissionais quanto para hobbistas possuem processadores ARM ou variantes que utilizam este mesmo processador, tanto para usos em \textit{bere-metal} quanto para usos com sistema operacional.
+
+\abreviatura{RISC}{\textit{Reduced Instruction Set}}
+
+\subsubsection{STM32F4DISCOVERY}
+
+O STM32 se trata de uma família de processadores da arquitetura ARM de 32-bits pertencentes a empresa \textbf{STMicroelectronics}. O Cortex-M, cerne do processador, pode ser encontrado em alguns processadores conhecidos como: Cortex-M0, Cortex-M1, Cortex-M3, Cortex-M4, Cortex-M7 entre outros. Sendo todos distintos pelo \textit{hardware} de suporte a CPU, podendo ter FPU, decodificação de instruções de DSP, eficiência energética e etc.
+
+\abreviatura{FPU}{\textit{Float Point Unit}}
+\abreviatura{DSP}{\textit{Digital Signal Processing}}
+\itodo{Adicionar foto da placa}
 
 
 \chapter{Conclusão}
-Dentro do periodo de desenvolvimento, o plugin alcançou todas as espectativas traçadas para para o periodo de desenvolvimento,
+Dentro do período de desenvolvimento, o plugin alcançou todas as expectativas traçadas para para o período de desenvolvimento,
 permitindo a gravação dos sistemas embarcados utilizando o KDevelop, mesmo necessitando algumas modificações para ficar
-totalmente integrado ao fluxo de trabalho, o plugin se encontro numa forma usavel.
+totalmente integrado ao fluxo de trabalho, o plugin se encontro numa forma usável.
 
-A integração com o KDevelop foi feita com sucesso, a incorporação de projetos funciona, necessitando que o usuario configure algumas
+A integração com o KDevelop foi feita com sucesso, a incorporação de projetos funciona, necessitando que o usuário configure algumas
 coisas
 
 \section{Contribuições}
