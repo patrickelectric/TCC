@@ -5,12 +5,6 @@ Após a finalização duma versão usável para qualquer desenvolvedor com conhe
 
 Todas as placas foram programas com o plugin desenvolvido utilizando um computador com o sistema operacional Linux (distro Arch) com as ultimas versões dos pacotes disponíveis, com o SDK do Arduino versão 1.6.10. A versão do KDevelop utilizado com o plugin foi a 5.0.0, contendo as atualizações da versão do qt 5.8 assim como uma boa parte do código migrado para c++11.
 
-\section{Testes Realizados}
-
-Primeiramente foi feito alguns testes utilizando alguns modelos disponíveis de placadas da Arduíno, entre as versões atuais, as utilizadas foram: Arduino nano, Arduino Mini e Arduino Mega. Sendo utilizadas pela sua popularidade e grande numero disponível entre os usuários das plataformas da Arduino.
-
-O sistema desenvolvido, por conter somente as partes definidas pela realização do upload do binário para o sistema embarcado, o usuário deve definir, gerenciar e providenciar as ferramentas necessárias para tornar o código fonte para código binário de maquina. Contudo, o plugin disponibiliza para o usuário uma ferramenta de instalação do SDK necessário para realizar tanto a compilação do código desenvolvido pelo usuário quando o conjunto de ferramentas necessários para o plugin realizar a programação do \textit{hardware}.
-
 \subsection{Hardware Utilizado}
 
 Os processos de gravação foram realizados via USB, por intermédio de um \textit{hardware} especializado para realizar a gravação ou um adaptador serial-USB para permitir uma comunicação do \textit{software} de programação para com o \textit{bootloader}.
@@ -56,29 +50,37 @@ O STM32 se trata de uma família de processadores da arquitetura ARM de 32-bits 
 
 \abreviatura{FPU}{\textit{Float Point Unit}}
 \abreviatura{DSP}{\textit{Digital Signal Processing}}
-\itodo{Adicionar foto da placa}
+%\itodo{Adicionar fotos da placa}
 
+\section{Testes Realizados}
+
+Primeiramente foi feito alguns testes utilizando alguns modelos disponíveis de placadas da Arduíno, entre as versões atuais, as utilizadas foram: Arduino nano, Arduino Mini e Arduino Mega. Sendo utilizadas pela sua popularidade e grande numero disponível entre os usuários das plataformas da Arduino.
+
+O sistema desenvolvido, por conter somente as partes definidas pela realização do envio do binário para o sistema embarcado, o usuário deve definir, gerenciar e providenciar as ferramentas necessárias para tornar o código fonte para código binário de maquina. Contudo, o plugin disponibiliza para o usuário uma ferramenta de instalação do SDK necessário para realizar tanto a compilação do código desenvolvido pelo usuário quando o conjunto de ferramentas necessários para o plugin realizar a programação do \textit{hardware}.
 
 \chapter{Conclusão}
 Dentro do período de desenvolvimento, o plugin alcançou todas as expectativas traçadas para para o período de desenvolvimento,
 permitindo a gravação dos sistemas embarcados utilizando o KDevelop, mesmo necessitando algumas modificações para ficar
 totalmente integrado ao fluxo de trabalho, o plugin se encontro numa forma usável.
 
-A integração com o KDevelop foi feita com sucesso, a incorporação de projetos funciona, necessitando que o usuário configure algumas
-coisas
+A integração com o KDevelop foi feita com sucesso, a incorporação de projetos funciona, necessitando que o usuário configure algumas variáveis para permitir identificar o \textit{hardware} utilizado pelo mesmo, tanto o processador quanto o \textit{hardware} especialista ou assistencialista para realizar o envio do código binário.
 
-\section{Contribuições}
+\section{Contribuição}
 
-\section{Futuros Trabalhos}
+O código fonte do projeto desenvolvido pode ser encontrado no \textit{mirror} do \textit{GitHub} (\url{https://github.com/KDE/kdev-embedded/tree/master}) ou no repositório oficial do \textit{phabricator} (\url{https://phabricator.kde.org/source/kdev-embedded/browse/master/}).
 
+Além do próprio \textit{plugin}, foram feitas algumas contribuições para o próprio KDevelop e outros projetos da organização KDE, podendo citar o \textit{AtCore}\footnote{\textit{Printer Host} para impressoras 3D (\url{https://github.com/KDE/atcore/graphs/contributors}).} onde atualmente é o maior contribuidor do projeto.
+
+\section{Trabalhos futuros}
+
+Tendo em vista que com o suporte para as placas da \textit{Arduino} e do sistema \textit{OpenOCD} realizado, ainda é necessário mais alguns trabalhos relacionados a áreas especificas.
+
+\subsection{Interface de usuário}
+As interfaces desenvolvidas foram trabalhadas para serem a mais amigáveis e altamente configuráveis possíveis, contudo, ainda é necessário um polimento e melhor desenvolvimento tanto da interface do plugin quanto do KDevelop, para permitir uma melhor integração com o usuário, facilitando algumas configurações básicas como a já existentes no \textit{eclipse IDE} para \textit{debug} remoto.
 
 \subsection{Instalador}
 Mesmo o instalador sendo completamente funcional, identificando versões instaladas no sistema operacional que está o executando e
-permitindo ao usuario realizar a instação automatica das dependencias com a ajuda da interface gráfica disponivel pelo plugin,
-o mesmo não é de muita ajuda para os usuarios avançados, e até mesmo para os inciantes, pois ambos já teriam conhecimento de como
-instalar e atualizar a ferramenta, pois, como dissertado antes sobre a cultura do KDE de ser \textit{rolling release}, a
-instalação e atualizações de tais dependencias seriam gerenciadas pelo usuario sem problemas, fazendo desta forma que o instalador
-desenvolvido par ao projeto seja removido em futuras versões.
+permitindo ao usuário realizar a instalação automática das dependências com a ajuda da interface gráfica disponível pelo plugin, o mesmo não é de muita ajuda para os usuários avançados, e até mesmo para os inciantes, pois ambos já teriam conhecimento de como instalar e atualizar a ferramenta, pois, como dissertado antes sobre a cultura do KDE de ser \textit{rolling release}, a instalação e atualizações de tais dependências seriam gerenciadas pelo usuário sem problemas, fazendo desta forma que o instalador desenvolvido par ao projeto seja removido em futuras versões.
 
 \subsection{Melhora na integração ao sistemas de compilação}
 A integração do plugin desenvolvido com os demais plugins do KDevelop necessita ser melhor desenvolvida e aprimorada, permitindo desta
@@ -88,6 +90,9 @@ detectar o processador do sistema embarcado em desenvolvimento que está sendo u
 o hardware.
 
 \subsection{Melhora no identificador de hardware}
-Atualmente o plugin utiliza uma biblioteca desenvolvida pela comunidade do KDE conhecida como Solid, onde permite uma boa integração
-com o hardwre do computador onde o mesmo está sendo executado. Contudo o mesmo tem problemas para identificação
+Atualmente o plugin utiliza uma biblioteca desenvolvida pela comunidade do KDE conhecida como \textit{Solid}, onde permite uma boa integração com o \textit{hardwre} do computador onde o mesmo está sendo executado. Contudo o mesmo tem problemas para identificação de gravadores que não utilizam um adaptador Adaptador Serial-USB, dificultando sua utilização. 
 
+Como proposta de solução, é utilizar os valores de PID e VID dos dispositivos conhecidos na realização da gravação, podendo ser obtidos através das bibliotecas do \textit{OpenOCD}, para melhorar sua utilização na detecção de \textit{hardware}.
+
+\abreviatura{PID}{\textit{Product ID}}
+\abreviatura{VID}{\textit{Vendor ID}}
