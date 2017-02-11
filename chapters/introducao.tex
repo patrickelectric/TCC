@@ -1,5 +1,6 @@
 \chapter{Introdução}
-Nos ultimos 40 anos existiram varias predições para o futuro da humanidade, o inicio do conceito de IoT\cite{gates1995estrada} e ambiente ubíquo \footnote{\itodo{lembrar da referencia de ambiente ubíquo.}}, imaginando o futuro baseado nas propostas tecnológicas como a \textit{lei de Moore}\footnote{Citação famosa utilizada para Gordon Earle Moore, que tinha como proposta a duplicação do numero de transistores a cada 18 meses} e limitações inexistentes ou pouco citadas como a limitações da tecnologia planar de circuitos integrados e o tamanho minimo do transistor. Como consequência, muitas das propostas realizadas durante os anos foram concebidas, continuam em desenvolvimento ou foram abandonadas por limitações tecnológicas ou de capital.
+Nos ultimos 40 anos existiram varias predições para o futuro da humanidade, o inicio do conceito de IoT\cite{gates1995estrada} e ambiente ubíquo, imaginando o futuro baseado nas propostas tecnológicas como a \textit{lei de Moore}\footnote{Citação famosa utilizada para Gordon Earle Moore, que tinha como proposta a duplicação do numero de transistores a cada 18 meses} e limitações inexistentes ou pouco citadas como a limitações da tecnologia planar de circuitos integrados e o tamanho minimo do transistor. Como consequência, muitas das propostas realizadas durante os anos foram concebidas, continuam em desenvolvimento ou foram abandonadas por limitações tecnológicas ou de capital.
+%\footnote{\itodo{lembrar da referencia de ambiente ubíquo.}}
 
 \iffalse
 Muitas das propostas que continuam ativas são extremamente dependentes do desenvolvimento da eletrônica para a sua concepção, encontrando desafios não só para a confecção destes, como também sua utilização pelos desenvolvedores.
@@ -22,7 +23,8 @@ Com o desenvolvimento tecnológico e a evolução do hardware heterogêneo, muit
 \subsubsection{Ferramentas proprietárias}
 Pela falta de um padrão definido, muitas empresas resolveram criar seus próprios, fundamentados em seus interesses ou na suas definições de utilização do que deveria ou não conter em suas soluções. Como consequência disso, são criados visões limitadas da realidade, resultante do modo de atuação interno vivida pela empresa, pela sua falta de conhecimento da realidade atual do mercado e suas utilizações.
 
-Como consequência disso, a gama de padrões de protocolos de comunicação, \textit{bootloaders} \footnote{\itodo{Adicionar footnote the bootloader}}, ICSPs, compiladores e outros materiais utilizados no desenvolvimento de sistemas embarcados, dificulta a realização do trabalho do desenvolvedor, principalmente se tais periféricos utilizados tem documentação e código fonte fechados, não permitindo seu conhecimento de funcionamento.
+Como consequência disso, a gama de padrões de protocolos de comunicação, \textit{bootloaders}, ICSPs, compiladores e outros materiais utilizados no desenvolvimento de sistemas embarcados, dificulta a realização do trabalho do desenvolvedor, principalmente se tais periféricos utilizados tem documentação e código fonte fechados, não permitindo seu conhecimento de funcionamento.
+%\itodo{Adicionar footnote the bootloader}
 
 \abreviatura{ICSP}{\textit{In Chip Serial Programmer}}
 
@@ -49,7 +51,7 @@ Para realizar os objetivos, os seguintes passos são listados:
 \item Estudo inicial das ferramentas utilizadas para desenvolvimento de sistemas embarcados.
 \item Escolha das ferramentas inicialmente suportadas.
 \item Estudo inicial sobre KDevelop.
-\item Contato inicial com a comunidade do KDevelop\footnote{adicionar nota de roda pé sobre o KDevelop, botar isso onde primeiramente acontece.} no irc \itodo{Adicionar abreviatura de irc} \footnote{Adicionar footnote sobre irc}.
+\item Contato inicial com a comunidade do KDevelop%\footnote{adicionar nota de roda pé sobre o KDevelop, botar isso onde primeiramente acontece.} no irc \itodo{Adicionar abreviatura de irc} \footnote{Adicionar footnote sobre irc}.
 \item Estudo para traçado inicial de estrutura e objetivo.
 \item \textbf{Inicio do desenvolvimento}.
 \item Carregamento do plugin.
@@ -69,7 +71,7 @@ Todas as partes sitadas para a concepção do objetivo final, são de grande val
 
 As tarefas descritas na subseção \ref{ss:objetivosespecificos} serão realizadas conforme a descrição feita das mesmas. A utilização dos resultados destes, serão integrados dentro do fluxo de trabalho de desenvolvimento incorporado na interface de desenvolvimento KDevelop, a mesma foi escolhida por ser uma das mais eficientes na sua velocidade de execução e de performance, possibilitando ao desenvolvedor que a utiliza o menor tempo de prototipagem comparado com as alternativas existentes.
 
-A Filosofia da interface de projeto existente no KDevelop, permiti que boa parte das especificações de projeto fiquem nos sistemas de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo ao programador o desenvolvimento de software sem a integração do projeto com a interface, utilizando arquivos intermediários de configuração\footnote{Arquivos que contem informações sobre compilador, estilo de código, execução e etc.}. Esta flexibilidade de integração de projetos no KDevelop acrescenta um grau de dificuldade na realização do plugin, pois as informações necessárias para o \textit{upload} do binário para o sistema embarcado necessita a localização do mesmo dentro do sistema onde está sendo desenvolvido, localização da porta de comunicação com o hardware e entre outras dificuldades. \itodo{ADICIONAR MAIS INFORMAÇÕES DE FLUXO}
+A Filosofia da interface de projeto existente no KDevelop, permiti que boa parte das especificações de projeto fiquem nos sistemas de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo ao programador o desenvolvimento de software sem a integração do projeto com a interface, utilizando arquivos intermediários de configuração\footnote{Arquivos que contem informações sobre compilador, estilo de código, execução e etc.}. Esta flexibilidade de integração de projetos no KDevelop acrescenta um grau de dificuldade na realização do plugin, pois as informações necessárias para o \textit{upload} do binário para o sistema embarcado necessita a localização do mesmo dentro do sistema onde está sendo desenvolvido, localização da porta de comunicação com o hardware e entre outras dificuldades. %\itodo{ADICIONAR MAIS INFORMAÇÕES DE FLUXO}
 
 \section{Estrutura do Trabalho}
 
@@ -81,4 +83,4 @@ A Filosofia da interface de projeto existente no KDevelop, permiti que boa parte
 \item \textbf{Desenvolvimento} - Relato do trabalho realizado, contendo informações do projeto e seu andamento.
 \item \textbf{Conclusão} - Exposição dos resultados.
 \end{enumerate}
-\itodo{Expandir de forma mais detalhada}
+%\itodo{Expandir de forma mais detalhada}
