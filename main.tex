@@ -20,6 +20,7 @@
 \usepackage{lipsum}
 \usepackage{caption}
 \usepackage{graphicx}
+\usepackage{url}
 \usepackage{bytefield} % draw memory table
 % START maquina de estados
 \usepackage{pgf}
@@ -31,8 +32,35 @@
 \usetikzlibrary{arrows,automata}
 % END maquina de estados
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygray}{rgb}{0.4,0.4,0.4}
+\definecolor{mygreen}{rgb}{0,0.8,0.6}
+\definecolor{myorange}{rgb}{1.0,0.4,0}
+
+\lstset{
+basicstyle=\tiny\sffamily\color{black},
+commentstyle=\color{mygray},
+frame=single,
+numbers=left,
+numbersep=5pt,
+numberstyle=\tiny\color{mygray},
+keywordstyle=\color{mygreen},
+showspaces=false,
+showstringspaces=false,
+stringstyle=\color{myorange},
+tabsize=1,
+frame=bt
+}
+
 %----------------------------------------------------------------------
 % Comandos criados pelo usuário
+
+\renewcommand{\lstlistingname}{Algorítimo}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> List of Algorithms
+
 %\newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
 \newcommand{\itodo}[1]{{\todo[inline]{#1}}} % Para destacar uma parte a ser trabalhada
 \newcommand{\figref}[1]{{Figura \ref{#1}}} % Para destacar uma parte a ser trabalhada
@@ -89,8 +117,6 @@
 \textoResumo{
 O mundo do desenvolvimento de software para sistemas embarcados se encontra em constante evolução e adaptação para as novas tecnologias que surgem para suprir as necessidades da IoT, IoSM e IoIT. Os padrões estão sendo redefinidos, tanto quanto a tecnologia quanto a metodologia de desenvolvimento existentes, fazendo com que as industrias aderissem a abordagens não ortodoxas para realizarem tarefas de alto grau de complexidade. O Objetivo deste trabalho é o desenvolvimento de uma ferramenta capaz de permitir ao elaborador de software para sistemas embarcados a capacidade de criar, aprimorar e verificar seu trabalho sem a necessidade de ferramentas proprietárias e outros limitantes. O trabalho além de relatar o desenvolvimento de tal ferramenta, elabora o contexto das atualizações que estão sendo realizadas dentro mercado de desenvolvimento das grandes empresas, para a realização desta tarefa tão complexa que é o desenvolvimento de sistemas embarcados num mercado tão heterogêneo e não padronizado.
 
-\itodo{Resumo precisa ser verificado !}
-
 \abreviatura{IoT}{\textit{Internet of Things}}
 \abreviatura{IoST}{\textit{Internet of Smart Things}}
 \abreviatura{IoIT}{\textit{Internet of Important Things}}
@@ -100,8 +126,8 @@ O mundo do desenvolvimento de software para sistemas embarcados se encontra em c
 
 %%%%
 
-\textAbstract{\itodo{Resumo traduzido para outros idiomas, neste caso, inglês. Segue o formato do resumo feito na língua vernácula. As palavras-chave traduzidas, versão em língua estrangeira, são colocadas abaixo do texto precedidas pela expressão ``Keywords'', separadas por ponto.}}
-\keywords{\itodo{Keyword 1. Keyword 2. Keyword 3.}}
+\textAbstract{The world of software development for embedded systems is constantly evolving and adapting to the new technologies that arise to supply the needs of IoT, IoSM and IoIT. Standards are being redefined as much as technologies as the existing development methodology, causing industries to adhere to unorthodox approaches perfoming tasks of high complexity. The objective of this work is the development of a tool capable of allowing the software developer for embedded systems the ability to create, improve and verify their work without the need for proprietary and other limiting tools. The work in addition to reporting the development of such a tool, elaborates the context of the updates that are being carried out within the development market of large companies, in order to accomplish this complex task that is the development of embedded systems in such a heterogeneous and non-standardized market.}
+\keywords{Embedded Systems. \textit{Open Source}. Development. IoT.}
 
 %----------------------------------------------------------------------
 % Início do documento
@@ -121,6 +147,7 @@ O mundo do desenvolvimento de software para sistemas embarcados se encontra em c
 \listadefiguras % as listas dependem da necessidade do usuário
 \listadetabelas
 \listadeabreviaturas
+\lstlistoflistings
 \listadesimbolos
 \sumario
 %--------------------------------------------------------
@@ -148,6 +175,17 @@ O mundo do desenvolvimento de software para sistemas embarcados se encontra em c
 Texto do Apêndice aqui.
 
 \anexo
-\chapter{Exemplificando um Anexo}
-Texto do anexo aqui.
+\chapter{Código do plugin}
+
+\lstinputlisting[language=C++,caption={arduinowindow.h},label=DescriptiveLabel]{kdev-embedded/arduinowindow.h}
+\lstinputlisting[language=C++,caption={arduinowindow.cpp},label=DescriptiveLabel]{kdev-embedded/arduinowindow.cpp}
+\lstinputlisting[language=C++,caption={toolkit.h},label=DescriptiveLabel]{kdev-embedded/toolkit.h}
+\lstinputlisting[language=C++,caption={toolkit.cpp},label=DescriptiveLabel]{kdev-embedded/toolkit.cpp}
+\lstinputlisting[language=C++,caption={firsttimewizard.h.in},label=DescriptiveLabel]{kdev-embedded/firsttimewizard.h.in}
+\lstinputlisting[language=C++,caption={firsttimewizard.cpp},label=DescriptiveLabel]{kdev-embedded/firsttimewizard.cpp}
+\lstinputlisting[language=C++,caption={embedded.h},label=DescriptiveLabel]{kdev-embedded/embedded.h}
+\lstinputlisting[language=C++,caption={embedded.cpp},label=DescriptiveLabel]{kdev-embedded/embedded.cpp}
+\lstinputlisting[language=C++,caption={board.h},label=DescriptiveLabel]{kdev-embedded/board.h}
+\lstinputlisting[language=C++,caption={board.cpp},label=DescriptiveLabel]{kdev-embedded/board.cpp}
+
 \end{document}
