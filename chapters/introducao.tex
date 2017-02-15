@@ -1,15 +1,11 @@
 \chapter{Introdução}
-Nos últimos 40 anos existiram varias predições para o futuro da humanidade como, o inicio do conceito de IoT\cite{gates1995estrada} (\textit{Internet Of Things}) e ambiente ubíquo, com propostas tecnológicas como a \textit{lei de Moore}\footnote{Citação famosa utilizada para Gordon Earle Moore, que tinha como proposta a duplicação do numero de transistores a cada 18 meses} e limitações inexistentes ou pouco citadas como a limitações da tecnologia planar de circuitos integrados e o tamanho mínimo do transistor. Como consequência, muitas das propostas realizadas durante os anos foram concebidas. \itodo{Reescrever, menus fantasioso}
-%\footnote{\itodo{lembrar da referencia de ambiente ubíquo.}}
+Nos últimos 40 anos existiram varias predições para o futuro da humanidade, conceitos como IoT(\textit{Internet Of Things})\cite{gates1995estrada} e ambiente ubíquo\cite{weiser1991computer} foram criados, propostas tecnológicas como a \textit{lei de Moore}\footnote{Citação famosa utilizada para Gordon Earle Moore, que tinha como proposta a duplicação do numero de transistores a cada 18 meses} eram ditas como garantidas pelos grandes fabricantes. Contudo muitos desafios acabaram prejudicando a execução destas predições, como a barreira de potência\cite{Patterson:2008:COD:1502247} e a densidade energética\cite{paradiso2005energy}.
+%http://www.singularity.com/charts/page70.html
 
-\iffalse
-Muitas das propostas que continuam ativas são extremamente dependentes do desenvolvimento da eletrônica para a sua concepção, encontrando desafios não só para a confecção destes, como também sua utilização pelos desenvolvedores.
-\fi
+Hoje, mesmo com desafios, o avanço tecnológico permitiu a miniaturização dos processadores com um custo de aquisição de grandezas menores das décadas anteriores\cite{nordhaus2007two}, possibilitando a pequenas empresas e até mesmo pessoas comuns o acesso a sistemas computacionais com alto processamento. Contudo, mesmo	 sendo possível, as ferramentas existentes para permitir o desenvolvimento desses processadores são geralmente pagas (\textit{IAR Embedded Workbench}\footnote{Não existe versão gratuita.}), limitadas (\textit{MDK Microcontroller Development Kit}\footnote{Versão gratuita com limite de código de 32 Kbytes.}) ou com poucos recursos (\textit{Platformio}\footnote{Sem depuração embutida.}).
+%http://www2.keil.com/mdk5
 
-Hoje, o resultado dos sucessos no desenvolvimento dos produtos que se sustentaram no mercado tecnológico possibilitaram uma fácil aquisição de um sistema computacional, com preços uma ordem de grandeza inferior dos mesmos utilizados a décadas atrás. Isto possibilitou a pequenas empresas e pessoas comuns o acesso a sistemas programáveis, possibilitando o avanço do \textit{Software} e hardware aberto. Contudo, mesmo sendo possível essa aquisição, como descritas anteriormente, as ferramentas existentes podem ser precárias, limitadas ou com valor alto valor monetário.
-
-A comunidade de desenvolvedores de software para sistemas embarcados tende a utilizar inúmeras ferramentas para resolver os desafios do projeto, podem ser tanto interfaces de desenvolvimento integradas como assistentes, permitindo algumas funções básicas como: \textit{Debug}, comunicação, \textit{flash}, entre outros. Algumas dessas tendem a resolver mais de um problema ao mesmo tempo, resultando num sistema completo. Estes possuem a tendência de serem extremamente assistencialistas, abstraindo os sistemas que se executam em \textit{background}\footnote{Abaixo da camada de software que o usuário tem acesso.}, dificultando a personalização do fluxo de trabalho e dos sistemas utilizados pelo desenvolvedor.
-
+A comunidade dos desenvolvedores de software para sistemas embarcados tende a utilizar inúmeras ferramentas para resolver os desafios de projeto, geralmente embutidas em uma IDE(\textit{Integrated Development Environment}), permitindo algumas funções básicas como depuração, comunicação, gravação, entre outros. Algumas dessas tendem a resolver mais de um problema ao mesmo tempo, resultando num sistema complexo, além disso, possuem a tendência de serem excessivamente assistencialistas\footnote{Autocompletar e pop-ups sem requisição do usuário.}, abstraindo os sistemas que executam em segundo plano, resultando num uso maior do processador da maquina de trabalho, dificultando a personalização do fluxo de trabalho e dos sistemas utilizados pelo desenvolvedor.
 
 \iffalse
 O intuito deste trabalho é a realização de um sistema para possibilitar aos desenvolvedores a programação de sistemas embarcados, sem a necessidade de utilizar sistemas assistencialistas que possam limitar a evolução do trabalho ou a utilização do produto final concebido.
@@ -18,9 +14,10 @@ O intuito deste trabalho é a realização de um sistema para possibilitar aos d
 \section{Motivação}
 
 \subsection{Padronização}
-Com o desenvolvimento tecnológico e a evolução do hardware heterogêneo, muitos dos sistemas disponíveis para desenvolvimento não seguem um padrão estabelecido, as empresas acabam criando empecilhos que dificultam o desenvolvimento sem a utilização das ferramentas proprietárias distribuídas pelo próprio fornecedor, muitas vezes pagas, com alta restrição de desempenho e utilização visando a venda de diferentes versões e licenças para problemas.
+Com o desenvolvimento tecnológico e a evolução do hardware heterogêneo (sistemas com GPU, CPU e outros periféricos), muitos dos sistemas disponíveis para desenvolvimento não seguem um padrão estabelecido (gravador, protocolo, \textit{bootloader} e etc.), além disso, as empresas acabam criando empecilhos que dificultam o desenvolvimento sem a utilização das ferramentas proprietárias distribuídas pelo próprio fornecedor, muitas vezes pagas, com alta restrição de desempenho e utilização visando a venda de diferentes versões e licenças para problemas.
 
 \subsubsection{Ferramentas proprietárias}
+\textbf{
 Pela falta de um padrão definido, muitas empresas resolveram criar seus próprios, fundamentados em seus interesses ou na suas definições de utilização do que deveria ou não conter em suas soluções. Como consequência disso, são criados visões limitadas da realidade, resultante do modo de atuação interno vivida pela empresa, pela sua falta de conhecimento da realidade atual do mercado e suas utilizações.
 
 Como consequência disso, a gama de padrões de protocolos de comunicação, \textit{bootloaders}, ICSPs, compiladores e outros materiais utilizados no desenvolvimento de sistemas embarcados, dificulta a realização do trabalho do desenvolvedor, principalmente se tais periféricos utilizados tem documentação e código fonte fechados, não permitindo seu conhecimento de funcionamento.
@@ -31,7 +28,7 @@ Como consequência disso, a gama de padrões de protocolos de comunicação, \te
 %\subsubsection{Padronização}
 
 \section{Objetivo Geral}
-O projeto tem como realização a solução dos problemas descritos anteriormente, não providenciando alguma padronização ou mais uma alternativa entre as várias já existentes pelo mercado, mas sim um suporte de alto nível para todos estes que já existem. Tendo como foco de usuário o desenvolvedor, no qual tem conhecimento de como o desenvolvimento ocorre, mas permitindo um ambiente mais inteligente para que isso ocorra. Tais propostas já existem, mas será dissertado sobre elas mais adiante.
+O projeto tem como objetivo uma proposta de solução para problemas descritos anteriormente, não providenciando alguma padronização ou mais uma alternativa entre as já existentes pelo mercado, mas sim um suporte de alto nível para todos estes que já existem. Tendo como foco de usuário o desenvolvedor, no qual tem conhecimento de como o desenvolvimento ocorre, mas permitindo um ambiente mais configurável para que isso ocorra.
 
 %comment
 \iffalse
@@ -44,11 +41,11 @@ O objetivo geral deve responder as seguintes perguntas:
 Deve ser escrito em tempo infinitivo (por exemplo: ampliar, capacitar, entre outros) e redigido com claridade. O objetivo precisa ser alcançável, não pode ser genérico, de forma que o projeto não consiga resolver (ex: terminar com a fome no mundo). Por outro lado deve ser ousado, capaz de sinalizar mudanças mais profundas que poderão ser alcançadas pelo projeto a médio e longo prazo.}
 \fi
 
-\subsection{Objetivos Específicos}
+\subsection{Metodologia}
 \label{ss:objetivosespecificos}
 Para realizar os objetivos, os seguintes passos são listados:
 \begin{enumerate}
-\item Estudo inicial das ferramentas utilizadas para desenvolvimento de sistemas embarcados.
+\item Estudo inicial d	as ferramentas utilizadas para desenvolvimento de sistemas embarcados.
 \item Escolha das ferramentas inicialmente suportadas.
 \item Estudo inicial sobre KDevelop.
 \item Contato inicial com a comunidade do KDevelop%\footnote{adicionar nota de roda pé sobre o KDevelop, botar isso onde primeiramente acontece.} no irc \itodo{Adicionar abreviatura de irc} \footnote{Adicionar footnote sobre irc}.
