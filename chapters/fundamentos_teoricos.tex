@@ -1,25 +1,24 @@
 \chapter{Fundamentos teóricos}
 
 \section{Sistema embarcado}
-Antes de adentrar na especificação do sistema embarcado, será apresentado alguns exemplos.
+
+Numa visão mais ampla, pode ser resumido para qualquer sistema que realiza uma tarefa especifica, independe do custo energético ou computacional. Dentro desta categoria, pode-se listar alguns exemplos:
 
 \begin{itemize}
-\item \textbf{VANT} - Com crescimento exponencial nos últimos anos, atualmente se encontram com inúmeras apostas em suas utilizações com alto investimento.
-\item \textbf{Roteador} - Extremamente populares no acesso da internet sem a utilização de cabos. Muitos contem uma arquitetura computacional completa contendo até sistemas operacionais embarcados.
-\item \textbf{GPS} - Muitos já contem sistemas de processamento, podendo realizar filtragem, fusionamento, estimação e permitindo comunicação em inúmeros protocolos.
-\item \textbf{Televisões} - Os modelos dos últimos anos tiveram como foco principal a extensão da televisão como ambiente de entretenimento, permitindo conexão com internet, instalação de aplicativos para acesso a serviços online de entretimento e informação.
-\item \textbf{Câmeras de vigilância} - Alguns tipos permitem o acesso via internet, utilizando uma eletrônica embarcada com sistemas operacional e periféricos de rede, permitindo o acesso do vídeo via conexão ethernet.
+\item \textbf{VANT} (Veículo Aéreo Não Tripulado) - Com crescimento exponencial nos últimos anos, atualmente se encontra com inúmeras propostas em suas utilizações.
+\item \textbf{Roteador} - Extremamente populares no acesso da internet. Muitos contem uma arquitetura computacional completa, podendo conter até sistemas operacionais embarcados (\textit{OpenWrt}\cite{openwrt}).
+\item \textbf{GPS} (\textit{Global Positioning System}) - Com um sistema de processamento, podendo realizar filtragem, fusionamento, estimação e comunicação em inúmeros protocolos.
+\item \textbf{Televisões} - Os modelos dos últimos anos tiveram como foco principal a extensão da televisão como ambiente de entretenimento, permitindo conexão com internet, instalação de aplicativos e serviços online de entretimento e informação.
+\item \textbf{Câmeras de vigilância} - Alguns tipos permitem o acesso via internet, utilizando uma eletrônica embarcada com sistemas operacional e periféricos de rede.
 \end{itemize}
 
 \abreviatura{VANT}{\textit{Veículo Aéreo Não Tripulado}}
 \abreviatura{GPS}{\textit{Global Positioning System}}
 
-Numa visão mais ampla, o sistema embarcado pode ser resumido para qualquer contendo alta ou baixa performance energética/computacional,
-que realiza uma tarefa especifica. Mesmo podendo afirmar isso hoje, as definições de sistemas embarcados foram modificadas ao passar do
-tempo, como, por exemplo, o baixo processamento, que se tornou inapropriada ao passar dos anos, pelo poderio computacional que pode ser
-encontrado hoje em dia em sistemas tão diminutos.
+As definições de sistemas embarcados foram modificadas ao passar do tempo, como, por exemplo, o baixo processamento, que se tornou inapropriada ao passar dos anos.
 
-A evolução do hardware, diminuindo o tamanho e preço de aquisição dos processados, permitiu praticamente a qualquer desenvolvedor de
+\iffalse
+A evolução do hardware, diminuiu o tamanho e preço de aquisição dos processados, permitiu praticamente a qualquer desenvolvedor de
 sistemas computacionais embarcados, um poder de processamento grande o suficiente para rodar um kernel\footnote{Cerne do sistema
 operacional, tendo como principal função o escalonamento de tarefas e abstração dos periféricos de hardware utilizados da maquina,
 como, por exemplo: placa de rede, sensores, portas de comunicação, \textit{GPIOs} e etc.} de sistema operacional complexo, como o Linux, em praticamente qualquer aplicação.
@@ -27,22 +26,17 @@ como, por exemplo: placa de rede, sensores, portas de comunicação, \textit{GPI
 Muitas das aplicações de sistemas embarcados são utilizados para sistemas cyber-físicos\footnote{Sistemas computacionais
 voltados para interação no mundo físico via atuadores e tendo como entrada informações de transdutores, alguns exemplos
 podem se destacar: Controle de combustível, controladora de VANTs, impressora 3D e etc.}
+\fi
 
-\subsection{Distinção entre sistemas}
-Dentro do mundo de sistemas embarcados, por ser uma vastidão de periféricos, utilizações, finalidades, pode-se resumir a certas categorias de destaque em relação a unidade principal de processamento.
+\section{Distinção entre sistemas}
+Dentro da área de sistemas embarcados, por envolver uma ampla gama de periféricos, utilizações, finalidades, pode-se resumir a certas categorias de destaque em relação a unidade principal de processamento, podendo destacar:
 
-\subsubsection{Microcontrolador}
+\subsection{Microcontrolador}
 
-Também escrito como $\mu$controlador\footnote{Acrônimo para pequeno controlador}, se trata de um sistema completo,
-também descrito como \textit{SoC}, sendo geralmente autossuficiente em relação aos periféricos necessários para
-realizar seu funcionamento, necessitando apenas de uma fonte de alimentação externa. O processador, memória,
-periféricos de entrada e saída (\textit{ADC}, \textit{PWM}, \textit{GPIO}, entre outros) e oscilador na mesma pastilha
-de silício \ref{fig:ricv}, barateando os custos de sua confecção, permitindo a popularização dos mesmos na industria e na sociedade
-DIY/Makers\footnote{Cultura de desenvolvimento tecnológico próprio, derivado do movimento \textit{DIY}.}. Estes mesmos
-sistemas permitem o uso de osciladores externos, possibilitando o aumento da frequência de
-\textit{clock}\footnote{Sinal temporal periódico que determina a atualização dos registrados do sistema.} e como
-consequência um acréscimo no MIPS.
+Trata de um sistema completo, sendo geralmente autossuficiente em relação aos periféricos necessários para realizar seu funcionamento, necessitando apenas de uma fonte de alimentação externa. O processador, memória, periféricos de entrada e saída (\textit{ADC}, \textit{PWM}, \textit{GPIO}, entre outros) e oscilador na mesma pastilha de silício \figref{fig:ricv}, barateando os custos de sua confecção, permitindo a popularização dos mesmos na industria e na comunidade DIY (Do It Yourself)/Makers\footnote{Cultura de desenvolvimento tecnológico próprio, derivado do movimento \textit{DIY}, sendo conhecido pela construção, modificação e manutenção pessoal.}. Estes mesmos
+sistemas permitem o uso de osciladores externos, possibilitando o aumento da frequência de \textit{clock}\footnote{Sinal temporal periódico que determina a atualização dos registrados do sistema.} e como consequência um acréscimo no MIPS.
 
+\abreviatura{DIY}{\textit{Do It Yourself}}
 \abreviatura{SoC}{\textit{System on a chip}}
 \abreviatura{ADC}{\textit{Analog to Digital Converter}}
 \abreviatura{PWM}{\textit{Pulse Width Modulation}}
@@ -65,30 +59,17 @@ consequência um acréscimo no MIPS.
 \abreviatura{RAM}{\textit{Random Access Memory}}
 \abreviatura{RISCV}{\textit{Reduced Instruction Set Computing - V}}
 
-A evolução dos microcontroladores, não só permitiu a automatização de sistemas, mas sim a popularização da eletrônica
-computacional embarcada, permitindo praticamente que o mais simplório dos sistemas tenha um processador embarcado sem
-elevados custos de fabricação.
-
-Além do impacto industrial, também se pode destacar, com o barateamento de tais sistemas, a popularização dos mesmos na
-comunidade civil, permitindo revoluções dentro do mercado e das culturas de desenvolvimento.
-%\itodo{EXPANDIR ISSO AQUIMAIS NA FRENTE.}.
-
 Se nas ultimas décadas, o acesso a computadores se tornou facilitada, nas próximas que estão por vir, o uso e aquisição de sistemas computacionais não será um mero luxo ou aquisição, mas sim uma inevitabilidade. Tudo terá um processador, se não, um sistema computacional simples. Pode-se notar muitas etiquetas de RFID e cada vez mais modernas \cite{ricci2008design}, contendo sistemas computacionais complexos.
 
-\subsubsection{Microprocessador}
+\subsection{Microprocessador}
 
-Parte principal de um sistema computacional, com o objetivo de decodificar e executar as instruções em código de maquina existente
-na memória. A tabela que é interpretada, denominada de \textit{instruction set}, contem todos os padrões binários possíveis
-a serem decodificados, resultando em sinais lógicos para a eletrônica que o executara, podendo realizar comparações, somas,
-multiplexações e leituras/escritas na memória.
+Parte principal de um sistema computacional, com o objetivo de decodificar e executar as instruções em código de maquina existente na memória. A tabela que é interpretada, denominada por conjunto de instruções, contem todos os padrões binários possíveis a serem decodificados, resultando em sinais lógicos para a eletrônica que o executará, podendo realizar comparações, somas,multiplexações e leituras/escritas na memória.
 
-Durante as ultimas décadas, o poder de processamento vem tendo um crescimento exponencial, permitindo que os mais diminutos sistemas possam ter processamentos matematicamente complexos alem das antigas lógicas \textit{booleanas}. Tal avanço, permitiu que sistemas simples possam ter grande valor intelectual agregado, podendo ser utilizado como exemplo o termostato da google, vendido atualmente a um montante de \$250, pelo seu processamento permitir e usufruir de um \textit{aprendizado de maquina}\footnote{"Campo de estudo que dá aos computadores a habilidade de aprender sem serem explicitamente programados`` -  Arthur Samuel, 1945.}, proporcionando ao aparelho um melhor gerenciamento da temperatura do ambiente, realizando uma economia energética e um melhoramento na qualidade de vida do usuário.
+Com o passar dos anos, o poder de processamento permitiu que sistemas simples possam ter grande valor intelectual agregado, podendo utilizar como exemplo o termostato da Google, vendido atualmente por \$250, por realizar um \textit{aprendizado de maquina}\footnote{"Campo de estudo que dá aos computadores a habilidade de aprender sem serem explicitamente programados`` -  Arthur Samuel, 1945.}, proporcionando ao aparelho um melhor gerenciamento da temperatura do ambiente, realizando uma economia energética e uma melhora na qualidade de vida do usuário.
 
-\subsubsection{SoC}
+\subsection{SoC}
 
-Atualmente o termo é empregado a circuitos integrados com uma vasta quantidade de sistemas integrados, diferente do
-termo empregado nos microcontroladores, a expressão tem como o propósito não só a memória, \textit{GPIO} e outros, mas sim
-a adesão de \textit{GPU}, \textit{USB}, módulos de rede, rádio e outros sistemas dentro do próprio circuito integrado.
+Atualmente o termo é empregado a circuitos integrados com uma vasta quantidade de sistemas integrados, podendo citar  \textit{GPU} (\textit{Graphics Processing Unit}), \textit{USB} (\textit{Universal Serial Bus}), módulos de rede, rádio e outros sistemas dentro do próprio circuito integrado.
 
 \abreviatura{GPU}{\textit{Graphics Processing Unit}}
 \abreviatura{USB}{\textit{Universal Serial Bus}}
@@ -96,7 +77,7 @@ a adesão de \textit{GPU}, \textit{USB}, módulos de rede, rádio e outros siste
 Nesta categoria, pode-se destacar o desenvolvimento dos sistemas desenvolvidos pela fabricante ARM, tendo ultrapassado a Intel como a maior produtora de processamentos do mundo, após a revolução \textit{mobile} onde a maioria das pessoas comuns começaram a utilizar \textit{smartphones} substituindo o uso de computadores pessoais para realizar as suas rotinas pessoais digitais diárias. Esta revolução, esta fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
 
 
-\subsection{Bootloader}
+\section{Bootloader}
 
 A vantagem de se utilizar um sistema de carregamento de boot\footnote{Processo no qual o sistema computacional se inicia.} é
 a gravação programa principal com a assistência de um software primário, conhecido como \textit{bootloader}. Um microcontrolador
