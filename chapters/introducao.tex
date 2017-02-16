@@ -13,24 +13,24 @@ O intuito deste trabalho é a realização de um sistema para possibilitar aos d
 
 O projeto tem como objetivo uma proposta de solução para os problemas descritos anteriormente, não providenciando alguma padronização ou mais uma alternativa entre as já existentes pelo mercado, mas uma IDE que tenha um suporte de alto nível para todos estes que já existem. Tendo como foco de usuário o desenvolvedor de sistemas embarcados, visando um ambiente configurável e mutável a suas necessidades.
 
-Para a concepção, foi utilizado o KDevelop\footnote{IDE desenvolvida pela comunidade internacional de software livre KDE.} para base do sistema definido como proposta do GSoC (\textit{Google Summer Of Code})\footnote{Projeto de incentivo para estudantes no desenvolvimento de código livre organizado pela Google.}. Por ser uma IDE desenvolvida majoritariamente em C++ e permitir o carregamento em tempo de execução de algumas ferramentas (via a utilização de \textit{plugins}), já abrange alguns dos requerimentos do sistema que serão discutidos.
+Para a concepção, foi utilizado o KDevelop\footnote{IDE desenvolvida pela comunidade internacional de software livre KDE.} para base do sistema definido como sendo proposta do GSoC (\textit{Google Summer Of Code})\footnote{Projeto de incentivo para estudantes no desenvolvimento de código livre organizado pela Google.}. Por ser uma IDE desenvolvida majoritariamente em C++ e permitir o carregamento em tempo de execução de algumas ferramentas (via a utilização de \textit{plugins}), já abrangendo alguns dos requerimentos do sistema que serão discutidos.
 
 \section{Motivação}
 
 Com o avanço tecnológico e a evolução do hardware heterogêneo (sistemas com GPU, CPU e outros periféricos), muitos dos sistemas disponíveis para desenvolvimento não seguem um padrão estabelecido no carregamento de código (gravador, protocolo, \textit{bootloader} e etc.), além disso, as empresas acabam criando alternativas aos padrões já
 %https://community.nxp.com/thread/389162
- existentes no mercado ou opções limitadas, como, por exemplo, DebugWire\cite{debugwire}, hardware exclusivo de depuração LPC\cite{nxp}, suporte limitado de depuradores\cite{kiledebug} e etc, desta forma, dificultando ou restringindo o desenvolvimento.
+ existentes no mercado ou opções limitadas nas IDEs, como, por exemplo, DebugWire\cite{debugwire}, hardware exclusivo de depuração LPC\cite{nxp}, suporte limitado de depuradores\cite{kiledebug} e etc, dificultando ou restringindo o desenvolvimento do usuário.
 
+Geralmente, as ferramentas utilizadas para o desenvolvimento são de código fechado, distribuídas numa versão binaria, restringindo a modificação do software pelo usuário e personalizações do desenvolvimento. No desenvolvimento do estado da arte, a personalização da ferramenta é essencial para permitir o desenvolvimento, evitando a espera do suporte dentro dos sistemas vendidos, desta forma, muitas empresas acabam aderindo aos software de código aberto pela sua agilidade para adesão a novas tecnologias, podendo destacar Microsoft\cite{microsoftn1}, Intel, Samsung, IBM e Renesas\cite{topskernel}.
+
+\iffalse
 \subsubsection{Ferramentas proprietárias}
 
 Pela falta de um padrão definido, muitas empresas resolveram criar seus próprios, fundamentados em seus interesses ou na suas definições de utilização do que deveria ou não conter em suas soluções. Como consequência disso, são criados visões limitadas da realidade, resultante do modo de atuação interno vivida pela empresa, pela sua falta de conhecimento da realidade atual do mercado e suas utilizações.
 
 Como consequência disso, a gama de padrões de protocolos de comunicação, \textit{bootloaders}, ICSPs, compiladores e outros materiais utilizados no desenvolvimento de sistemas embarcados, dificulta a realização do trabalho do desenvolvedor, principalmente se tais periféricos utilizados tem documentação e código fonte fechados, não permitindo seu conhecimento de funcionamento.
-
+\fi
 %\itodo{Adicionar footnote the bootloader}
-
-\abreviatura{ICSP}{\textit{In Chip Serial Programmer}}
-
 %\subsubsection{Padronização}
 
 \section{Objetivo Geral}
@@ -51,10 +51,10 @@ Deve ser escrito em tempo infinitivo (por exemplo: ampliar, capacitar, entre out
 \label{ss:objetivosespecificos}
 Para realizar os objetivos, os seguintes passos são listados:
 \begin{enumerate}
-\item Estudo inicial d	as ferramentas utilizadas para desenvolvimento de sistemas embarcados.
+\item Estudo inicial das ferramentas utilizadas para desenvolvimento de sistemas embarcados.
 \item Escolha das ferramentas inicialmente suportadas.
-\item Estudo inicial sobre KDevelop.
-\item Contato inicial com a comunidade do KDevelop%\footnote{adicionar nota de roda pé sobre o KDevelop, botar isso onde primeiramente acontece.} no irc \itodo{Adicionar abreviatura de irc} \footnote{Adicionar footnote sobre irc}.
+\item Analise inicial sobre KDevelop.
+%\footnote{adicionar nota de roda pé sobre o KDevelop, botar isso onde primeiramente acontece.} no irc \itodo{Adicionar abreviatura de irc} \footnote{Adicionar footnote sobre irc}.
 \item Estudo para traçado inicial de estrutura e objetivo.
 \item \textbf{Inicio do desenvolvimento}.
 \item Carregamento do plugin.
@@ -68,13 +68,13 @@ Para realizar os objetivos, os seguintes passos são listados:
 \item Repetir passo 10 em diante.
 \end{enumerate}
 
-Todas as partes sitadas para a concepção do objetivo final, são de grande valia, tendo como maior importância o planejamento e a realização da primeira camada de software, este será o responsável pelo desenvolvimento do sistemas, e caso bem feito, todos os demais passos não deveram ter dificuldades para suas realizações e para futuras atualização do sistema proposto com novos sistemas embarcados.
+\section{Analise do fluxo de trabalho}
 
-\section{Estudo do fluxo de trabalho}
-
-As tarefas descritas na subseção \ref{ss:objetivosespecificos} serão realizadas conforme a descrição feita das mesmas. A utilização dos resultados destes, serão integrados dentro do fluxo de trabalho de desenvolvimento incorporado na interface de desenvolvimento KDevelop, a mesma foi escolhida por ser uma das mais eficientes na sua velocidade de execução e de performance, possibilitando ao desenvolvedor que a utiliza o menor tempo de prototipagem comparado com as alternativas existentes.
-
-A Filosofia da interface de projeto existente no KDevelop, permiti que boa parte das especificações de projeto fiquem nos sistemas de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo ao programador o desenvolvimento de software sem a integração do projeto com a interface, utilizando arquivos intermediários de configuração\footnote{Arquivos que contem informações sobre compilador, estilo de código, execução e etc.}. Esta flexibilidade de integração de projetos no KDevelop acrescenta um grau de dificuldade na realização do plugin, pois as informações necessárias para o \textit{upload} do binário para o sistema embarcado necessita a localização do mesmo dentro do sistema onde está sendo desenvolvido, localização da porta de comunicação com o hardware e entre outras dificuldades. %\itodo{ADICIONAR MAIS INFORMAÇÕES DE FLUXO}
+A interface de projeto existente no KDevelop, permite que boa parte das especificações de projeto fiquem no sistema de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo o desenvolvimento de software sem a integração do projeto com o KDevelop para sua utilização.
+\iffalse
+, utilizando arquivos intermediários de configuração\footnote{Arquivos que contem informações sobre compilador, estilo de código, execução e etc.}.
+\fi
+Esta flexibilidade de integração de projetos no KDevelop acrescenta um grau de dificuldade na realização do plugin, pois, as informações necessárias no carregamento do binário para o sistema embarcado necessita de sua localização e da porta de comunicação para o hardware em desenvolvimento. %\itodo{ADICIONAR MAIS INFORMAÇÕES DE FLUXO}
 
 \section{Estrutura do Trabalho}
 
@@ -82,8 +82,9 @@ A Filosofia da interface de projeto existente no KDevelop, permiti que boa parte
 \item \textbf{Introdução} - Tema e contextualização do que será abordado no trabalho.
 \item \textbf{Fundamentos teóricos} - Revisão dos assuntos abordados e necessários, fundamentais para realização do projeto.
 \item \textbf{Estado da arte} - Comparação dos sistemas existentes que abordam o assunto e tentam aplicar uma proposta de solução.
-\item \textbf{Projeto da Ferramenta} - Rascunhos iniciais de interface e arquitetura de software.
+\item \textbf{Projeto da ferramenta} - Rascunhos iniciais de interface e arquitetura de software.
 \item \textbf{Desenvolvimento} - Relato do trabalho realizado, contendo informações do projeto e seu andamento.
-\item \textbf{Conclusão} - Exposição dos resultados.
+\item \textbf{Experimento e resultados} - Exposição dos resultados.
+\item \textbf{Conclusão} - Conclusões finais.
 \end{enumerate}
 %\itodo{Expandir de forma mais detalhada}
