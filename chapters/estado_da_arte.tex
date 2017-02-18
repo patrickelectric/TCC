@@ -1,95 +1,97 @@
 \chapter{Estado da Arte}
-As interfaces mais populares atualmente de desenvolvimento em sistemas embarcados são  majoritariamente desenvolvidas encima de
-outras interfaces de programações genericas e utilizadas para os mais variados fins, e dentre estas, grande maioria é desenvolvido
-utilizando a linguagem de programação JAVA, conhecida por ser uma linguagem de baixo desempenho por ser executado encima duma maquina
-virtual JVM.
+As interfaces mais populares para desenvolvimento em sistemas embarcados são majoritariamente desenvolvidas sobre interfaces de programação genéricas e utilizadas para os mais variados fins, e dentre estas, muitas são desenvolvidas utilizando a linguagem de programação JAVA, conhecida por ser uma linguagem de baixo desempenho por ser executado pela JVM (\textit{Java Virtual Machine}).
 
-Boa parte destas IDE são de código fechado, com muitas restrições para o desenvolvedor, restringindo a liberdade do mesmo no seu fluxo
-de trabalho, em alguns casos obrigando a utilizar hardwares proprietarios para a execução de tarefas voltados a sistemas embarcados,
-obrigando a empresa ou usuario sofrer e ser obrigado a adiquirir soluções para problemas criados pelo proprio desenvolvedor do
-ambiente de desenvolvimento de sistemas embarcados.
-Alem disso, tais sistemas profissionais são conhecidos por terem preços desproporcionais as suas funções comparadas as alternativas de
-código aberto, podendo custar até milhares de dolares %\itodo{[ACHAR A FONTE DISSO AQUI]}.
+\abreviatura{JVM}{Java Virtual Machine}
 
-Dentro das opções de código aberto de desenvolvimento de sistemas embarcados, pode-se se destacar a Arduino, que disponibiliza tanto o
-software quanto o hardware. A sua popularidade veio como consequência da sua cultura de desenvolvimento de open source, onde
-tanto o hardware, quanto o software distribuidos tem sua documentação por completo aberta, permitindo que inumeros insuastas desenvolvam
-sem a necessidade de restrições, muitos outros acabam colaborando com os próprios projetos da empresa, facilitando desta forma
-o trabalho da mesma, produzindo versões melhoradas de seus produtos com a ajuda dos próprios usuarios e suas contribuições. A IDE
-desenvolvida pela Arduino e concebida majoritariamente em JAVA.
+Boa parte destas IDE são de código fechado, com certas restrições para o desenvolvedor, restringindo a liberdade do mesmo no seu fluxo de trabalho, em alguns casos obrigando a utilizar hardwares proprietários para a execução de tarefas voltados a sistemas embarcados, obrigando a empresa ou usuário adquirir soluções desenvolvidas pelos fornecedores. Alem disso, tais sistemas profissionais são conhecidos por terem preços desproporcionais as suas funções comparadas as alternativas de código aberto, podendo custar até milhares de dólares %\itodo{[ACHAR A FONTE DISSO AQUI]}.
+
+Dentro das opções de código aberto de desenvolvimento de sistemas embarcados, pode-se se destacar a Arduino, que disponibiliza tanto o software quanto o hardware. A sua popularidade veio como consequência da sua cultura de desenvolvimento de \textit{Open Source}, onde tanto o hardware, quanto o software distribuídos tem sua documentação por completo aberta, permitindo que inúmeros entusiastas desenvolvam sem a necessidade de restrições, muitos outros acabam colaborando com os próprios projetos da empresa, facilitando desta forma o trabalho da mesma, produzindo versões melhoradas de seus produtos com a ajuda dos próprios usuários e suas contribuições. A IDE desenvolvida pela Arduino e concebida majoritariamente em JAVA.
 
 Outras duas interfaces de código aberto utilizadas para sistemas embarcados são Eclipse e CCS, sendo o segundo baseado no primeiro
 derivado pela empresa conhecida como \textit{Texas Instruments}. Baseados na linguagem de programação JAVA, possibilitam uma
 integração com plugins relativamente fácil, podendo ser expandidas de acordo com o desenvolvedor e a disponibilidade das mesmas.
-Muitos desenvolvedores utilizam por falta de conhecimento de como os sistemas embarcados funcionam na sua maneira intrinsica,
-o ``o que'' e o ``como'' o funcionamento do hardware utilizado funcionam, isso pode ser dado a falta de desenvolvedores competentes
-ou especializados no assinto, como também a falta de conhecimento da empresa de como tais sistemas funcionam ou sua falta
-de capacidade de saber que estão erradas no seu fluxo de desenvolvimento, não por estarem totalmente errados, mas sim por não
-seguirem  de perto o caminho e evolução que a industria de sistemas embarcados resultou nos ultimos anos, em contantes evolução,
-viravoltas e mutações de hardware e software.
-
 
 \section{IDE Existentes}
 Dentro das opções disponíveis, pode-se destacar:
 %\itodo{[EXPANDIR DESCRIÇÃO]}
 \begin{itemize}
  \item \textbf{Atmel Studio}
- \subitem Limitado aos processadores AVR. Código fechado.
- \subitem Preço: Pago
+ \subitem Limitado aos processadores AVR.
+ \subitem Código fechado.
+ \subitem Preço: Pago.
 
  \item \textbf{Arduino IDE}
  \subitem Limitado ao suporte para placas da mesma plataforma com processadores AVR e ARM, alem de algumas personalizadas
  pela comunidade open source, como, por exemplo: ESP-8266
- \subitem Preço: Grátis
+ \subitem Código aberto.
+ \subitem Preço: Grátis.
 
  \item \textbf{ArduIDE}
- \subitem Limitado aos processadores AVR.Código aberto.
- \subitem Preço: Grátis
+ \subitem Limitado aos processadores AVR.
+ \subitem Código aberto.
+ \subitem Preço: Gratuito.
 
  \item \textbf{PROGRAMINO IDE}
- \subitem Limitado aos processadores AVR.Código fechado.
- \subitem Preço: 30euros
+ \subitem Limitado aos processadores AVR.
+ \subitem Código fechado.
+ \subitem Preço: 30 euros.
 
- \item \textbf{PROGRAMINO IDE}
- \subitem Plugin para Atom, que por sua vez é baseado em um browser.tendo dessa forma um tempo de resposta lentoas entradas do usuário.
- \subitem Preço: grátis
+ \item \textbf{PlatformIO}
+ \subitem Plugin para Atom, que por sua vez é baseado em um browser.
+ \subitem Código aberto.
+ \subitem Preço: Gratuito.
 
  \item \textbf{Embrio}
- \subitem Limitado aos processadores AVR.Código fechado.
- \subitem Preço: 59 dolares
+ \subitem Limitado aos processadores AVR.
+ \subitem Código fechado.
+ \subitem Preço: 59 dólares.
 
  \item \textbf{Embedded Studio}
- \subitem para fins educacionais.Limitado aos processadores ARM.Código fechado
- \subitem Preço: grátis
+ \subitem Para fins educacionais, limitado aos processadores ARM.
+ \subitem Código fechado
+ \subitem Preço: Gratuito.
 
  \item \textbf{IAR}
- \subitem Limitado aos processador ARM.Código fechado.
- \subitem Preço: Pago
+ \subitem Limitado aos processador ARM.
+ \subitem Código fechado.
+ \subitem Preço: Pago.
 
  \item \textbf{mikroe IDE}
- \subitem Limitado aos processador ARM da família M3 e M4.Código fechado.
- \subitem Preço: 299 dolares
+ \subitem Limitado aos processador ARM da família M3 e M4.
+ \subitem Código fechado.
+ \subitem Preço: 299 dólares.
 
  \item \textbf{GNU ARM Eclipse}
- \subitem Limitado aos processadores ARM.Plugin para a IDE Eclipse, feito em java, código aberto.
- \subitem Preço: gratuito
+ \subitem Limitado aos processadores ARM, plugin para a IDE Eclipse.
+ \subitem Código aberto.
+ \subitem Preço: Gratuito.
 
  \item \textbf{CrossWorks}
- \subitem dependendo do tipo de licença.Limitado aos processador ARM.Código fechado.
- \subitem Preço: \$150 até \$2250
+ \subitem Depende do tipo de licença, limitado aos processador ARM.
+ \subitem Código fechado.
+ \subitem Preço: \$150 até \$2250.
 
  \item \textbf{Code Composer Studio}
- \subitem dependendo do tipo de licença.Limitado aos processadores ARM.IDE baseada em NetBeans, código aberto.
- \subitem Preço: Grátis até \$5495
+ \subitem Dependendo do tipo de licença.
+ \subitem Código fechado.
+ \subitem Preço: Grátis até \$5495.
+ 
+ \item \textbf{Keil}
+ \subitem Dependendo do tipo de licença.
+ \subitem Código fechado.
+ \subitem Preço: Grátis até \$5495.
+ 
+ \item \textbf{Simplicity-studio}
+ \subitem Dependendo do tipo de licença.
+ \subitem Código fechado.
+ \subitem Preço: Pago.
 
 \end{itemize}
 
+\iffalse
 \section{Dificuldades}
 Pela constante evolução no mundo de sistemas embarcados, cada empresa acaba criando se próprio padrão de desenvolvimento para os
-usuários, tendo o intuito de ajuda-los, acaba prejudicando o trabalho dos desenvolvedores com conhecimento avançado. Tal conhecimento
-não se trata de um arquitetura de hardware especifica, ou da abstração de software utilizada pelo fabricando para não resultar no uso
-de software a nível de registrador, mas sim o conhecimento sobre como o processo de gravação é realizado de forma intrínseca na visão
-de hardware e software integrados.
+usuários, tendo o intuito de ajuda-los, acaba prejudicando o trabalho dos desenvolvedores com conhecimento avançado. Tal conhecimento não se trata de um arquitetura de hardware especifica, ou da abstração de software utilizada pelo fabricando para não resultar no uso de software a nível de registrador, mas sim o conhecimento sobre como o processo de gravação é realizado de forma intrínseca na visão de hardware e software integrados.
 
 Boa parte das interfaces de programação para sistemas embarcados se trada de um sistema com vasta quantidade de configurações,
 com uma quantidade de abas e janelas que tornar inusual a utilização do gerenciador de projeto. Mesmo o intuito do fabricante ser bom,
@@ -100,5 +102,5 @@ Outro problema, é a falta de padronização entre os fabricante, nas placas de 
 básicas utilizadas para desenvolvimento do software de sistema embarcado. Atualmente, um dos padrões mais utilizados para software
 de sistemas embarcados, são as nomenclaturas utilizadas pela Arduino e pelo CMSIS, o primeiro por ser o mais utilizado por hobbistas
 e o segundo por ser o mais utilizado entre os desenvolvedores que optam pelos processadores derivados da arquitetura ARM.
-
+\fi
 \abreviatura{CMSIS}{Cortex Microcontroller Software Interface Standard}
