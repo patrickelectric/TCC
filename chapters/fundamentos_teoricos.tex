@@ -69,25 +69,22 @@ Com o passar dos anos, o poder de processamento permitiu que sistemas simples po
 
 \subsection{SoC}
 
-Atualmente o termo é empregado a circuitos integrados com uma vasta quantidade de sistemas integrados, podendo citar  \textit{GPU} (\textit{Graphics Processing Unit}), \textit{USB} (\textit{Universal Serial Bus}), módulos de rede, rádio e outros sistemas dentro do próprio circuito integrado.
+Atualmente o termo é empregado a circuitos integrados com uma vasta quantidade de sistemas integrados, podendo citar  \textit{GPU} (\textit{Graphics Processing Unit}), \textit{USB} (\textit{Universal Serial Bus}), módulos de rede, rádio e outros sistemas mais avançados dentro do próprio circuito integrado.
 
 \abreviatura{GPU}{\textit{Graphics Processing Unit}}
 \abreviatura{USB}{\textit{Universal Serial Bus}}
 
-Nesta categoria, pode-se destacar o desenvolvimento dos sistemas desenvolvidos pela fabricante ARM, tendo ultrapassado a Intel como a maior produtora de processamentos do mundo, após a revolução \textit{mobile} onde a maioria das pessoas comuns começaram a utilizar \textit{smartphones} substituindo o uso de computadores pessoais para realizar as suas rotinas pessoais digitais diárias. Esta revolução, esta fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
+Nesta categoria, pode-se destacar o desenvolvimento dos sistemas desenvolvidos pela fabricante ARM, tendo ultrapassado a Intel como a maior produtora de processamentos do mundo, após a revolução dos dispositivos móveis onde a maioria das pessoas comuns começaram a utilizar \textit{smartphones}, acarretando na substituição do uso de computadores para realizar as suas rotinas pessoais digitais diárias. Esta revolução, está fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
 
 
 \section{Bootloader}
 
 A vantagem de se utilizar um sistema de carregamento de boot\footnote{Processo no qual o sistema computacional se inicia.} é
-a gravação programa principal com a assistência de um software primário, conhecido como \textit{bootloader}. Um microcontrolador
+a gravação do programa principal com a assistência de um software primário, conhecido como \textit{bootloader}. Um microcontrolador
 com este sistema, também pode ser denominado de auto-programável, pois possui as dependências necessárias para realizar o próprio
 processo de programação.
 
-Contudo, é importante a realização da programação externa, utilizando um \textit{hardware} especializado, que permiti a programação do processador, independente do \textit{software} que já está programado ou em execução. Alguns processadores, que se encontram em estados indevidos ou não planejados, podendo acarretar um mal funcionamento do sistema, podem ser regravados sem a preocupação do \textit{bootloader}, utilizando a gravação com a ferramenta do \textit{hardware} especializado, limpando toda a memória e gravando o programa. O mesmo também é necessario para realizar a gravação do bootloader pela primeira vez no processador, após isso, o próprio bootloader pode se reprogramar ou atualizar.
-
-Para entender melhor o funcionamento, pode-se utilizar uma maquina de estados do \textit{bootloader} utilizado nos microcontroladores
-AVR, para uma melhor visualização na \figref{fig:sm_bootloader} e uma descrição dos estados na \tabref{tab:bootloader}.
+Para entender melhor o funcionamento, pode-se utilizar uma maquina de estados do \textit{bootloader} utilizado nos microcontroladores AVR, para uma melhor visualização na \figref{fig:sm_bootloader} e uma descrição dos estados na \tabref{tab:bootloader}.
 
 \begin{figure*}[ht!]
   \centering
@@ -116,17 +113,17 @@ AVR, para uma melhor visualização na \figref{fig:sm_bootloader} e uma descriç
 
 \begin{table}[ht!]
 \centering
-\caption[Descrição dos estados do bootloader]{Descrição dos estados da \figref{fig:sm_bootloader}}
+\caption[Descrição dos estados do \textit{bootloader}]{Descrição dos estados da \figref{fig:sm_bootloader}}
 \label{tab:bootloader}
 \begin{tabular}{@{}l l p{55mm}@{}}
 \toprule
 Estado             & Próximos estados           & Descrição                                                                                                             \\ \midrule
-\textit{init\_hw}  & \textit{new\_prog}         & Inicializa depêndencias de \textit{hardware} para a utilização do \textit{bootloader}, Ex: serial.                \\
-\textit{new\_prog} & \textit{get\_com,run\_prg} & Espera uma interrupção de \textit{hardware} ser inicializada para inicialização da rotina de \textit{bootloader}. \\
+\textit{init\_hw}  & \textit{new\_prog}         & Inicializa depêndencias de hardware para a utilização do \textit{bootloader}, Ex: serial.                \\
+\textit{new\_prog} & \textit{get\_com,run\_prg} & Espera uma interrupção de hardware ser inicializada para inicialização da rotina de \textit{bootloader}. \\
 get\_com           & \textit{chk\_com}          & Adiquiri os dados do \textit{buffer} da serial.                                                                     \\
 chk\_com           & \textit{exe\_com,get\_com} & Checa o comando recebido pela serial, caso o não é valido outro comando deverá ser buscado.                           \\
 exe\_com           & \textit{get\_com}          & Executa o comando após a validação                                                                                    \\
-run\_prg           &                            & Inicializa programa principal caso a rotina de programação não é inicializada via interrupção de \textit{hardware}. \\ \bottomrule
+run\_prg           &                            & Inicializa programa principal caso a rotina de programação não é inicializada via interrupção de hardware. \\ \bottomrule
 \end{tabular}
 \end{table}
 
@@ -143,7 +140,7 @@ visualizado na \figref{fig:me_bootloader}.
         \memsection{0000 ffff}{0000 0000}{3}{\textit{Bootloader}}
     \end{rightwordgroup}\\
   \end{bytefield}
-  \caption[Memória com \textit{bootloader}]{\label{fig:me_bootloader}}{Memória com bootloader,\\baseado em
+  \caption[Memória com \textit{bootloader}]{\label{fig:me_bootloader}}{Memória com \textit{bootloader},\\baseado em
   \textit{``Modular bootloader framework for silicon labs SIMXXXXX microcontrollers - Silicon Labs''}.}
 \end{figure*}
 
@@ -151,8 +148,18 @@ visualizado na \figref{fig:me_bootloader}.
 %O processo é a transmissão do novo código a ser enviado para a memória do sistema embarcado, r
 
 %\itodo{[ADICIONAR  UMA LISTA DOS BOOTLOADERS]}
+
+\section{Programação externa}
+%é importante
+A realização da programação externa, utilizando um hardware especializado que  permiti a programação do processador, independente do software que já está programado ou em execução. Alguns processadores, que se encontram em estados indevidos ou não planejados, podendo acarretar um mal funcionamento do sistema, podem ser regravados sem a preocupação do \textit{bootloader}, utilizando a gravação com a ferramenta do hardware especializado, limpando toda a memória e gravando o programa. O mesmo também é necessário para realizar a gravação do \textit{bootloader} pela primeira vez no processador, após isso, o próprio \textit{bootloader} pode se reprogramar ou atualizar.
+
+A programação via um hardware especializado é geralmente concebida, dentro dos softwares livres, com o OpenOCD (\textit{Open On Chip Debugger})\cite{openocd}, realizando a interface de software na comunicação com o hardware especializado como o JTAG (\textit{Joint Test Action Group}).
+
+\abreviatura{JTAG}{\textit{Joint Test Action Group}}
+\abreviatura{OpenOCD}{\textit{Open On Chip Debugger}}
+
 \section{KDevelop}
-O plugin proposto foi desenvolvido encima da plataforma conhecida como \textbf{KDevelop}, pertencente a organização \textit{KDE},
+O plugin proposto foi desenvolvido sobre a plataforma conhecida como \textbf{KDevelop}, pertencente a organização \textit{KDE},
 sendo um conceito de \textit{IDE} para programação.
 
 Concebido utilizando as tecnologias de código aberto mais modernas, como C++14, QT 5.8, entre outras bibliotecas e ferramentas
@@ -164,95 +171,20 @@ para programar em C, C++, Perl, Python, PHP, Java, Fortran, Ruby, Ada, Pascal, S
 configuração para compilação como: cmake, qmake e make.
 
 Diferente de outras \textit{IDEs} que propõem as mesmas soluções que o \textbf{KDevelop}, este é inteiramente desenvolvido
-com foco em performance e numa agradável experiência do usuário, permitindo o desenvolvimento e adesão de projetos na \textit{IDE},
-sem a burocracia da adesão do projeto na interface, permitindo utilizar toda a informação disponível nos sistemas assistencialistas
-de configuração de compilação, como fonte das dependências e de informações sobre o projeto adicionado. Para um programador comum
-de código aberto, \textbf{KDevelop} se apresenta como uma ótima opção.
+com foco em performance e numa agradável experiência do usuário, permitindo o desenvolvimento e adesão de projetos na \textit{IDE} (\textit{Integrated Development Environment}) sem restringir a outros ambientes de desenvolvimento, utilizando toda a informação disponível nos sistemas assistencialistas de configuração de compilação, como fonte das dependências e de informações sobre o projeto adicionado. Para um programador comum de código aberto, o \textbf{KDevelop} se apresenta como uma ótima opção.
 
 \abreviatura{IDE}{\textit{Integrated Development Environment}}
 
-\subsection{Google Summer of Code}
-O projeto foi financiado pela \textbf{Google}, como parte do \textit{Google Summer of Code} (\figref{fig:gsoc2016}) durante
-sua realização, como incentivo de desenvolvimento pra organizações e projetos de código aberto. A proposta do desenvolvimento
-de um plugin para sistemas embarcados na \textit{IDE} \textbf{KDevelop}, foi submetida e aprovada pela organização
-responsável (\textit{KDE}).
-
-\begin{figure}[!htb]
-  \centering
-  \caption[Logo GSoC 2016]{Logo do projeto \textit{Google Summer of Code} 2016}
-  \label{fig:gsoc2016}
-  \includegraphics[width=0.7\textwidth]{figuras/gsoc2016.jpg}
-\end{figure}
-
 \subsection{Plugins}
-O \textit{plugin} opera como uma biblioteca compartilhada que é carregada durante o tempo de execução, desta forma, providenciando acesso
-as funções da biblioteca. A vantagem de se lhe utilizar, é a instalação dos \textit{plugins} que são utilizados, permitindo desta forma
-um uso modular das dependências utilizadas no projeto, sem a necessidade de ter o conjunto como um único binário com todas as dependências,
-mesmo aquelas não utilizadas pelo desenvolvedor.
+O \textit{plugin} opera como uma biblioteca compartilhada que é carregada durante o tempo de execução, desta forma, providenciando acesso as funções da biblioteca. Uma grande vantagem da sua utilização é o uso modular das dependências utilizadas no projeto, sem a necessidade de ter o conjunto como um único binário com todas as dependências, mesmo aquelas não utilizadas pelo desenvolvedor.
 
 Uma outra vantagem da utilização de \textit{plugins}, é permitir somente a utilização do binário, sem a necessidade de utilizar
-o código fonte do mesmo, permitindo desta forma, a utilização de \textit{plugins} que não são de código aberto, facilitando desta
-forma o apoio e uso de sistemas proprietários desenvolvidos, mantendo sigiloso o trabalho intelectual do mesmo.
-
-\subsection{Comunidade Open Source}
-
-A comunidade pertencente a cultura \textit{Open Source}\footnote{Projetos desenvolvidos de código aberto, podendo ser utilizado,
-modificado e reproduzido.}, tem como base o usufruto dos trabalhos produzidos, pela mesma, para a humanidade \cite{wynants2005open},
-permitindo a copia, distribuição, estudo, alteração e melhoraria do software \cite{filosofia},
-tornando o código altamente configurável, flexível e facilmente atualizável para suportar as versões mais novas
-de suas dependências.
-
-% http://pt.slideshare.net/ezyolamarca/palestra-ezyo-usodeferramentaslivresnagestaodoconhecimentoodp
-A base desta cultura é a \textit{CoP}\footnote{Denominação dada a um grupo de indivíduos que tem um interesse comum,
-compartilhando o desenvolvimento e conhecimento para uma finalidade comum.}\cite{wenger1998communities}, tendo como foco o desenvolvimento,
-paralelo e continuo de produtos de código aberto para uma finalidade especial que o grupo propõem, em pró a civilização. Permitindo
-que qualquer um possa ter direito completo ao acesso e apropriação do material intelectual concebido pela comunidade.
-
-\abreviatura{CoP}{\textit{Communities of Practice}}
-
-O termo, mesmo sendo utilizado majoritariamente para software, também é empregado para produtos de hardware desenvolvidos,
-podendo também ser denominado como \textit{Open Hardware} (\figref{fig:osoh}).
-
-\begin{figure}[!htb]
-  \centering
-  \caption[\textit{Open Software} e \textit{Open Hardware} logos]{Logos utilizadas em projeto de software na esquerda e de hardware à direita.}
-  \label{fig:osoh}
-  \includegraphics[width=1\textwidth]{figuras/osoh.png}
-\end{figure}
-
-Durante os últimos anos, com a evolução tecnológica da informação, permitindo que as pessoas tenham um acesso mais aberto para
-a tecnologia, permitiu que a evolução das comunidades de código aberto, e o numero de pessoas que fazem parte destas, tivessem
-um crescimento exponencial de membros, resultando em projetos extremamente populares e de um valor intelectual incalculável,
-pela vasta quantidade e especializações necessárias para sua concepção. Entre os projetos mais populares de software e hardware
-abertos, podem se destacar a kernel do sistema operacional conhecido como \textbf{Linux} e os projetos de impressoras 3D, tendo
-como destaque a \textbf{RepRap}.
-
-\subsection{KDE}
-Existe uma grande quantidade de organizações de código aberto, estre elas, pode-se destacar: \textit{Linux Foundation}, KDE, GNOME,
-GNU entre inúmeras outras. O trabalho aqui relatado foi desenvolvido para a organização KDE, que tem como lema principal: ``Experimente
-a liberdade'' \cite{kdelema}, deixando de forma implícita os teóricos malefícios de produtos com código fechado\footnote{Denominado pela
-comunidade como \textit{Software Closed Source}}.
-
-A comunidade teve seu inicio em 1996 como uma tentativa de ambiente de trabalho para computadores, com o objetivo
-de tornar a experiência do usuário simples e agradável, tanto a interface de usuário como os programas utilizados no computador.
-No Brasil, existe aproximadamente 50 milhões de estudantes usando sistemas baseados nas tecnologias desenvolvidas pela KDE
-\cite{kdewhatis}.
+o código fonte do mesmo, permitindo, a utilização de \textit{plugins} que não são de código aberto, facilitando desta
+forma o apoio e uso de sistemas proprietários desenvolvidos, mantendo sigiloso o trabalho intelectual.
 
 \section{Sistema de Controle de Versão}
 
-Para fazer o controle do projeto desenvolvido, dentre as ferramentas utilizadas, foi realizado todo o desenvolvimento com o
-\textit{GIT} (\figref{fig:gitlogo}), sendo uma das opções mais comuns entre as comunidades da cultura \textit{Open Source}
-ao lado do sistema conhecido como bazaar.
+Para fazer o controle do projeto desenvolvido foi utilizado o \textit{GIT}, permitindo o controle de versão do código, paralelismo no desenvolvimento, detecção de conflitos entre diferentes versões, detecção de erros, entre outras utilizações de grande valia
+para o desenvolvimento de software.
 
 \abreviatura{GIT}{\textit{Global Information Tracker}}
-
-\begin{figure}[!htb]
-  \centering
-  \caption[Logo GIT]{Logo do sistema de controle de versão GIT.}
-  \label{fig:gitlogo}
-  \includegraphics[width=0.4\textwidth]{figuras/gitlogo.png}
-\end{figure}
-
-A maior utilidade de um sistema que permiti o controle de versão de código, é permitir a realização do trabalho em paralelo,
-detecção de conflitos entre diferentes versões, rastrear modificações, detecção de erros, entre outras utilizações de grande valia
-para o desenvolvimento de software.
