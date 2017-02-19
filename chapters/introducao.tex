@@ -17,7 +17,10 @@ Com o avanço tecnológico e a evolução do hardware heterogêneo (sistemas com
 %https://community.nxp.com/thread/389162
  existentes no mercado ou opções limitadas nas IDEs, como, por exemplo, DebugWire\cite{debugwire}, hardware exclusivo de depuração LPC\cite{nxp}, suporte limitado de depuradores\cite{kiledebug} entre outros, dificultando ou restringindo o desenvolvimento do usuário.
 
-Geralmente, as ferramentas utilizadas para o desenvolvimento são de código fechado, distribuídas numa versão binaria, restringindo a modificação do software pelo usuário e personalizações do desenvolvimento. No desenvolvimento do estado da arte, a personalização da ferramenta é essencial para permitir o desenvolvimento, evitando a espera do suporte dentro dos sistemas vendidos, desta forma, muitas empresas acabam aderindo aos software de código aberto pela sua agilidade para adesão a novas tecnologias, podendo destacar Microsoft\cite{microsoftn1}, Intel, Samsung, IBM e Renesas\cite{topskernel}.
+Usualmente, as ferramentas utilizadas para o desenvolvimento são de código fechado, distribuídas numa versão binaria, restringindo a modificação do software pelo usuário e personalizações do desenvolvimento. No desenvolvimento do estado da arte, a personalização da ferramenta é essencial para permitir o desenvolvimento, evitando a espera do suporte dentro dos sistemas proprietarios, desta forma, muitas empresas acabam aderindo aos software de código aberto pela sua agilidade para adesão a novas tecnologias, podendo destacar Microsoft\cite{microsoftn1}, Intel, Samsung, IBM e Renesas\cite{topskernel}.
+
+\abreviatura{CPU}{\textit{Central Processor Unit}}
+\abreviatura{GPU}{\textit{Graphic Processor Unit}}
 
 \iffalse
 \subsubsection{Ferramentas proprietárias}
@@ -31,6 +34,9 @@ Como consequência disso, a gama de padrões de protocolos de comunicação, \te
 
 \section{Objetivo Geral}
 
+O projeto tem como objetivo uma proposta de solução para os problemas descritos anteriormente, não providenciando alguma padronização ou mais uma alternativa entre as já existentes pelo mercado, mas uma IDE que tenha um suporte de alto nível para todos estes que já existem. Tendo como foco de usuário o desenvolvedor de sistemas embarcados, visando um ambiente configurável e mutável a suas necessidades.
+
+Para a concepção, foi utilizado o KDevelop\footnote{IDE desenvolvida pela comunidade internacional de software livre KDE.} para base do sistema definido como sendo proposta do GSoC (\textit{Google Summer Of Code})\footnote{Projeto de incentivo para estudantes no desenvolvimento de código livre organizado pela Google.}. Por ser uma IDE desenvolvida majoritariamente em C++ e permitir o carregamento em tempo de execução de algumas ferramentas (via a utilização de \textit{plugins}), já abrangendo alguns dos requerimentos do sistema que serão discutidos.
 
 %comment
 \iffalse
@@ -52,7 +58,7 @@ Para realizar os objetivos, os seguintes passos são listados:
 \item Analise inicial sobre KDevelop.
 %\footnote{adicionar nota de roda pé sobre o KDevelop, botar isso onde primeiramente acontece.} no irc \itodo{Adicionar abreviatura de irc} \footnote{Adicionar footnote sobre irc}.
 \item Estudo para traçado inicial de estrutura e objetivo.
-\item \textbf{Inicio do desenvolvimento}.
+\item Inicio do desenvolvimento.
 \item Carregamento do plugin.
 \item Selecionar primeiro sistema embarcado para desenvolvimento.
 \item Desenvolvimento do instalador de dependências.
@@ -75,7 +81,6 @@ Esta flexibilidade de integração de projetos no KDevelop acrescenta um grau de
 \section{Estrutura do Trabalho}
 
 \begin{enumerate}
-\item \textbf{Introdução} - Tema e contextualização do que será abordado no trabalho.
 \item \textbf{Fundamentos teóricos} - Revisão dos assuntos abordados e necessários, fundamentais para realização do projeto.
 \item \textbf{Estado da arte} - Comparação dos sistemas existentes que abordam o assunto e tentam aplicar uma proposta de solução.
 \item \textbf{Projeto da ferramenta} - Rascunhos iniciais de interface e arquitetura de software.
