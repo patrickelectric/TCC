@@ -28,6 +28,7 @@
 
 \usepackage{booktabs} % tabela abnt
 \usepackage{rotating} % rotaciona
+\hyphenation{op-tical}  % pras palavras não passarem da margem
 
 \usetikzlibrary{arrows,automata}
 % END maquina de estados
@@ -57,7 +58,7 @@ frame=bt
 
 %----------------------------------------------------------------------
 % Comandos criados pelo usuário
-
+\newcommand{\meutodo}[1][]{\@latex@warning{TODO #1}}
 \renewcommand{\lstlistingname}{Algorítimo}% Listing -> Algorithm
 \renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> List of Algorithms
 
@@ -115,7 +116,7 @@ frame=bt
 {\itodo{(Autor da epígrafe, ano)}}
 %%%%
 \textoResumo{
-O desenvolvimento de software para sistemas embarcados se encontra em constante evolução e adaptação, atualmente no intuito de suprir os requerimentos IoT (\textit{Internet of Things}), IoSM (\textit{Internet of Smart Things}) e IoIT (\textit{Internet of Important Things}). Os padrões estão sendo redefinidos, tanto quanto a tecnologia quanto a metodologia de desenvolvimento existentes, fazendo com que as indústrias aderissem a abordagens não ortodoxas para realizarem tarefas de alto grau de complexidade (comunidade de desenvolvimento, ferramentas \textit{Open Source} e etc.). O Objetivo deste trabalho é o desenvolvimento de uma ferramenta capaz de permitir ao elaborador de software para sistemas embarcados a capacidade de criar, aprimorar e verificar seu trabalho sem a necessidade de ferramentas proprietárias ou possíveis limitante. O trabalho além de relatar o desenvolvimento de tal ferramenta, elabora o contexto das atualizações que estão sendo realizadas dentro das grandes empresas.
+O desenvolvimento de software para sistemas embarcados se encontra em constante evolução, adaptação e popularização das plataformas embarcadas resultante do aumento na sua capacidade de processamento, assim como na grande quantidade de recursos integrados, tais como diferentes protocolos de comunicação acesso a internet entre outros. Este avanço tem contribuído para o surgimento de diferentes aplicações tais como IoT (\textit{Internet of Things}), IoSM (\textit{Internet of Smart Things}) e IoIT (\textit{Internet of Important Things}). Os padrões estão sendo redefinidos, tanto quanto a tecnologia quanto a metodologia de desenvolvimento existentes, fazendo com que as indústrias aderissem a abordagens não ortodoxas numa tentativa para acompanhar a evolução dos sistemas de hardware e realizarem tarefas de alto grau de complexidade (utilizando comunidades de desenvolvimento,  ferramentas de código aberto e etc.). O Objetivo deste trabalho é o desenvolvimento de uma ferramenta capaz de permitir ao desenvolvedor de sistemas embarcados a possibilidade de criar, editar e verificar seus projetos sem a necessidade do uso de outras ferramentas, além de relatar o desenvolvimento de tal ferramenta, elabora o contexto das atualizações que estão sendo realizadas dentro das grandes empresas.
 
 \abreviatura{IoT}{\textit{Internet of Things}}
 \abreviatura{IoST}{\textit{Internet of Smart Things}}
@@ -125,7 +126,7 @@ O desenvolvimento de software para sistemas embarcados se encontra em constante 
 \palavrasChave{Sistemas embarcados. \textit{Open Source}. Desenvolvimento. IoT.}
 
 %%%%
-
+%% ATUALIZAR
 \textAbstract{The software development for embedded systems is constantly evolving and adapting to the new technologies that arise to supply the needs of IoT (Internet of Things), IoSM (Internet of Smart Things) e IoIT (Internet of Important Things). Standards are being redefined as much as technologies and development methodology, causing industries to adhere unorthodox approaches to perfom tasks of high complexity (community, Open Source tools and etc.). The objective of this work is the development of a tool that allows the software developer of embedded systems the ability to create, improve and verify their work without the need for proprietary or limiting tools. The work in addition reports the development of such tool, elaborates the context of updates that are being carried out within the development of large companies.}
 \keywords{Embedded Systems. \textit{Open Source}. Development. IoT.}
 
