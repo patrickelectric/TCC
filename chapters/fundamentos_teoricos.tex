@@ -35,7 +35,7 @@ Dentro da área de sistemas embarcados, por envolver uma ampla gama de periféri
 
 \subsection{Microcontrolador}
 
-Trata de um sistema completo, sendo geralmente autossuficiente em relação aos periféricos necessários para realizar seu funcionamento, necessitando apenas de uma fonte de alimentação externa. O processador, memória, periféricos de entrada e saída (\textit{ADC}, \textit{PWM}, \textit{GPIO}, entre outros) e oscilador na mesma pastilha de silício \figref{fig:ricv}, barateando os custos de sua confecção, permitindo a popularização dos mesmos na industria e na comunidade DIY (Do It Yourself)/Makers\footnote{Cultura de desenvolvimento tecnológico próprio, derivado do movimento \textit{DIY}, sendo conhecido pela construção, modificação e manutenção pessoal.}. Estes mesmos
+Um microcontrolador é definido como um sistema completo, sendo geralmente autossuficiente em relação aos periféricos necessários para realizar seu funcionamento. O processador, memória, periféricos de entrada e saída (\textit{ADC}, \textit{PWM}, \textit{GPIO}, entre outros) e oscilador na mesma pastilha de silício (\figref{fig:ricv}), barateando os custos de sua confecção, permitindo a popularização dos mesmos na industria e na comunidade DIY (Do It Yourself)/Makers\footnote{Cultura de desenvolvimento tecnológico próprio, derivado do movimento \textit{DIY}, sendo conhecido pela construção, modificação e manutenção pessoal.}. Estes mesmos
 sistemas permitem o uso de osciladores externos, possibilitando o aumento da frequência de \textit{clock}\footnote{Sinal temporal periódico que determina a atualização dos registrados do sistema.} e como consequência um acréscimo no MIPS.
 
 \abreviatura{DIY}{\textit{Do It Yourself}}
@@ -50,9 +50,8 @@ sistemas permitem o uso de osciladores externos, possibilitando o aumento da fre
 
 \begin{figure}[!htb]
   \centering
-  \caption[Microcontrolador na pastilha de silício.]{Microcontrolador 32 bits baseado na arquitetura \textit{RISCV}\footnote{Arquitetura aberta baseada na \textit{RISC}.}
-  com periféricos (\textit{ADC}, \textit{DAC}, \textit{GPIO} e memória \textit{RAM}), imagem compartilhada do grupo de pesquisa
-  colombiano \textbf{onchip}.}
+  \caption[Microcontrolador na pastilha de silício.]{Microcontrolador 32 bits baseado na arquitetura \textit{RISCV} (\textit{Reduced Instruction Set Computing - V})\footnote{Arquitetura aberta baseada na \textit{RISC}.}
+  com periféricos (\textit{ADC}, \textit{DAC} (\textit{Digital-to-Analog Converter}), \textit{GPIO} e memória \textit{RAM} (\textit{Random Access Memory})), Fonte: onchip\cite{onchip}.}
   \label{fig:ricv}
   \includegraphics[width=0.5\textwidth]{figuras/riscv.jpg}
 \end{figure}
@@ -61,22 +60,25 @@ sistemas permitem o uso de osciladores externos, possibilitando o aumento da fre
 \abreviatura{RAM}{\textit{Random Access Memory}}
 \abreviatura{RISCV}{\textit{Reduced Instruction Set Computing - V}}
 
-Se nas ultimas décadas, o acesso a computadores se tornou facilitada, nas próximas que estão por vir, o uso e aquisição de sistemas computacionais não será um mero luxo ou aquisição, mas sim uma inevitabilidade. Tudo terá um processador, se não, um sistema computacional simples. Pode-se notar muitas etiquetas de RFID e cada vez mais modernas \cite{ricci2008design}, contendo sistemas computacionais complexos.
+Se nas ultimas décadas, o acesso a computadores se tornou facilitado, nas próximas que estão por vir, o uso e aquisição de sistemas computacionais não será um mero luxo, mas sim uma inevitabilidadea\cite{gates1995estrada}. Tudo terá um processador, se não, um sistema computacional simples. Pode-se notar muitas etiquetas de RFID (\textit{Rafio Frequency Identification}) e cada vez mais modernas \cite{ricci2008design}, contendo sistemas computacionais complexos.
+
+\abreviatura{RFID}{\textit{Rafio Frequency Identification}}
 
 \subsection{Microprocessador}
 
-Parte principal de um sistema computacional, com o objetivo de decodificar e executar as instruções em código de maquina existente na memória. A tabela que é interpretada, denominada por conjunto de instruções, contem todos os padrões binários possíveis a serem decodificados, resultando em sinais lógicos para a eletrônica que o executará, podendo realizar comparações, somas,multiplexações e leituras/escritas na memória.
+Parte principal de um sistema computacional, com o objetivo de decodificar e executar as instruções em código de maquina existente na memória\cite{Patterson:2008:COD:1502247}. A tabela que é interpretada, denominada por conjunto de instruções, contem todos os padrões binários possíveis a serem decodificados, resultando em sinais lógicos para a eletrônica que o executará, podendo realizar comparações, somas, multiplexações e leituras/escritas na memória.
 
 Com o passar dos anos, o poder de processamento permitiu que sistemas simples possam ter grande valor intelectual agregado, podendo utilizar como exemplo o termostato da Google, vendido atualmente por \$250, por realizar um \textit{aprendizado de maquina}\footnote{"Campo de estudo que dá aos computadores a habilidade de aprender sem serem explicitamente programados`` -  Arthur Samuel, 1945.}, proporcionando ao aparelho um melhor gerenciamento da temperatura do ambiente, realizando uma economia energética e uma melhora na qualidade de vida do usuário.
 
 \subsection{SoC}
 
-Atualmente o termo é empregado a circuitos integrados com uma vasta quantidade de sistemas integrados, podendo citar  \textit{GPU} (\textit{Graphics Processing Unit}), \textit{USB} (\textit{Universal Serial Bus}), módulos de rede, rádio e outros sistemas mais avançados dentro do próprio circuito integrado.
+Atualmente o termo é empregado a circuitos com uma vasta quantidade de sistemas integrados, podendo citar  \textit{GPU} (\textit{Graphics Processing Unit}), \textit{USB} (\textit{Universal Serial Bus}), módulos de rede, rádio e outros sistemas mais avançados.
 
 \abreviatura{GPU}{\textit{Graphics Processing Unit}}
 \abreviatura{USB}{\textit{Universal Serial Bus}}
 
-Nesta categoria, pode-se destacar o desenvolvimento dos sistemas desenvolvidos pela fabricante ARM, tendo ultrapassado a Intel como a maior produtora de processamentos do mundo, após a revolução dos dispositivos móveis onde a maioria das pessoas comuns começaram a utilizar \textit{smartphones}, acarretando na substituição do uso de computadores para realizar as suas rotinas pessoais digitais diárias. Esta revolução, está fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
+Nesta categoria, pode-se destacar o desenvolvimento dos sistemas desenvolvidos pela fabricante ARM, tendo ultrapassado a Intel como a maior produtora de processamentos do mundo.
+Após a revolução dos dispositivos móveis onde a maioria das pessoas começaram a utilizar \textit{smartphones}, acarretando na substituição do uso de computadores para realizar as suas rotinas pessoais digitais diárias. Esta revolução, está fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
 
 
 \section{Bootloader}
@@ -86,7 +88,7 @@ a gravação do programa principal com a assistência de um software primário, 
 com este sistema, também pode ser denominado de auto-programável, pois possui as dependências necessárias para realizar o próprio
 processo de programação.
 
-Para entender melhor o funcionamento, pode-se utilizar uma maquina de estados do \textit{bootloader} utilizado nos microcontroladores AVR, para uma melhor visualização na \figref{fig:sm_bootloader} e uma descrição dos estados na \tabref{tab:bootloader}.
+Para entender melhor o funcionamento, pode-se utilizar uma maquina de estados para detalhar o \textit{bootloader} utilizado nos microcontroladores AVR (\figref{fig:sm_bootloader}), e uma descrição dos estados na \tabref{tab:bootloader}.
 
 \begin{figure*}[ht!]
   \centering
@@ -110,7 +112,7 @@ Para entender melhor o funcionamento, pode-se utilizar uma maquina de estados do
           (E) edge [bend right] node [below] {}     (C);
   \end{tikzpicture}
   \caption[Máquina de estados do avr \textit{bootloader}]{\label{fig:sm_bootloader}}{Máquina de estados
-  do avr \textit{bootloader},\\ baseado em \textit{AVR109: Self Programming - ATMEL}.}
+  do avr \textit{bootloader},\\Fonte: \textit{AVR109: Self Programming - ATMEL}.}
 \end{figure*}
 
 \begin{table}[ht!]
@@ -135,14 +137,14 @@ visualizado na \figref{fig:me_bootloader}.
 
 \begin{figure*}[ht!]
   \centering
-  \begin{bytefield}{24}
-    \memsection{ffff ffff}{002f c000}{15}{Pilha}\\
+  \begin{bytefield}{11}
+    \memsection{ffff ffff}{002f c000}{6}{Pilha}\\
     \begin{rightwordgroup}{Flash}
-        \memsection{002f bfff}{0001 0000}{9}{Aplicação principal}\\
-        \memsection{0000 ffff}{0000 0000}{3}{\textit{Bootloader}}
+        \memsection{002f bfff}{0001 0000}{3}{Aplicação principal}\\
+        \memsection{0000 ffff}{0000 0000}{2}{\textit{Bootloader}}
     \end{rightwordgroup}\\
   \end{bytefield}
-  \caption[Memória com \textit{bootloader}]{\label{fig:me_bootloader}}{Memória com \textit{bootloader},\\baseado em
+  \caption[Memória com \textit{bootloader}]{\label{fig:me_bootloader}}{Memória com \textit{bootloader},\\Fonte: 
   \textit{``Modular bootloader framework for silicon labs SIMXXXXX microcontrollers - Silicon Labs''}.}
 \end{figure*}
 
