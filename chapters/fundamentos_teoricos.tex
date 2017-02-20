@@ -155,15 +155,18 @@ visualizado na \figref{fig:me_bootloader}.
 
 \section{Programação externa}
 %é importante
-A realização da programação externa, utilizando um hardware especializado que  permiti a programação do processador, independente do software que já está programado ou em execução. Alguns processadores, que se encontram em estados indevidos ou não planejados, podendo acarretar um mal funcionamento do sistema, podem ser regravados sem a preocupação do \textit{bootloader}, utilizando a gravação com a ferramenta do hardware especializado, limpando toda a memória e gravando o programa. O mesmo também é necessário para realizar a gravação do \textit{bootloader} pela primeira vez no processador, após isso, o próprio \textit{bootloader} pode se reprogramar ou atualizar.
+A realização da programação externa, utilizando um hardware especializado que  permiti a programação do processador, independente do software que já está programado ou em execução.
+Alguns processadores, que se encontram em estados indevidos ou não planejados, podendo acarretar no mal funcionamento do sistema, podem ser regravados sem a preocupação do \textit{bootloader}, utilizando a gravação com a ferramenta do hardware especializado, limpando toda a memória e gravando o programa. O mesmo também é necessário para realizar a gravação do \textit{bootloader} pela primeira vez no processador, após isso, o próprio \textit{bootloader} pode se reprogramar ou atualizar.
 
 A programação via um hardware especializado é geralmente concebida, dentro dos softwares livres, com o OpenOCD (\textit{Open On Chip Debugger})\cite{openocd}, realizando a interface de software na comunicação com o hardware especializado como o JTAG (\textit{Joint Test Action Group}).
 
 \abreviatura{JTAG}{\textit{Joint Test Action Group}}
 \abreviatura{OpenOCD}{\textit{Open On Chip Debugger}}
 
+\section{JTAG}
+
 \section{KDevelop}
-O plugin proposto foi desenvolvido sobre a plataforma conhecida como KDevelop, pertencente a organização \textit{KDE},
+O plugin proposto foi desenvolvido sobre a plataforma conhecida como KDevelop,\cite{kdevelop} pertencente a organização \textit{KDE},
 sendo um conceito de \textit{IDE} para programação.
 
 Concebido utilizando as tecnologias de código aberto mais modernas, como C++14, QT 5.8, entre outras bibliotecas e ferramentas
@@ -172,10 +175,10 @@ de código para a utilização das ultimas versões das ferramentas empregadas n
 
 O \textbf{KDevelop} teve seu primeiro lançamento em 1999, sendo majoritariamente programado em C++, podendo ser utilizado
 para programar em C, C++, Perl, Python, PHP, Java, Fortran, Ruby, Ada, Pascal, SQL e Bash. Suportando também sistemas de
-configuração para compilação como: cmake, qmake e make.
+configuração para compilação como cmake, qmake e make.
 
 Diferente de outras \textit{IDEs} que propõem as mesmas soluções que o KDevelop, este é inteiramente desenvolvido
-com foco em performance e numa agradável experiência do usuário, permitindo o desenvolvimento e adesão de projetos na \textit{IDE} (\textit{Integrated Development Environment}) sem restringir a outros ambientes de desenvolvimento, utilizando toda a informação disponível nos sistemas assistencialistas de configuração de compilação, como fonte das dependências e de informações sobre o projeto adicionado. Para um programador comum de código aberto, o KDevelop se apresenta como uma ótima opção.
+com foco em performance e numa agradável experiência do usuário, permitindo o desenvolvimento e adesão de projetos na \textit{IDE} (\textit{Integrated Development Environment}) sem restringir outros ambientes de desenvolvimento, utilizando toda a informação disponível nos sistemas assistencialistas de configuração de compilação, como fonte das dependências e de informações sobre o projeto adicionado. Para um programador comum de código aberto, o KDevelop se apresenta como uma ótima opção.
 
 \abreviatura{IDE}{\textit{Integrated Development Environment}}
 
@@ -186,9 +189,19 @@ Uma outra vantagem da utilização de \textit{plugins}, é permitir somente a ut
 o código fonte do mesmo, permitindo, a utilização de \textit{plugins} que não são de código aberto, facilitando desta
 forma o apoio e uso de sistemas proprietários desenvolvidos, mantendo sigiloso o trabalho intelectual.
 
+\subsection{Tipos de ferramenta}
+Das ferramentas disponibilizadas para o desenvolvimento destas a Plicações possuem algumas limitações tais como, preço, licença, configuração entre outros, podendo ser classificadas conforme as seguintes categorias:
+
+\begin{itemize}
+ \item \textbf{Ferramentas proprietárias}: Ferramentas de desenvolvimento que geralmente utilizam software e hardware desenvolvido pelo próprio fabricante, não dando suporte a outros periféricos que não pertencem a mesma distribuidora ou parceira, limitando a liberdade de desenvolvimento. Outras permitem o desenvolvimento limitado para cada tipo de licença, dificultando o desenvolvimento que utilizam baixo orçamento, como, por exemplo: Limitação de tamanho de código\cite{simplicity}, pagar uma licença mais cara para utilizar opções de compilação otimizada (-O2 e -OS do GCC, C++11/14)\cite{armdeveloper} ou até mesmo opções para utilizar o algumas partes do processador (neon, -mfloat-abi e -mfpu dos processadores ARM, permitindo execução de cálculo matricial ou com ponto flutuante em hardware)\cite{neon}. A utilização de ferramentas proprietárias são majoritariamente usadas.
+
+ \item \textbf{Ferramentas de código aberto}: Utilizadas por uma parte dos desenvolvedores, fornece acesso total as suas funcionalidades, possibilitando modificações e aperfeiçoamentos nos mínimos detalhes. Estas interfaces permitem o desenvolvimento com uma experiência mais assistencialista, por possuir uma comunidade grande de desenvolvedores que disponibiliza suporte por e-mail ou grupos de chat. Contudo, por estar em constante evolução, sua documentação pode estar defasada ou inexistente.
+
+\end{itemize}
+
 \section{Sistema de Controle de Versão}
 
-Para fazer o controle do projeto desenvolvido foi utilizado o \textit{GIT}, permitindo o controle de versão do código, paralelismo no desenvolvimento, detecção de conflitos entre diferentes versões, detecção de erros, entre outras utilizações de grande valia
+Para o controle do projeto desenvolvido foi utilizado o \textit{GIT}, permitindo o controle de versão do código, paralelismo no desenvolvimento, detecção de conflitos entre diferentes versões, detecção de erros, entre outras utilizações de grande valia
 para o desenvolvimento de software.
 
 \abreviatura{GIT}{\textit{Global Information Tracker}}
