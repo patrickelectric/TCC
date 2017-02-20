@@ -25,6 +25,8 @@
 % START maquina de estados
 \usepackage{pgf}
 \usepackage{tikz}
+\usepackage{makecell} %breakcell
+\usepackage[section]{placeins} %figures in sections
 
 \usepackage{booktabs} % tabela abnt
 \usepackage{rotating} % rotaciona
@@ -59,7 +61,7 @@ frame=bt
 %----------------------------------------------------------------------
 % Comandos criados pelo usuário
 \newcommand{\meutodo}[1][]{\@latex@warning{TODO #1}}
-\renewcommand{\lstlistingname}{Algorítimo}% Listing -> Algorithm
+\renewcommand{\lstlistingname}{Algoritmo}% Listing -> Algorithm
 \renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> List of Algorithms
 
 %\newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
@@ -86,7 +88,7 @@ frame=bt
 \instituicao[a]{Universidade Federal de Santa Catarina} % Opcional
 \departamento[a]{Biblioteca Universitária}
 \curso[o]{Programa de Graduação em Engenharia Eletrônica}
-\documento[a]{Tese} % [o] para dissertação [a] para tese
+\documento[a]{Trabaho de Conclusão de Curso (TCC)} % [o] para dissertação [a] para tese
 \titulo{KDev-Embedded}
 \subtitulo{Plugin para desenvolvimento de sistemas embarcados} % Opcional
 \autor{Patrick José Pereira}
@@ -127,7 +129,7 @@ O desenvolvimento de software para sistemas embarcados se encontra em constante 
 
 %%%%
 %% ATUALIZAR
-\textAbstract{The software development for embedded systems is constantly evolving and adapting to the new technologies that arise to supply the needs of IoT (Internet of Things), IoSM (Internet of Smart Things) e IoIT (Internet of Important Things). Standards are being redefined as much as technologies and development methodology, causing industries to adhere unorthodox approaches to perfom tasks of high complexity (community, Open Source tools and etc.). The objective of this work is the development of a tool that allows the software developer of embedded systems the ability to create, improve and verify their work without the need for proprietary or limiting tools. The work in addition reports the development of such tool, elaborates the context of updates that are being carried out within the development of large companies.}
+\textAbstract{The development of software for embedded systems is constantly evolving, adapting and popularizing the embedded platforms, resulting from the increase in its processing capacity, as well as the large amount of integrated resources, such as different communication protocols, internet access and others. This advancement has contributed to the emergence of different applications, such as IoT (Internet of Things), IoSM (Internet of Smart Things) and IoIT (Internet of Important Things). Standards are being redefined as much as technology and the existing development methodology, causing industries to adhere to unorthodox approaches in an attempt to keep with the evolution of hardware systems and performing tasks of high complexity (using development communities , Open source tools, and so on). The objective of this work is the development of a tool that allows the embedded systems developer the possibility of creating, editing and verifying their projects without the use of other tools, besides reporting the development of such tool, elaborating the context of the updates that are being carried out within large companies.}
 \keywords{Embedded Systems. \textit{Open Source}. Development. IoT.}
 
 %----------------------------------------------------------------------
@@ -169,24 +171,25 @@ O desenvolvimento de software para sistemas embarcados se encontra em constante 
 \bibliographystyle{unsrt}
 \bibliography{bibliografia}
 
+%\iffalse
 %--------------------------------------------------------
 % Elementos pós-textuais
-\apendice
-\chapter{Exemplificando um Apêndice}
-Texto do Apêndice aqui.
+%\apendice
+%\chapter{Exemplificando um Apêndice}
+%Texto do Apêndice aqui.
 
-\anexo
-\chapter{Código do plugin}
+%\anexo
+%\chapter{Código do plugin}
 
-\lstinputlisting[language=C++,caption={arduinowindow.h},label=DescriptiveLabel]{kdev-embedded/arduinowindow.h}
-\lstinputlisting[language=C++,caption={arduinowindow.cpp},label=DescriptiveLabel]{kdev-embedded/arduinowindow.cpp}
-\lstinputlisting[language=C++,caption={toolkit.h},label=DescriptiveLabel]{kdev-embedded/toolkit.h}
-\lstinputlisting[language=C++,caption={toolkit.cpp},label=DescriptiveLabel]{kdev-embedded/toolkit.cpp}
-\lstinputlisting[language=C++,caption={firsttimewizard.h.in},label=DescriptiveLabel]{kdev-embedded/firsttimewizard.h.in}
-\lstinputlisting[language=C++,caption={firsttimewizard.cpp},label=DescriptiveLabel]{kdev-embedded/firsttimewizard.cpp}
-\lstinputlisting[language=C++,caption={embedded.h},label=DescriptiveLabel]{kdev-embedded/embedded.h}
-\lstinputlisting[language=C++,caption={embedded.cpp},label=DescriptiveLabel]{kdev-embedded/embedded.cpp}
-\lstinputlisting[language=C++,caption={board.h},label=DescriptiveLabel]{kdev-embedded/board.h}
-\lstinputlisting[language=C++,caption={board.cpp},label=DescriptiveLabel]{kdev-embedded/board.cpp}
-
+%\lstinputlisting[language=C++,caption={arduinowindow.h},label=DescriptiveLabel]{kdev-embedded/arduinowindow.h}
+%\lstinputlisting[language=C++,caption={arduinowindow.cpp},label=DescriptiveLabel]{kdev-embedded/arduinowindow.cpp}
+%\lstinputlisting[language=C++,caption={toolkit.h},label=DescriptiveLabel]{kdev-embedded/toolkit.h}
+%\lstinputlisting[language=C++,caption={toolkit.cpp},label=DescriptiveLabel]{kdev-embedded/toolkit.cpp}
+%\lstinputlisting[language=C++,caption={firsttimewizard.h.in},label=DescriptiveLabel]{kdev-embedded/firsttimewizard.h.in}
+%\lstinputlisting[language=C++,caption={firsttimewizard.cpp},label=DescriptiveLabel]{kdev-embedded/firsttimewizard.cpp}
+%\lstinputlisting[language=C++,caption={embedded.h},label=DescriptiveLabel]{kdev-embedded/embedded.h}
+%\lstinputlisting[language=C++,caption={embedded.cpp},label=DescriptiveLabel]{kdev-embedded/embedded.cpp}
+%\lstinputlisting[language=C++,caption={board.h},label=DescriptiveLabel]{kdev-embedded/board.h}
+%\lstinputlisting[language=C++,caption={board.cpp},label=DescriptiveLabel]{kdev-embedded/board.cpp}
+%\if
 \end{document}
