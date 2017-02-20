@@ -1,40 +1,27 @@
 \chapter{Experimento e Resultados}
-Após a finalização duma versão usável para qualquer desenvolvedor com conhecimento mediano sobre o desenvolvimento de sistemas embarcados, teve o inicio das execuções experimentais para a validação do sistema.
+Finalizada a fase de desenvolvimento da ferramenta, uma fase de testes foi iniciada com intuito de validar a ferramenta desenvolvida.
 
 \section{Ambiente Experimental}
 
-Todas as placas foram programas com o plugin desenvolvido utilizando um computador com o sistema operacional Linux (distro Arch) com as ultimas versões dos pacotes disponíveis, com o SDK do Arduino versão 1.6.10. A versão do KDevelop utilizado com o plugin foi a 5.0.0, contendo as atualizações da versão do QT 5.8 assim como uma boa parte do código migrado para C++11.
+Todas as placas foram programas com o plugin desenvolvido utilizando um computador com o sistema operacional Linux, com o SDK do Arduino versão 1.6.10. A versão do KDevelop utilizado com o plugin foi a 5.0.0, contendo as atualizações da versão do QT 5.8 assim como uma boa parte do código migrado para C++11.
 
 \subsection{Hardware Utilizado}
 
 Os processos de gravação foram realizados via USB, por intermédio de um hardware especializado para realizar a gravação ou um adaptador serial-USB para permitir uma comunicação do software de programação para com o \textit{bootloader}.
 
-\subsection{Arduino}
-
-\subsubsection{Arduino Mega}
-Foi utilizado um processador ATmega2560, possuindo 10 entradas analógicas a mais que o \textbf{Arduino UNO}, com 54 pinos digitais, 15 com função de \textit{PWM} e contendo um grande vantagem em memória RAM e EEPROM.
+O Arduino Mega possui um processador ATmega2560, com 10 entradas analógicas a mais que o Arduino UNO, com 54 pinos digitais, 15 com função de \textit{PWM} e contendo um grande vantagem em memória \textit{RAM} e \textit{EEPROM}.
 
 \abreviatura{RAM}{\textit{Random Access Memory}}
 
 
-\subsubsection{Arduino Nano}
+O Arduino Nano Por ser uma placa de desenvolvimento completa, com um tamanho de aproximadamente um quarto do Arduino UNO, se tornou muito popular pela mobilidade e facilidade de desenvolvimento, assim como o \textit{pinout}\footnote{ Referencia utilizada para equidistância entre os pinos ou conexões.} ideal para ser encaixado numa \textit{protoboard}\footnote{Matriz de contato, utilizada para realizar ensaios de circuitos, contem contatos e conexões para montagem.}. Além disso, alguns modelos tem dois pinos a mais de entrada analógica comparado com o Arduino Pro Mini e Arduino UNO.
 
-Por ser uma placa de desenvolvimento completa, com um tamanho de aproximadamente um quarto do \textbf{Arduino UNO}, se tornou muito popular pela mobilidade e facilidade de desenvolvimento, assim como o \textit{pinout}\footnote{ Referencia utilizada para equidistância entre os pinos ou conexões.} ideal para ser encaixado numa \textit{protoboard}\footnote{Matriz de contato, utilizada para realizar ensaios de circuitos, contem contatos e conexões para montagem.}. Além disso, alguns modelos tem dois pinos a mais de entrada analógica comparado com o \textbf{Arduino Pro Mini} e \textbf{Arduino UNO}.
+Desenvolvido para aplicações com pouco espaço e para instalações permanentes, o Arduino pro mini utiliza um processador ATmega328,  diferente de outras placas da Arduino, está não possui um hardware assistencialista para a realização do \textit{upload} do processador na própria placa, logo, tal artefato, necessita ser conectado na placa para realizar a sua programação, apesar disso, contem as demais características do \textbf{Arduino UNO}.
 
-\subsubsection{Arduino Pro Mini}
-
-Desenvolvido para aplicações com pouco espaço e para instalações permanentes, utiliza um processador ATmega328,  diferente de outras placas da Arduino, está não possui um hardware assistencialista para a realização do \textit{upload} do processador na própria placa, logo, tal artefato, necessita ser conectado na placa para realizar a sua programação, apesar disso, contem as demais características do \textbf{Arduino UNO}.
-
-\subsubsection{Arduino UNO}
-
-Sendo a placa de desenvolvimento de lançamento comemorativa do lançamento oficial do arduino da versão 1.0.0, utilizando o processador \textbf{ATmega328P}, sendo a primeira que utiliza USB para realizar o \textit{upload} do código de maquina para o processador via \textit{bootloader}. Contem 6 entradas analógicas, 14 pinos digitais, 6 pinos de \textit{PWM}, 1kb de \textit{SRAM}, 2kb de \textit{EEPROM}, 32kb de flash e 1 serial em hardware.
-
-Muito similar ao \textbf{Arduino Nano}, porém, conta com duas portas analógicas a menos.
+Sendo a placa de desenvolvimento de lançamento comemorativa do lançamento oficial do arduino, o Arduino UNO utiliza o processador ATmega328P, sendo a primeira que utiliza USB para realizar o \textit{upload} do código de maquina para o processador via \textit{bootloader}. Contem 6 entradas analógicas, 14 pinos digitais, 6 pinos de \textit{PWM}, 1kb de \textit{SRAM}, 2kb de \textit{EEPROM}, 32kb de flash e 1 serial em hardware. Muito similar ao Arduino Nano, porém, conta com duas portas analógicas a menos.
 
 \abreviatura{SRAM}{\textit{{Static Random Access Memory}}}
 \abreviatura{EEPROM}{\textit{Electrically-Erasable Programmable Read-Only Memory}}
-
-\subsection{ARM}
 
 ARM é uma arquitetura baseada na família RISC de processadores, onde as instruções tendem a ser operações simples, onde as mais complexas são quebradas até chegar em instruções uno.
 
@@ -44,9 +31,7 @@ Muitas placas de desenvolvimento, tanto para profissionais quanto para hobbistas
 
 \abreviatura{RISC}{\textit{Reduced Instruction Set}}
 
-\subsubsection{STM32F4DISCOVERY}
-
-O STM32 se trata de uma família de processadores da arquitetura ARM de 32-bits pertencentes a empresa \textbf{STMicroelectronics}. O Cortex-M, cerne do processador, pode ser encontrado em alguns processadores conhecidos como: Cortex-M0, Cortex-M1, Cortex-M3, Cortex-M4, Cortex-M7 entre outros. Sendo todos distintos pelo hardware de suporte a CPU, podendo ter FPU, decodificação de instruções de DSP, eficiência energética e etc.
+O STM32 se trata de uma família de processadores da arquitetura ARM de 32-bits pertencentes a empresa STMicroelectronics. O Cortex-M, cerne do processador, pode ser encontrado em alguns processadores conhecidos como: Cortex-M0, Cortex-M1, Cortex-M3, Cortex-M4, Cortex-M7 entre outros. Sendo todos distintos pelo hardware de suporte a CPU, podendo ter FPU, decodificação de instruções de DSP, eficiência energética e etc.
 
 \abreviatura{FPU}{\textit{Float Point Unit}}
 \abreviatura{DSP}{\textit{Digital Signal Processing}}
@@ -54,42 +39,39 @@ O STM32 se trata de uma família de processadores da arquitetura ARM de 32-bits 
 
 \section{Testes Realizados}
 
-Primeiramente foi feito alguns testes utilizando alguns modelos disponíveis de placadas da Arduíno, entre as versões atuais, as utilizadas foram: Arduino nano, Arduino Mini e Arduino Mega. Sendo utilizadas pela sua popularidade e grande numero disponível entre os usuários das plataformas da Arduino.
+Inicialmente foram avaliados alguns modelos de Arduíno, entre as versões atuais, as utilizadas foram: Arduino nano, Arduino Mini e Arduino Mega.
 
-O sistema desenvolvido, por conter somente as partes definidas pela realização do envio do binário para o sistema embarcado, o usuário deve definir, gerenciar e providenciar as ferramentas necessárias para tornar o código fonte para código binário de maquina. Contudo, o plugin disponibiliza para o usuário uma ferramenta de instalação do SDK necessário para realizar tanto a compilação do código desenvolvido pelo usuário quando o conjunto de ferramentas necessários para o plugin realizar a programação do hardware.
+Para demonstrar o funcionamento minimo do sistema, foi utilizado o projeto Arduino-Makefile\footnote{\url{https://github.com/sudar/Arduino-Makefile}} com o exemplo de piscar o LED (Algoritmo 6.1) em todas as placas da Arduino.
+
+\lstinputlisting[language=C++,caption={blink.ino},label=blink]{blink.ino}
+
+O código foi compilado e enviado para todas as placas, executando o código de piscar o LED.
+
+No teste do \textit{OpenOCD}, foi utilizado um projeto exemplo de piscar o LED da placa de desenvolvimento STM32F4DISCOVERY (Algoritmo 6.2)
+
+\lstinputlisting[language=C++,caption={project.c},label=blink2]{blink2.cpp}
+
+O Código foi compilado e enviado para a placa, tendo como resultado o piscar do LED.
 
 \chapter{Conclusão}
-Dentro do período de desenvolvimento, o plugin alcançou todas as expectativas traçadas para para o período de desenvolvimento,
+Dentro do período de desenvolvimento, o plugin alcançou todas as expectativas traçadas para o período de desenvolvimento,
 permitindo a gravação dos sistemas embarcados utilizando o KDevelop, mesmo necessitando algumas modificações para ficar
-totalmente integrado ao fluxo de trabalho, o plugin se encontro numa forma usável.
+totalmente integrado ao fluxo de trabalho.
 
-A integração com o KDevelop foi feita com sucesso, a incorporação de projetos funciona, necessitando que o usuário configure algumas variáveis para permitir identificar o hardwareutilizado pelo mesmo, tanto o processador quanto o hardwareespecialista ou assistencialista para realizar o envio do código binário.
-
-\section{Contribuição}
+A integração com o KDevelop foi realizada com sucesso, necessitando que o usuário configure algumas variáveis para permitir identificar o hardware utilizado pelo mesmo, tanto o processador quanto o hardware especialista ou assistencialista na realização do envio do código binário.
 
 O código fonte do projeto desenvolvido pode ser encontrado no \textit{mirror} do \textit{GitHub} (\url{https://github.com/KDE/kdev-embedded/tree/master}) ou no repositório oficial do \textit{phabricator} (\url{https://phabricator.kde.org/source/kdev-embedded/browse/master/}).
 
-Além do próprio \textit{plugin}, foram feitas algumas contribuições para o próprio KDevelop e outros projetos da organização KDE, podendo citar o \textit{AtCore}\footnote{\textit{Printer Host} para impressoras 3D (\url{https://github.com/KDE/atcore/graphs/contributors}).} onde atualmente é o maior contribuidor do projeto.
-
-\section{Trabalhos futuros}
-
 Tendo em vista que com o suporte para as placas da \textit{Arduino} e do sistema \textit{OpenOCD} realizado, ainda é necessário mais alguns trabalhos relacionados a áreas especificas.
 
-\subsection{Interface de usuário}
-As interfaces desenvolvidas foram trabalhadas para serem a mais amigáveis e altamente configuráveis possíveis, contudo, ainda é necessário um polimento e melhor desenvolvimento tanto da interface do plugin quanto do KDevelop, para permitir uma melhor integração com o usuário, facilitando algumas configurações básicas como a já existentes no \textit{eclipse IDE} para \textit{debug} remoto.
+As interfaces desenvolvidas foram trabalhadas para serem a mais ami-gáveis e altamente configuráveis na medida do possível, contudo, ainda é necessário um polimento e melhor desenvolvimento tanto da interface do plugin quanto do KDevelop, para permitir uma melhor integração com o usuário, facilitando algumas configurações básicas como a já existentes no \textit{eclipse IDE} para \textit{debug} remoto.
 
-\subsection{Instalador}
-Mesmo o instalador sendo completamente funcional, identificando versões instaladas no sistema operacional que está o executando e
-permitindo ao usuário realizar a instalação automática das dependências com a ajuda da interface gráfica disponível pelo plugin, o mesmo não é de muita ajuda para os usuários avançados, e até mesmo para os inciantes, pois ambos já teriam conhecimento de como instalar e atualizar a ferramenta, pois, como dissertado antes sobre a cultura do KDE de ser \textit{rolling release}, a instalação e atualizações de tais dependências seriam gerenciadas pelo usuário sem problemas, fazendo desta forma que o instalador desenvolvido par ao projeto seja removido em futuras versões.
+Mesmo o instalador sendo completamente funcional, identificando ver-sões instaladas no sistema operacional e
+permitindo ao usuário realizar a instalação automática das dependências, com a ajuda da interface gráfica disponível pelo plugin, o mesmo não é de muita ajuda para os usuários avançados.
 
-\subsection{Melhora na integração ao sistemas de compilação}
-A integração do plugin desenvolvido com os demais plugins do KDevelop necessita ser melhor desenvolvida e aprimorada, permitindo desta
-forma a integração com os gerenciadores de montagem de software, permitindo com que o kdev-embedded detecte a localização do arquivo
-binario para realizar o processo de programação do sistema embarcado e até mesmo utilizar tal integração para permitir ao plugin
-detectar o processador do sistema embarcado em desenvolvimento que está sendo utilizado para permitir o envio do código binario para
-o hardware.
+A integração do plugin desenvolvido com os demais plugins do KDevelop necessita ser melhor integrado e aprimorada, permitindo desta
+forma a integração com os gerenciadores de montagem de software.
 
-\subsection{Melhora no identificador de hardware}
 Atualmente o plugin utiliza uma biblioteca desenvolvida pela comunidade do KDE conhecida como \textit{Solid}, onde permite uma boa integração com o \textit{hardwre} do computador onde o mesmo está sendo executado. Contudo o mesmo tem problemas para identificação de gravadores que não utilizam um adaptador Adaptador Serial-USB, dificultando sua utilização. 
 
 Como proposta de solução, é utilizar os valores de PID e VID dos dispositivos conhecidos na realização da gravação, podendo ser obtidos através das bibliotecas do \textit{OpenOCD}, para melhorar sua utilização na detecção de hardware.
