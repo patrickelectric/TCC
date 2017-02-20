@@ -12,8 +12,9 @@ derivado pela empresa conhecida como \textit{Texas Instruments}. Baseados na lin
 integração com plugins relativamente fácil, podendo ser expandidas de acordo com o desenvolvedor e a disponibilidade das mesmas.
 
 \section{IDE Existentes}
-Dentro das opções disponíveis, pode-se destacar:
+Dentro das opções disponíveis, pode-se destacar (Tabela \ref{ides}):
 %\itodo{[EXPANDIR DESCRIÇÃO]}
+\iffalse
 \begin{itemize}
  \item \textbf{Atmel Studio}
  \subitem Limitado aos processadores AVR.
@@ -87,6 +88,33 @@ Dentro das opções disponíveis, pode-se destacar:
  \subitem Preço: Pago.
 
 \end{itemize}
+\fi
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\centering
+\caption{IDE existentes}
+\label{ides}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Nome                  & Processadores                                          & Código  & Valor              \\ \midrule
+Atmel Studio          & AVR                                           & Fechado & Pago               \\
+Arduino IDE           & \makecell[l]{AVR, ARM, X86, espressif,\\RISCV entre outros.} & Aberto  & Gratuito           \\
+ArduIDE               & AVR e ARM                                     & Aberto  & Gratuito           \\
+PRAGRAMINO IDE        & AVR                                           & Fechado & 30 euros           \\
+PlatformIO            & \makecell[l]{AVR, ARM, X86, espressif,\\RISCV entre outros.} & Aberto  & Gratuito           \\
+Embrio                & AVR                                                    & Fechado & 59 dólares         \\
+EmbeddedStudio        & ARM                                                    & Fechado & Gratuito           \\
+IAR                   & \makecell[l]{AVR, ARM, X86,  MSP\\entre outros.}                      & Fechado & Pago               \\
+mikroe IDE            & ARM                                                    & Fechado & 299 dólares        \\
+GNU ARM Eclipse       & ARM                                                    & Aberto  & Gratuito           \\
+CrossWorks            & ARM                                                    & Fechado & 150 a 2250 dólares \\
+Code Composer Studio  & \makecell[l]{ARM, DSP, TSM,  MSP\\entre outros.}                      & Fechado & Até 4500 dólares   \\
+Keil                  & \makecell[l]{ARM, X86, AVR\\entre outros.}                            & Fechado & Até 5495 dólares   \\
+Simplicity Studio     & ARM, X86 entre outros.                                 & Fechado & Pago.              \\ \bottomrule
+\end{tabular}
+\end{table}
 
 \iffalse
 \section{Dificuldades}
