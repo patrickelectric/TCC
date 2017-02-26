@@ -1,24 +1,26 @@
 int main(void)
 {
     // Ativa o modulo de GPIO.
-    ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
-    ROM_SysCtlDelay(1);
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOG);
 
-    // Configura o pino PA1 como saida.
-    ROM_GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_1);
+    // Espera o acesso ao periferico
+	while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOG))	{}
+
+    // Configura o pino PG2 como saida.
+	GPIOPinTypeGPIOOutput(GPIO_PORTG_BASE, GPIO_PIN_2);
 
     while(1)
     {
         // Ativa o GPIO.
-        ROM_GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_1, GPIO_PIN_1);
+        GPIOPinWrite(GPIO_PORTG_BASE, GPIO_PIN_2, GPIO_PIN_2);
 
-        // Espera por um segundo.
-        ROM_SysCtlDelay(1000000);
+        // Espera por periodo.
+		for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++){}
 
         // Desativa o GPIO.
-        ROM_GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_1, 0);
+        GPIOPinWrite(GPIO_PORTG_BASE, GPIO_PIN_2, 0);
 
-        // Espera por um segundo.
-        ROM_SysCtlDelay(1000000);
+        // Espera por periodo.
+		for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++){}
     }
 }
