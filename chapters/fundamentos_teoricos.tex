@@ -163,7 +163,29 @@ A programação via um hardware especializado é geralmente concebida, dentro do
 \abreviatura{JTAG}{\textit{Joint Test Action Group}}
 \abreviatura{OpenOCD}{\textit{Open On Chip Debugger}}
 
-\section{JTAG}
+\subsection{JTAG}
+
+Com o avanço na miniaturização dos circuitos integrados e o aumento da densidade de componentes nos circuitos impressos, foi necessária o desenvolvimento de novos métodos para realização de testes de integridade.
+
+Para superar esse problema, os maiores fabricantes de componentes combinaram por uma forma conhecida como JTAG, resultando no padrão IEEE (\textit{Institute of Electrical and Electronic Engineers}) 1149.1 \cite{jtagcite}.
+
+O JTAG comunica principalmente com dois tipos de registradores, o registrador de instruções e os registradores de dados.
+
+\begin{itemize}
+\item \textbf{Registrador de instrução}: Tem em seu conteúdo a instrução que está sendo executada no momento pelo processador.
+\item \textbf{Registrador de dados}: Na categoria de registrador de dados, o JTAG utiliza três tipos.
+\subitem BSR (\textit{Boundary Scan Register}): Utilizado para mover os dados dos estados de I/O (\textit{Input/Output}).
+\subitem BYPASS: Registrador de 1 bit utilizado para selecionar o hardware testado.
+\subitem IDCODES: Contem as informações sobre o hardware em analise (ID, revisão entre outros), podendo conduzir ao JTAG a configuração para o hardware.
+\end{itemize}
+
+\subsection{OpenOCD}
+
+Realizar a depuração do hardware é diferente de uma aplicação comum, o código é executado em um sistema limitado, podendo não ter o suporte para logs, despejo de memória entre outros.
+
+Utilizando o JTAG, é possível ter acesso aos estados dos pinos, memó-\\ria e instruções em execução. Para visualizar e interpretar os dados recebidos do JTAG, é geralmente utilizado uma ferramenta conhecida como GDB (\textit{GNU Project debugger}). Contudo, para a comunicação do computador com o JTAG, realizando a depuração do sistema embarcado, é utilizado outro software, providenciando uma camada de abstração para o GDB via o protocolo do \textit{gdbserver}, como o \textit{OpenOCD} (Algoritmo 2.1). Este é mantido pela comunidade de código aberto, tendo um suporte a uma vasta gama de JTAGs.
+
+\lstinputlisting[caption={[Resultado]OpenOCD respondendo ao GDB},name=teste]{openocd.txt}
 
 \section{KDevelop}
 O plugin proposto foi desenvolvido sobre a plataforma conhecida como KDevelop,\cite{kdevelop} pertencente a organização \textit{KDE},
@@ -173,7 +195,7 @@ Concebido utilizando as tecnologias de código aberto mais modernas, como C++14,
 utilizadas, podendo assim denominar o sistema como \textit{Rolling release}\footnote{Sistemas de software que atualizam suas bases
 de código para a utilização das ultimas versões das ferramentas empregadas no projeto.}.
 
-O \textbf{KDevelop} teve seu primeiro lançamento em 1999, sendo majoritariamente programado em C++, podendo ser utilizado
+O KDevelop teve seu primeiro lançamento em 1999, sendo majoritariamente programado em C++, podendo ser utilizado
 para programar em C, C++, Perl, Python, PHP, Java, Fortran, Ruby, Ada, Pascal, SQL e Bash. Suportando também sistemas de
 configuração para compilação como cmake, qmake e make.
 
@@ -189,7 +211,7 @@ Uma outra vantagem da utilização de \textit{plugins}, é permitir somente a ut
 o código fonte do mesmo, permitindo, a utilização de \textit{plugins} que não são de código aberto, facilitando desta
 forma o apoio e uso de sistemas proprietários desenvolvidos, mantendo sigiloso o trabalho intelectual.
 
-\subsection{Tipos de ferramenta}
+\section{Tipos de ferramenta}
 Das ferramentas disponibilizadas para o desenvolvimento destas a Plicações possuem algumas limitações tais como, preço, licença, configuração entre outros, podendo ser classificadas conforme as seguintes categorias:
 
 \begin{itemize}
