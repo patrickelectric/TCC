@@ -1,10 +1,10 @@
 \chapter{Fundamentos teóricos}
 
-O desenvolvimento para sistemas embarcados necessita de uma interface para desenvolvimento do código fonte, um compilador para geração do código fonte para código de maquina e um sistema de carregamento do código de maquina para o sistema embarcado.
+O desenvolvimento para sistemas embarcados necessita de uma interface para desenvolvimento do código fonte, um compilador para geração do código de máquina a partir do código fonte e um sistema de carregamento do código de máquina para o sistema embarcado.
 
 \section{Sistema embarcado}
 
-Numa visão mais ampla, o sistema embarcado pode ser resumido para qualquer sistema que realiza uma tarefa especifica, independe do custo energético ou computacional\cite{barr2006programming}. Dentro desta categoria, pode-se listar alguns exemplos:
+Numa visão ampla, o sistema embarcado pode ser definida como qualquer sistema que realiza uma tarefa especifica, independe do custo energético ou computacional\cite{barr2006programming}. Dentro desta categoria, pode-se listar alguns exemplos:
 
 \begin{itemize}
 \item \textbf{VANT} (Veículo Aéreo Não Tripulado) - Com crescimento exponencial nos últimos anos, atualmente se encontra com inúmeras propostas em suas utilizações.
@@ -22,7 +22,7 @@ As definições de sistemas embarcados foram modificadas ao passar do tempo, com
 \iffalse
 A evolução do hardware, diminuiu o tamanho e preço de aquisição dos processados, permitiu praticamente a qualquer desenvolvedor de
 sistemas computacionais embarcados, um poder de processamento grande o suficiente para rodar um kernel\footnote{Cerne do sistema
-operacional, tendo como principal função o escalonamento de tarefas e abstração dos periféricos de hardware utilizados da maquina,
+operacional, tendo como principal função o escalonamento de tarefas e abstração dos periféricos de hardware utilizados da máquina,
 como, por exemplo: placa de rede, sensores, portas de comunicação, \textit{GPIOs} e etc.} de sistema operacional complexo, como o Linux, em praticamente qualquer aplicação.
 
 Muitas das aplicações de sistemas embarcados são utilizados para sistemas cyber-físicos\footnote{Sistemas computacionais
@@ -60,17 +60,17 @@ sistemas permitem o uso de osciladores externos, possibilitando o aumento da fre
 \abreviatura{RAM}{\textit{Random Access Memory}}
 \abreviatura{RISCV}{\textit{Reduced Instruction Set Computing - V}}
 
-Se nas ultimas décadas, o acesso a computadores se tornou facilitado, nas próximas que estão por vir, o uso e aquisição de sistemas computacionais não será um mero luxo, mas sim uma inevitabilidadea\cite{gates1995estrada}. Tudo terá um processador, se não, um sistema computacional simples. Pode-se notar muitas etiquetas de RFID (\textit{Rafio Frequency Identification}) e cada vez mais modernas \cite{ricci2008design}, contendo sistemas computacionais complexos.
+Se nas ultimas décadas, o acesso a computadores se tornou facilitado, nas próximas que estão por vir, o uso e aquisição de sistemas computacionais não será um mero luxo, mas sim uma inevitabilidade\cite{gates1995estrada}. Tudo terá um processador, se não, um sistema computacional simples. Pode-se notar muitas etiquetas de RFID (\textit{Rafio Frequency Identification}) e cada vez mais modernas \cite{ricci2008design}, contendo sistemas computacionais complexos.
 
 \abreviatura{RFID}{\textit{Rafio Frequency Identification}}
 
 \subsection{Microprocessador}
 
-Parte principal de um sistema computacional, com o objetivo de decodificar e executar as instruções em código de maquina existente na memória\cite{Patterson:2008:COD:1502247}. A tabela que é interpretada, denominada por conjunto de instruções, contem todos os padrões binários possíveis a serem decodificados, resultando em sinais lógicos para a eletrônica que o executará, podendo realizar comparações, somas, multiplexações e leituras/escritas na memória.
+Parte principal de um sistema computacional, com o objetivo de decodificar e executar as instruções de código de máquina existente na memória\cite{Patterson:2008:COD:1502247}. A tabela que é interpretada, denominada por conjunto de instruções, contem todos os padrões binários possíveis a serem decodificados, resultando em sinais lógicos para a eletrônica que o executará, podendo realizar comparações, somas, multiplexações e leituras/escritas na memória.
 
-Com o passar dos anos, o poder de processamento permitiu que sistemas simples possam ter grande valor intelectual agregado, podendo utilizar como exemplo o termostato da Google, vendido atualmente por \$250, por realizar um \textit{aprendizado de maquina}\footnote{"Campo de estudo que dá aos computadores a habilidade de aprender sem serem explicitamente programados`` -  Arthur Samuel, 1945.}, proporcionando ao aparelho um melhor gerenciamento da temperatura do ambiente, realizando uma economia energética e uma melhora na qualidade de vida do usuário.
+Com o passar dos anos, o poder de processamento permitiu que sistemas simples possam ter grande valor intelectual agregado, podendo utilizar como exemplo o termostato da Google, vendido atualmente por \$250, por realizar um \textit{aprendizado de máquina}\footnote{"Campo de estudo que dá aos computadores a habilidade de aprender sem serem explicitamente programados`` -  Arthur Samuel, 1945.}, proporcionando ao aparelho um melhor gerenciamento da temperatura do ambiente, realizando uma economia energética e uma melhora na qualidade de vida do usuário.
 
-\subsection{SoC}
+\subsection{SoC (\textit{System on a chip})}
 
 Atualmente o termo é empregado a circuitos com uma vasta quantidade de sistemas integrados, podendo citar  \textit{GPU} (\textit{Graphics Processing Unit}), \textit{USB} (\textit{Universal Serial Bus}), módulos de rede, rádio e outros sistemas mais avançados.
 
@@ -78,7 +78,7 @@ Atualmente o termo é empregado a circuitos com uma vasta quantidade de sistemas
 \abreviatura{USB}{\textit{Universal Serial Bus}}
 
 Nesta categoria, pode-se destacar o desenvolvimento dos sistemas desenvolvidos pela fabricante ARM, tendo ultrapassado a Intel como a maior produtora de processamentos do mundo.
-Após a revolução dos dispositivos móveis onde a maioria das pessoas começaram a utilizar \textit{smartphones}, acarretando na substituição do uso de computadores para realizar as suas rotinas pessoais digitais diárias. Esta revolução, está fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
+Após a revolução dos dispositivos móveis onde a maioria das pessoas começaram a utilizar \textit{smartphones}, acarretando na substituição do uso de computadores para realizar as suas rotinas pessoais digitais diárias. Esta revolução está fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
 
 
 \section{Bootloader}
@@ -176,7 +176,7 @@ O JTAG comunica principalmente com dois tipos de registradores, o registrador de
 \item \textbf{Registrador de dados}: Na categoria de registrador de dados, o JTAG utiliza três tipos.
 \subitem BSR (\textit{Boundary Scan Register}): Utilizado para mover os dados dos estados de I/O (\textit{Input/Output}).
 \subitem BYPASS: Registrador de 1 bit utilizado para selecionar o hardware testado.
-\subitem IDCODES: Contem as informações sobre o hardware em analise (ID, revisão entre outros), podendo conduzir ao JTAG a configuração para o hardware.
+\subitem IDCODES: Contem as informações sobre o hardware em análise (ID, revisão entre outros), podendo conduzir ao JTAG a configuração para o hardware.
 \end{itemize}
 
 \subsection{OpenOCD}
@@ -220,10 +220,5 @@ Das ferramentas disponibilizadas para o desenvolvimento destas a Plicações pos
  \item \textbf{Ferramentas de código aberto}: Utilizadas por uma parte dos desenvolvedores, fornece acesso total as suas funcionalidades, possibilitando modificações e aperfeiçoamentos nos mínimos detalhes. Estas interfaces permitem o desenvolvimento com uma experiência mais assistencialista, por possuir uma comunidade grande de desenvolvedores que disponibiliza suporte por e-mail ou grupos de chat. Contudo, por estar em constante evolução, sua documentação pode estar defasada ou inexistente.
 
 \end{itemize}
-
-\section{Sistema de Controle de Versão}
-
-Para o controle do projeto desenvolvido foi utilizado o \textit{GIT}, permitindo o controle de versão do código, paralelismo no desenvolvimento, detecção de conflitos entre diferentes versões, detecção de erros, entre outras utilizações de grande valia
-para o desenvolvimento de software.
 
 \abreviatura{GIT}{\textit{Global Information Tracker}}
