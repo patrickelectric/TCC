@@ -1,11 +1,13 @@
 \chapter{Introdução}
-Nos últimos 40 anos existiram varias predições para o futuro da humanidade, conceitos como IoT (\textit{Internet Of Things})\cite{gates1995estrada} e ambiente ubíquo\cite{weiser1991computer} foram criados, propostas tecnológicas como a \textit{lei de Moore}\footnote{Citação famosa utilizada por Gordon Earle Moore, que tinha como proposta a duplicação do numero de transistores a cada 18 meses} eram ditas como garantidas pelas grandes empresas de tecnologia. Contudo muitos desafios acabaram prejudicando a execução destas predições, como, por exemplo, a barreira de potência\cite{Patterson:2008:COD:1502247} e a limitação de densidade energética\cite{paradiso2005energy}.
+Nos últimos 40 anos existiram várias predições para o futuro da humanidade: conceitos como IoT (\textit{Internet Of Things})\cite{gates1995estrada} e ambiente ubíquo\cite{weiser1991computer} foram criados, propostas tecnológicas como a \textit{lei de Moore}\footnote{Citação famosa utilizada por Gordon Earle Moore, que tinha como proposta a duplicação do numero de transistores a cada 18 meses} eram ditas como garantidas pelas grandes empresas de tecnologia. Contudo muitos desafios acabaram prejudicando a execução destas predições, como, por exemplo, a barreira de potência\cite{Patterson:2008:COD:1502247} e a limitação de densidade energética\cite{paradiso2005energy}.
 %http://www.singularity.com/charts/page70.html
 
-Hoje, o avanço tecnológico permitiu a miniaturização dos processadores com um custo de aquisição de grandezas menores das décadas anteriores\cite{nordhaus2007two}, possibilitando a pequenas empresas e até mesmo pessoas comuns o acesso a sistemas computacionais com alto processamento. Contudo, mesmo	 sendo possível, as ferramentas existentes para permitir o desenvolvimento de aplicações pros processadores, são geralmente pagas (\textit{IAR Embedded Workbench}\footnote{Não existe versão gratuita\cite{buyiar}.}), limitadas (\textit{MDK Microcontroller Development Kit}\footnote{Versão gratuita com limite de código de 32 Kbytes.}) ou com poucos recursos (\textit{Platformio}\footnote{Sem depuração embutida.}).
+Hoje, o avanço tecnológico permitiu a miniaturização dos processadores com um custo de aquisição de grandezas menores que das décadas anteriores\cite{nordhaus2007two}, possibilitando a pequenas empresas e até mesmo pessoas comuns o acesso a sistemas computacionais com alto processamento. Contudo, mesmo	 sendo possível, as ferramentas existentes para permitir o desenvolvimento de aplicações para os processadores, são geralmente pagas (\textit{IAR Embedded Workbench}\footnote{Não existe versão gratuita\cite{buyiar}.}), limitadas (\textit{MDK Microcontroller Development Kit}\footnote{Versão gratuita com limite de código de 32 Kbytes.}) ou com poucos recursos (\textit{Platformio}\footnote{Sem depuração embutida.}).
 %http://www2.keil.com/mdk5
 
-A comunidade dos desenvolvedores de software para sistemas embarcados tende a utilizar inúmeras ferramentas para resolver os desafios de projeto, geralmente embutidas em uma IDE (\textit{Integrated Development Environment}), permitindo funções básicas, por exemplo, depuração, comunicação, gravação, entre outros. Algumas IDEs tendem a resolver mais de um problema ao mesmo tempo, resultando num sistema complexo, abstraindo os sistemas que executam em segundo plano, resultando num uso maior do processador da maquina de trabalho, dificultando a personalização do fluxo de desenvolvimento e dos sistemas utilizados pelo desenvolvedor.
+A comunidade dos desenvolvedores de software para sistemas embarcados tende a utilizar inúmeras ferramentas para resolver os desafios de projeto, geralmente embutidas em uma IDE (\textit{Integrated Development Environment}), permitindo funções básicas, por exemplo, depuração, comunicação, gravação, entre outros.
+
+Algumas IDEs tendem a resolver mais de um problema ao mesmo tempo, resultando num sistema complexo que abstrai as \textit{threads}\footnote{Um programa executado em paralelo.\cite{Patterson:2008:COD:1502247}} que executam se segundo plano. O Resultado disto é ocupação maior do processador da maquina de trabalho.
 
 \iffalse
 O intuito deste trabalho é a realização de um sistema para possibilitar aos desenvolvedores a programação de sistemas embarcados, sem a necessidade de utilizar sistemas assistencialistas que possam limitar a evolução do trabalho ou a utilização do produto final concebido.
@@ -17,7 +19,7 @@ Com o avanço tecnológico e a evolução do hardware heterogêneo (sistemas com
 %https://community.nxp.com/thread/389162
  existentes no mercado ou opções limitadas nas IDEs, como, por exemplo, DebugWire\cite{debugwire}, hardware exclusivo de depuração LPC\cite{nxp}, suporte limitado de depuradores\cite{kiledebug} entre outros, dificultando ou restringindo o desenvolvimento do usuário.
 
-Usualmente, as ferramentas utilizadas para o desenvolvimento são de código fechado, distribuídas numa versão binaria, restringindo a modificação do software pelo usuário e personalizações do desenvolvimento. No desenvolvimento do estado da arte, a personalização da ferramenta é essencial para permitir o desenvolvimento, evitando a espera do suporte dentro dos sistemas proprietarios, desta forma, muitas empresas acabam aderindo aos software de código aberto pela sua agilidade para adesão a novas tecnologias, podendo destacar Microsoft\cite{microsoftn1}, Intel, Samsung, IBM e Renesas\cite{topskernel}.
+Usualmente, as ferramentas utilizadas para o desenvolvimento são de código fechado, distribuídas numa versão binaria, restringindo a modificação do software pelo usuário e personalizações do desenvolvimento. No desenvolvimento do estado da arte, a personalização da ferramenta é essencial para permitir o desenvolvimento, evitando a espera do suporte dentro dos sistemas proprietários, desta forma, muitas empresas acabam aderindo aos software de código aberto pela sua agilidade para adesão a novas tecnologias, podendo destacar Microsoft\cite{microsoftn1}, Intel, Samsung, IBM e Renesas\cite{topskernel}.
 
 \abreviatura{CPU}{\textit{Central Processor Unit}}
 \abreviatura{GPU}{\textit{Graphic Processor Unit}}
@@ -32,11 +34,14 @@ Como consequência disso, a gama de padrões de protocolos de comunicação, \te
 %\itodo{Adicionar footnote the bootloader}
 %\subsubsection{Padronização}
 
-\section{Objetivo Geral}
+\section{Objetivos}
 
-O projeto tem como objetivo uma proposta de solução para os problemas descritos anteriormente, não providenciando alguma padronização ou mais uma alternativa entre as já existentes pelo mercado, mas uma IDE que tenha um suporte de alto nível para todos estes que já existem. Tendo como foco de usuário o desenvolvedor de sistemas embarcados, visando um ambiente configurável e mutável a suas necessidades.
+O projeto tem como objetivo uma proposta de solução para os problemas descritos anteriormente, não providenciando alguma padronização ou mais uma alternativa entre as já existentes pelo mercado, mas uma IDE que tenha um suporte de alto nível para todos estes que já existem, focando um ambiente configurável para o desenvolvedor de sistemas embarcados.
+\iffalse
+visando um ambiente configurável e mutável a suas necessidades.
+\fi
 
-Para a concepção, foi utilizado o KDevelop\footnote{IDE desenvolvida pela comunidade internacional de software livre KDE.} para base do sistema definido como sendo proposta do GSoC (\textit{Google Summer Of Code})\footnote{Projeto de incentivo para estudantes no desenvolvimento de código livre organizado pela Google.}. Por ser uma IDE desenvolvida majoritariamente em C++ e permitir o carregamento em tempo de execução de algumas ferramentas (via a utilização de \textit{plugins}), já abrangendo alguns dos requerimentos do sistema que serão discutidos.
+Para o desenvolvimento, foi utilizado o KDevelop\footnote{IDE desenvolvida pela comunidade internacional de software livre KDE.}, uma IDE desenvolvida majoritariamente em C++ que permiti o carregamento em tempo de execução das ferramentas (via a utilização de \textit{plugins}), já abrangendo alguns dos requerimentos do sistema que serão discutidos. A proposta de se utilizar o KDevelop foi útil para participar do GSoC (\textit{Google Summer Of Code})\footnote{Projeto de incentivo para estudantes no desenvolvimento de código livre organizado pela Google.}, por se tratar de um projeto de desenvolvimento de código aberto.
 
 %comment
 \iffalse
@@ -49,13 +54,13 @@ O objetivo geral deve responder as seguintes perguntas:
 Deve ser escrito em tempo infinitivo (por exemplo: ampliar, capacitar, entre outros) e redigido com claridade. O objetivo precisa ser alcançável, não pode ser genérico, de forma que o projeto não consiga resolver (ex: terminar com a fome no mundo). Por outro lado deve ser ousado, capaz de sinalizar mudanças mais profundas que poderão ser alcançadas pelo projeto a médio e longo prazo.
 \fi
 
-\subsection{Metodologia}
+\section{Metodologia}
 \label{ss:objetivosespecificos}
 Para realizar os objetivos, os seguintes passos são listados:
 \begin{enumerate}
 \item Estudo inicial das ferramentas utilizadas para desenvolvimento de sistemas embarcados.
 \item Escolha das ferramentas inicialmente suportadas.
-\item Analise inicial sobre KDevelop.
+\item Análise inicial sobre KDevelop.
 %\footnote{adicionar nota de roda pé sobre o KDevelop, botar isso onde primeiramente acontece.} no irc \itodo{Adicionar abreviatura de irc} \footnote{Adicionar footnote sobre irc}.
 \item Estudo para traçado inicial de estrutura e objetivo.
 \item Inicio do desenvolvimento.
@@ -67,12 +72,11 @@ Para realizar os objetivos, os seguintes passos são listados:
 \item Aprimoramento do sistema.
 \item Selecionar outro sistema sistema embarcado para realizar o desenvolvimento.
 \item Atualização do sistema de instalação.
-\item Repetir passo 10 em diante.
 \end{enumerate}
 
-\section{Analise do fluxo de trabalho}
+\section{Análise do fluxo de trabalho}
 
-A interface de projeto existente no KDevelop, permite que boa parte das especificações de projeto fiquem no sistema de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo o desenvolvimento de software sem a integração do projeto com o KDevelop para sua utilização.
+A interface de projeto existente no KDevelop permite que boa parte das especificações de projeto fiquem no sistema de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo o desenvolvimento de software sem a integração do projeto com o KDevelop para sua utilização.
 \iffalse
 , utilizando arquivos intermediários de configuração\footnote{Arquivos que contem informações sobre compilador, estilo de código, execução e etc.}.
 \fi
