@@ -827,8 +827,6 @@
 \end{espacosimples}
 
 
- {\setlength{\parindent}{0cm} \bfseries Banca Examinadora:\par}  
-
 \ABNTifnotempty{\ABNTorientadordata}
     {
     \ifthenelse{\equal{\orientadorbancadata}{nao}}
@@ -889,9 +887,9 @@
 	}{}
     }
     
-\ifnum \nrobanca < 4
+\ifnum \nrobanca < 3
     {
- \ABNTifnotempty{\bancanameA}
+\ABNTifnotempty{\bancanameA}
     {
     \begin{espacosimples}
 	\vspace{0.9em}
@@ -930,6 +928,7 @@
 \else
     {
     \newpage
+    {\setlength{\parindent}{0cm} \bfseries Banca Examinadora:\par} 
    
     \ABNTifnotempty{\bancanameA}
     {
