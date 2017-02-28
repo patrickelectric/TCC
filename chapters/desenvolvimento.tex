@@ -20,9 +20,9 @@ Com o objetivo do trabalho de seguir a filosofia GNU \cite{filosofia}, todos as 
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/uml.png}
   \caption[UML proposto]{UML proposto para desenvolvimento do plugin.}
   \label{fig:uml}
-  \includegraphics[width=0.85\textwidth]{figuras/uml.png}
 \end{figure}
 
 \abreviatura{UML}{Unified Modeling Language}
@@ -31,9 +31,9 @@ O plugin (\figref{fig:uml}) foi integrado no KDevelop (\figref{fig:kdevelop}) vi
 
 \begin{figure}[!htb]
   \centering
-  \caption[KDevelop]{KDevelop.}
-  \label{fig:kdevelop}
   \includegraphics[width=0.85\textwidth]{figuras/kdevelop.png}
+    \caption[KDevelop]{KDevelop.}
+    \label{fig:kdevelop}
 \end{figure}
 
 \subsection{Menu de acesso}
@@ -42,9 +42,9 @@ O menu de acesso (\figref{fig:kdevelopMenu}), foi desenvolvido para realizar dua
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.95\textwidth]{figuras/kdevelopMenu.png}
   \caption[Menu do plugin no KDevelop]{Menu de acesso do plugin no KDevelop.}
   \label{fig:kdevelopMenu}
-  \includegraphics[width=0.95\textwidth]{figuras/kdevelopMenu.png}
 \end{figure}
 
 \subsection{Arduino Setup}
@@ -67,8 +67,6 @@ Primeiramente foi definido um diagrama inicial de estados para facilitar a compr
 
 \begin{figure}[htb!]
   \centering
-    \caption[Diagrama de estados do \textit{First-Time Wizard}]{Diagrama de estados do \textit{First-Time Wizard}}
-    {\label{fig:ftwstate}}
   \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,semithick]
     \tikzstyle{every state}=[fill=blue,draw=none,text=white]
 
@@ -86,35 +84,37 @@ Primeiramente foi definido um diagrama inicial de estados para facilitar a compr
           (C) edge              node {}      (D)
           (D) edge              node {}      (E);
   \end{tikzpicture}
+  \caption[Diagrama de estados do \textit{First-Time Wizard}]{Diagrama de estados do \textit{First-Time Wizard}}
+  {\label{fig:ftwstate}}
 \end{figure}
 
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/kdevelopInstaller1.png}
   \caption[Fist-Time Configuration]{\textit{Fist-Time Configuration} com \textit{Existing Installation} selecionado.}
   \label{fig:kdevelopinstaller1}
-  \includegraphics[width=0.85\textwidth]{figuras/kdevelopInstaller1.png}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/kdevelopInstaller21.png}
   \caption[Automatic Instalation executando Download]{\textit{Automatic Instalation} com \textit{download} em andamento.}
   \label{fig:kdevelopinstaller21}
-  \includegraphics[width=0.85\textwidth]{figuras/kdevelopInstaller21.png}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/kdevelopInstaller22.png}
   \caption[Automatic Instalation pós instalação]{Automatic Instalation após a instalação do \textit{toolkit}.}
   \label{fig:kdevelopinstaller22}
-  \includegraphics[width=0.85\textwidth]{figuras/kdevelopInstaller22.png}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/kdevelopInstaller3.png}
   \caption[End Configuration]{End Configuration}
   \label{fig:kdevelopinstaller3}
-  \includegraphics[width=0.85\textwidth]{figuras/kdevelopInstaller3.png}
 \end{figure}
 
 \subsection{Board Settings}
@@ -123,34 +123,34 @@ Interface para realizar o envio do binário para o sistema embarcado, permitindo
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/boardsettings.png}
   \caption[Board Settings com configuração inicial]{\textbf{Board Settings} sem configuração prévia.}
   \label{fig:boardsettings}
-  \includegraphics[width=0.85\textwidth]{figuras/boardsettings.png}
 \end{figure}
 
-Após ter o acesso a interface, o usuário pode escolher a opção de \textit{Upload Binary}, selecionando desta forma um arquivo contendo o código de maquina (\textit{Blink.hex}), após isso, pode-se escolher no menu \textit{Board} a placa para programar, permitindo ao plugin selecionar as opções para o hardware indicado, além disso, é necessário selecionar o tipo de processador e clock, como consta no menu \textit{MCU and frequency}, tendo isto selecionado, a ultima configuração necessária para realizar o envio do código é a porta que consta no menu \textit{interface}. Essas configurações podem ser visualizadas na \figref{fig:boardsettingsserial}, onde foi escolhido um Arduino Nano contendo um processador atmega328p com um clock de $16MHz$ utilizando uma interface de programação \textit{FT232 USB UART}.
+Após ter o acesso a interface, o usuário pode escolher a opção de \textit{Upload Binary}, selecionando desta forma um arquivo contendo o código de máquina (\textit{Blink.hex}), após isso, pode-se escolher no menu \textit{Board} a placa para programar, permitindo ao plugin selecionar as opções para o hardware indicado, além disso, é necessário selecionar o tipo de processador e clock, como consta no menu \textit{MCU and frequency}, tendo isto selecionado, a ultima configuração necessária para realizar o envio do código é a porta que consta no menu \textit{interface}. Essas configurações podem ser visualizadas na \figref{fig:boardsettingsserial}, onde foi escolhido um Arduino Nano contendo um processador atmega328p com um clock de $16MHz$ utilizando uma interface de programação \textit{FT232 USB UART}.
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/boardsettingsSerial.png}
   \caption[Board Settings após configuração para envio]{\textbf{Board Settings} após configuração do usuário.}
   \label{fig:boardsettingsserial}
-  \includegraphics[width=0.85\textwidth]{figuras/boardsettingsSerial.png}
 \end{figure}
 
 Depois de tudo configurado, é possível clicar no botão \textit{upload} e realizar o envio do binário selecionado para placa. Podendo acarretar no sucesso da operação (\figref{fig:boardsettingsdone}) ou na sua falha (\figref{fig:boardsettingsndone}).
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/boardsettingsdone.png}
   \caption[Board Settings com sucesso no envio]{\textbf{Board Settings} após o envio do código para o sistema embarcado.}
   \label{fig:boardsettingsdone}
-  \includegraphics[width=0.85\textwidth]{figuras/boardsettingsdone.png}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/boardsettingsndone.png}
   \caption[Board Settings com falha no envio]{Imagem do \textbf{Board Settings} após falha no envio do código para o sistema embarcado.}
   \label{fig:boardsettingsndone}
-  \includegraphics[width=0.85\textwidth]{figuras/boardsettingsndone.png}
 \end{figure}
 
 \section{Integração com fluxo de trabalho}
@@ -162,23 +162,23 @@ Para realizar o usuário realizar compilação, é necessário importar um proje
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=1\textwidth]{figuras/importproject.png}
   \caption[Import Project]{Import Project.}
   \label{fig:importproject}
-  \includegraphics[width=1\textwidth]{figuras/importproject.png}
 \end{figure}
 
 Após o projeto ser importado com sucesso, será possível visualizar o mesmo no menu de projeto (\figref{fig:projects}).
 
 \begin{figure}[!htb]
   \begin{minipage}[t]{0.5\textwidth}
+  \includegraphics[width=0.7\textwidth]{figuras/projects.png}
   \caption[Projects antes da compilação]{Dock Projects antes\\ da compilação do projeto.}
   \label{fig:projects}
-  \includegraphics[width=0.7\textwidth]{figuras/projects.png}
   \end{minipage}%
   \begin{minipage}[t]{0.5\textwidth}
 %  \raggedleft
-  \caption[Projects depois da compilação]{Dock Projects depois\\ da compilação do projeto.}
   \includegraphics[width=0.713\linewidth]{figuras/projects2.png}
+  \caption[Projects depois da compilação]{Dock Projects depois\\ da compilação do projeto.}
   \label{fig:projects2}
   \end{minipage}
 \end{figure}
@@ -191,25 +191,25 @@ Seguindo o fluxo de trabalho do KDevelop, é necessário configurar o projeto pa
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=1\textwidth]{figuras/run.png}
   \caption[Configure Launchs]{Configure Launchs.}
   \label{fig:run}
-  \includegraphics[width=1\textwidth]{figuras/run.png}
 \end{figure}
 
 Após isso, uma tela de configuração será aberta, podendo ser configurado da seguinte forma para um sistema embarcado, Add New... $\rightarrow$ Embedded e modificando o sistema de acordo com o alvo que será programado, \figref{fig:run2}. Nesta, foi utilizado um \textit{Arduino Nano} para realizar o teste de envio de código, também é possível selecionar a opção de \textit{OpenOCD} desenvolvido (\figref{fig:openocd}).
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=1\textwidth]{figuras/run2.png}
   \caption[\textit{Configure Launchs} para \textit{avrdude}]{Configure Launchs para \textit{avrdude}.}
   \label{fig:run2}
-  \includegraphics[width=1\textwidth]{figuras/run2.png}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=1\textwidth]{figuras/openocd.png}
   \caption[\textit{Configure Launchs} para \textit{OpenOCD}]{Configure Launchs para \textit{OpenOCD}.}
   \label{fig:openocd}
-  \includegraphics[width=1\textwidth]{figuras/openocd.png}
 \end{figure}
 
 Após realizar as configurações, basta aplica-las e em seguida executar o lançamento com o botão Execute. Tendo isso realizado, será aberto um console onde todos os dados de gravação serão mostrados (\figref{fig:runavrdude} e \figref{fig:runopenocd}).
@@ -218,16 +218,16 @@ Com as configurações salvas no lançador do código, as mesmas ficam reservada
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=1\textwidth]{figuras/runavrdude.png}
   \caption[\textit{Embedded Launcher} com \textit{avrdude}]{Embedded Launcher com saída do \textit{avrdude.}}
   \label{fig:runavrdude}
-  \includegraphics[width=1\textwidth]{figuras/runavrdude.png}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=1\textwidth]{figuras/runopenocd.png}
   \caption[\textit{Embedded Launcher} com \textit{openocd}]{Embedded Launcher com saída do \textit{openocd.}}
   \label{fig:runopenocd}
-  \includegraphics[width=1\textwidth]{figuras/runopenocd.png}
 \end{figure}
 
 \subsection{Depuração}
@@ -236,7 +236,7 @@ A depuração pode ser utilizada as próprias ferramentas do KDevelop, permitind
 
 \begin{figure}[!htb]
   \centering
+  \includegraphics[width=0.85\textwidth]{figuras/DEBUG.png}
   \caption[\textit{Debug mode} com \textit{openocd} no KDevelop]{\textit{Debug mode} com \textit{openocd.} no KDevelop}
   \label{fig:openocddebug}
-  \includegraphics[width=0.85\textwidth]{figuras/DEBUG.png}
 \end{figure}
