@@ -15,6 +15,14 @@ As seguintes ferramentas foram utilizadas para desenvolvimento do projeto.
 
 Com o objetivo do trabalho de seguir a filosofia GNU \cite{filosofia}, todos as ferramentas utilizadas para o desenvolvimento do plugin são de código aberto e totalmente gratuitas para qualquer um que queira replicar, modificar e contribuir com o projeto.
 
+\section{Fluxo de trabalho}
+
+A interface de projeto existente no KDevelop permite que boa parte das especificações de projeto fiquem no sistema de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo o desenvolvimento de software sem a integração do projeto com o KDevelop para sua utilização.
+\iffalse
+, utilizando arquivos intermediários de configuração\footnote{Arquivos que contem informações sobre compilador, estilo de código, execução e etc.}.
+\fi
+Esta flexibilidade de integração de projetos no KDevelop acrescenta um grau de dificuldade na realização do plugin, pois, as informações necessárias no carregamento do binário para o sistema embarcado necessita de sua localização e da porta de comunicação para o hardware em desenvolvimento. %\itodo{ADICIONAR MAIS INFORMAÇÕES DE FLUXO}
+
 \section{Desenvolvimento do software}
 
 \begin{figure}[!htb]
