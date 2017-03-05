@@ -15,6 +15,86 @@ As seguintes ferramentas foram utilizadas para desenvolvimento do projeto.
 
 Com o objetivo do trabalho de seguir a filosofia GNU \cite{filosofia}, todos as ferramentas utilizadas para o desenvolvimento do plugin são de código aberto e totalmente gratuitas para qualquer um que queira replicar, modificar e contribuir com o projeto.
 
+
+\subsection{Arduino \textit{toolkit}}
+
+O conjunto de ferramentas do Arduino foram utilizados para extração das opções de configuração, podendo dar destaque ao arquivo boards.txt 
+
+\lstinputlisting[caption={Parte de boards.txt},label=sin2]{boards.txt}
+Dentro deste arquivo se pode extrair várias informações pertinentes para o sistema.
+
+\begin{itemize}
+\item \textit{upload.tool} - Ferramenta para envio do código de máquina.
+
+\item \textit{upload.protocol} - Protocolo de comunicação com o \textit{bootloader}.
+%http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
+
+%http://www.avrfreaks.net/forum/self-programming-and-lock-bits
+
+\item \textit{bootloader.tool} - Ferramenta responsável pela comunicação com o \textit{bootloader}.
+
+\item \textit{bootloader.unlock\_bits} - Bits para desbloquear o \textit{bootloader} na realização de escrita.
+
+\item \textit{bootloader.lock\_bits} - Bits para bloquear o \textit{bootloader} na realização de escrita.
+\subitem Tanto o \textit{unlock\_bits} quanto o \textit{lock\_bits} controla a programação externa, utilizando um sistema especializado, como ISP (\textit{In-Circuit Serial Programmer}), JTAG, entre outros \cite{fuseSettings}. 
+\abreviatura{ISP}{\textit{In-Circuit Serial Programmer}}
+
+\item \textit{build.f\_cpu} - Clock do processador programado, configurado via \textit{bootloader}.
+
+\item \textit{build.board} - Nome da placa.
+
+\item \textit{build.core} - Tipo de hardware.
+
+\item \textit{build.variant} - Topologia do hardware.
+
+\item \textit{upload.maximum\_size} - Espaço livre na \textit{flash}, descontando \textit{bootloader}.
+
+\item \textit{upload.maximum\_data\_size} - Espaço livre na \textit{RAM}.
+
+\item \textit{upload.speed} - Velocidade da comunicação com o \textit{bootloader}.
+
+%http://archive.fabacademy.org/archives/2016/doc/fuses.html
+\item \textit{upload.low\_fuses}
+\item \textit{upload.high\_fuses}
+\item \textit{upload.extended\_fuses}
+\subitem Bytes com memória não volátil do processador, conhecidos como \textit{low\_fuses}, \textit{high\_fuses} e \textit{extended\_fuses}. Estes são responsáveis por determinar o comportamento do processador. Podendo controlar o consumo energético, geração de clock, tempo de boot, tipo de clock, pino de reinicialização, modo de depuração, modo de programação, falhas de operação, monitor da tensão de alimentação, entre outros\cite{fuseSettings}\cite{fuses}.
+
+\item \textit{upload.bootloader\_file} - Nome do arquivo que contem o código de máquina do sistema de \textit{bootloader}.
+
+\item \textit{build.mcu} - Processador utilizado\cite{ATmega48A}.
+
+\end{itemize}
+
+Estas informações são de suma importância para a utilização da ferramenta de carregamento de código, \textit{avrdude}.
+
+Nesta ferramenta, várias opções são necessárias para programar o sistema embarcado, dentro destas, pode-se destacar.
+
+\begin{itemize}
+\item \textit{partno} - Processador utilizado.
+
+\item \textit{baudrate} - Velocidade de comunicação com o \textit{bootloader}.
+
+\item \textit{config-file} - Arquivo de configuração do processador.
+
+\item \textit{programmer} - Hardware utilizado para realizar o processo de gravação.
+
+\item \textit{port} - Porta de comunicação com o hardware.
+
+\item \textit{memtype} - Configuração da memória do processador.
+
+\item \textit{filename} - Arquivo que contem o código de máquina.
+
+\item \textit{U} - Além do \textit{memtype} e \textit{filename}, é possível passar o parâmetro \textit{U} junto com configurações de \textit{fuses} e \textit{lock/unlock} bits.
+\end{itemize}
+
+Para utilizar essas configurações é necessário um conhecimento do funcionamento do hardware e como essas opções afetam o sistema embarcado. 
+
+\subsection{OpenOCD}
+
+%openocd -f board/ek-lm4f232.cfg -c init -c targets -c "halt" -c "flash write_image erase ${kk}" -c "verify_image ${kk}" -c "reset run" -c shutdown
+
+
+
 \section{Fluxo de trabalho}
 
 A interface de projeto existente no KDevelop permite que boa parte das especificações de projeto fiquem no sistema de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo o desenvolvimento de software sem a integração do projeto com o KDevelop para sua utilização.
