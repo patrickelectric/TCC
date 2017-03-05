@@ -80,13 +80,15 @@ Atualmente o termo é empregado a circuitos com uma vasta quantidade de sistemas
 Nesta categoria, pode-se destacar o desenvolvimento dos sistemas desenvolvidos pela fabricante ARM, tendo ultrapassado a Intel como a maior produtora de processamentos do mundo.
 Após a revolução dos dispositivos móveis onde a maioria das pessoas começaram a utilizar \textit{smartphones}, acarretando na substituição do uso de computadores para realizar as suas rotinas pessoais digitais diárias. Esta revolução está fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
 
+\section{Sistemas de Carregamento}
 
-\section{Bootloader}
+Responsáveis pelo envio do código de maquina para o sistema embarcado, os sistemas de carregamento são de suma importância para o desenvolvimento e testes práticos, podendo ser caracterizados pela programação externa e interna.
+
+\subsection{Bootloader}
 
 A vantagem de se utilizar um sistema de carregamento de boot\footnote{Processo no qual o sistema computacional se inicia.} é
 a gravação do programa principal com a assistência de um software primário, conhecido como \textit{bootloader}. Um microcontrolador
-com este sistema, também pode ser denominado de auto-programável, pois possui as dependências necessárias para realizar o próprio
-processo de programação.
+com este sistema, também pode ser denominado de auto-programável (programação interna), pois possui as dependências necessárias para realizar o próprio processo de programação.
 
 Para entender melhor o funcionamento, pode-se utilizar uma maquina de estados para detalhar o \textit{bootloader} utilizado nos microcontroladores AVR (\figref{fig:sm_bootloader}), e uma descrição dos estados na \tabref{tab:bootloader}.
 
@@ -131,8 +133,8 @@ run\_prg           &                            & Inicializa programa principal 
 \end{tabular}
 \end{table}
 
-O \textit{bootloader}, por ser uma peça de software essencial dos sistemas auto-programáveis, ele se encontra na parte da memória
-não volátil, existindo dentro de uma faixa determinada da memória ao lado do programa principal que será executado, como pode ser
+O \textit{bootloader}, por ser uma peça de software essencial dos sistemas auto-programáveis, se encontra na parte da memória
+não volátil, dentro de uma faixa determinada da memória ao lado do programa principal que será executado, como pode ser
 visualizado na \figref{fig:me_bootloader}.
 
 \begin{figure*}[ht!]
@@ -153,10 +155,9 @@ visualizado na \figref{fig:me_bootloader}.
 
 %\itodo{[ADICIONAR  UMA LISTA DOS BOOTLOADERS]}
 
-\section{Programação externa}
+
 %é importante
-A realização da programação externa, utilizando um hardware especializado que  permiti a programação do processador, independente do software que já está programado ou em execução.
-Alguns processadores, que se encontram em estados indevidos ou não planejados, podendo acarretar no mal funcionamento do sistema, podem ser regravados sem a preocupação do \textit{bootloader}, utilizando a gravação com a ferramenta do hardware especializado, limpando toda a memória e gravando o programa. O mesmo também é necessário para realizar a gravação do \textit{bootloader} pela primeira vez no processador, após isso, o próprio \textit{bootloader} pode se reprogramar ou atualizar.
+Alguns processadores, que se encontram em estados indevidos ou não planejados, podem apresentar um mal funcionamento do sistema do \textit{bootloader}. Para resolver este tipo de problema é utilizado uma ferramenta de hardware especializado, limpando toda a memória e gravando o programa. A mesma também é necessário para realizar a gravação do \textit{bootloader} pela primeira vez no processador, após isso, o próprio \textit{bootloader} pode se reprogramar ou atualizar.
 
 A programação via um hardware especializado é geralmente concebida, dentro dos softwares livres, com o OpenOCD (\textit{Open On Chip Debugger})\cite{openocd}, realizando a interface de software na comunicação com o hardware especializado como o JTAG (\textit{Joint Test Action Group}).
 
@@ -164,6 +165,7 @@ A programação via um hardware especializado é geralmente concebida, dentro do
 \abreviatura{OpenOCD}{\textit{Open On Chip Debugger}}
 
 \subsection{JTAG}
+A realização da programação externa, utiliza um hardware especializado que permiti a programação do processador, independente do software que já em execução.
 
 Com o avanço na miniaturização dos circuitos integrados e o aumento da densidade de componentes nos circuitos impressos, foi necessária o desenvolvimento de novos métodos para realização de testes de integridade.
 

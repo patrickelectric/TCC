@@ -39,6 +39,19 @@ O STM32 se trata de uma família de processadores da arquitetura ARM de 32-bits 
 
 \section{Testes Realizados}
 
+Todos os testes foram realizados utilizando o \textit{commit-id}\footnote{Identificação utilizando \textit{SHA-1 hash} do conteúdo do commit, data, mensagem de log, id do commit anterior, entre outros.} 716f4cb474-\\f45557345e64762cb029d90874d96f.
+
+\subsection{Interface}
+A realização dos testes para interface gráfica foram feitos com os seguintes itens.
+\begin{itemize}
+\item \textit{First-Time Configuration}
+\subitem É realizado o teste quando selecionado um diretório, evitando pastas invalidas.
+\subitem O Download só é realizado com acesso a internet, caso a conexão seja interrompida ou inexistente, uma reinicialização do download necessita ser realizada manualmente.
+\item  \textit{Board Settings}
+\subitem Por
+\end{itemize}
+
+\subsection{Carregamento}
 Inicialmente foram avaliados alguns modelos de Arduíno, entre as versões atuais, as utilizadas foram: Arduino nano, Arduino Mini e Arduino Mega.
 
 Para demonstrar o funcionamento minimo do sistema, foi utilizado o projeto Arduino-Makefile\footnote{\url{https://github.com/sudar/Arduino-Makefile}} com o exemplo de piscar o LED (Algoritmo 6.1) em todas as placas da Arduino.
@@ -52,6 +65,9 @@ No teste do \textit{OpenOCD}, foi utilizado um projeto exemplo de piscar o LED d
 \lstinputlisting[language=C++,caption={project.c},label=blink2]{blink2.cpp}
 
 O Código foi compilado e enviado para a placa, tendo como resultado o piscar do LED.
+
+\subsection{Depuração}
+Entre os sistemas suportados, o \textit{OpenOCD} é o único que tem suporte a depuração de sistemas embarcados. Para realizar tal operação é necessário manter o \textit{OpenOCD} enquanto a conexão do GDB é realizada.
 
 \chapter{Conclusão}
 Dentro do período de desenvolvimento, o plugin alcançou todas as expectativas traçadas,
