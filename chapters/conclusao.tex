@@ -31,7 +31,7 @@ Muitas placas de desenvolvimento, tanto para profissionais quanto para hobbistas
 
 \abreviatura{RISC}{\textit{Reduced Instruction Set}}
 
-O STM32 se trata de uma família de processadores da arquitetura ARM de 32-bits pertencentes a empresa STMicroelectronics. O Cortex-M, cerne do processador, pode ser encontrado em alguns processadores conhecidos como: Cortex-M0, Cortex-M1, Cortex-M3, Cortex-M4, Cortex-M7 entre outros. Sendo todos distintos pelo hardware de suporte a CPU, podendo ter FPU, decodificação de instruções de DSP, eficiência energética e etc.
+O processador LX4f232H (Cortex-M4) se trata de um processador da arquitetura ARM de 32-bits pertencentes a empresa STMicroelectronics. O Cortex-M, cerne do processador, pode ser encontrado em alguns processadores conhecidos como: Cortex-M0, Cortex-M1, Cortex-M3, Cortex-M4, Cortex-M7 entre outros. Sendo todos distintos pelo hardware de suporte a CPU, podendo ter FPU, decodificação de instruções de DSP, eficiência energética e etc.
 
 \abreviatura{FPU}{\textit{Float Point Unit}}
 \abreviatura{DSP}{\textit{Digital Signal Processing}}
@@ -47,8 +47,17 @@ A realização dos testes para interface gráfica foram feitos com os seguintes 
 \item \textit{First-Time Configuration}
 \subitem É realizado o teste quando selecionado um diretório, evitando pastas invalidas.
 \subitem O Download só é realizado com acesso a internet, caso a conexão seja interrompida ou inexistente, uma reinicialização do download necessita ser realizada manualmente.
+
 \item  \textit{Board Settings}
-\subitem Por
+\subitem Por utilizar opções predefinidas nos arquivos de configuração do Arduino, a única opção de entrada do usuário é a seleção da porta de comunicação e do arquivo binário. 
+\subitem Não é identificado o sistema embarcado pela porta de comunicação, sendo assim o usuário necessita saber qual porta deverá ser selecionada. O retorno do gravador ajuda ao usuário identificar algum problema de porta ou hardware.
+\subitem O arquivo de código de maquina não é testado, possibilitando ao usuário selecionar arquivos indesejados. O gravador irá retornar um erro para o usuário, identificando o arquivo como não suportado
+\subitem Não é possível para o usuário selecionar portas incorretas (bluetooth, mouse, teclado), pois os hardware selecionados são identificados pelo valor de PID (\textit{Product ID}) e VID (\textit{Vendor ID}) do dispositivo USB.
+
+\item  \textit{Configure Launchs}
+\subitem Por se tratar de um menu de configuração mais avançada, foi optado por permitir ao usuário mais liberdade nas opções, podendo editar todas as opções de forma textual. A Liberdade na configuração das expressões acarreta em uma certa responsabilidade do usuário, consequentemente, podendo acarretar em erros se os termos forem mais empregados.
+\subitem As configurações determinadas pela própria ferramenta do Arduino podem ser escolhidas e editadas, podendo acarretar nos problemas ditos anteriormente.
+
 \end{itemize}
 
 \subsection{Carregamento}
@@ -60,14 +69,37 @@ Para demonstrar o funcionamento minimo do sistema, foi utilizado o projeto Ardui
 
 O código foi compilado e enviado para todas as placas, executando o código de piscar o LED.
 
-No teste do \textit{OpenOCD}, foi utilizado um projeto exemplo de piscar o LED da placa de desenvolvimento STM32F4DISCOVERY (Algoritmo 6.2)
+Também foi feito teste com outro código, Algoritmo 6.2, que tem como função o cálculo da função seno utilizando a série de Taylor, equação \ref{eq:sin}. O objetivo é provar o funcionamento de um código em C um pouco mais complexo.
+\begin{equation}
+sin(x) = \sum_{k=0}^{n} (-1)^k * \frac{x^{2*k+1}}{(2*k+1)!}
+\label{eq:sin} 
+\end{equation}
+\lstinputlisting[language=C++,caption={sin.ino},label=sin]{sin.ino}.
+O resultado para o seno de $\frac{\pi}{4}$ utilizando uma soma de 20 termos foi o valor $0.7071066856$, enquanto o valor real é $0.7071067811..$ mostrando uma solução com 
+$99.9999865\%$ de precisão.
 
-\lstinputlisting[language=C++,caption={project.c},label=blink2]{blink2.cpp}
+Foi realizado um teste utilizando C++11 para provar o funcionamento das bibliotecas STL e função mais novas da linguagem. O Algoritmo 6.3 mostra o código utilizado.
+
+\lstinputlisting[language=C++,caption={cpp.ino},label=cpp]{cpp.ino}.
+
+O resultado foi a contagem dos itens da lista, mostrando o id de cada item\footnote{\textit{Printing list.. 0,1,2,3,4,5,6,7,8,9}}.
+
+No teste do \textit{OpenOCD}, foi utilizado um projeto exemplo de piscar o LED da placa de desenvolvimento EK-LM4F232 (Algoritmo 6.4).
+
+\lstinputlisting[language=C++,caption={blinky.c},label=blink2]{blink2.cpp}
 
 O Código foi compilado e enviado para a placa, tendo como resultado o piscar do LED.
 
+Foi feito um teste com o Algoritmo 6.4, onde mostrou uma precisão maior no cálculo do que o Arduino\footnote{Maior que $99.99999\%$.}, por utilizar uma FPU e uma resolução maior em bits (32).
+
+\lstinputlisting[language=C++,caption={sin2.c},label=sin2]{sin2.c}
+
+Pela placa EK-4F232 conter poucos usuários e uma base de desenvolvimento em C puro com inúmeras dependências, testes com envio de dados pela serial não foram possíveis.
+
 \subsection{Depuração}
 Entre os sistemas suportados, o \textit{OpenOCD} é o único que tem suporte a depuração de sistemas embarcados. Para realizar tal operação é necessário manter o \textit{OpenOCD} enquanto a conexão do GDB é realizada.
+
+Certos problemas foram encontrados durante o procedimento de depuração, fazendo com que o KDevelop finalizasse com erro. Tal problema foi reportado e é conhecido pela comunidade nas utilizações do KDevelop para depuração remota, futuras versões do programa irão corrigir o problema.
 
 \chapter{Conclusão}
 Dentro do período de desenvolvimento, o plugin alcançou todas as expectativas traçadas,
