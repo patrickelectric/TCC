@@ -20,7 +20,7 @@ Com o objetivo do trabalho de seguir a filosofia GNU \cite{filosofia}, todos as 
 
 O conjunto de ferramentas do Arduino foram utilizados para extração das opções de configuração, podendo dar destaque ao arquivo boards.txt 
 
-\lstinputlisting[caption={Parte de boards.txt},label=sin2]{boards.txt}
+\lstinputlisting[caption={Parte de boards.txt},label=boardstxt]{boards.txt}
 Dentro deste arquivo se pode extrair várias informações pertinentes para o sistema.
 
 \begin{itemize}
@@ -91,9 +91,28 @@ Para utilizar essas configurações é necessário um conhecimento do funcioname
 
 \subsection{OpenOCD}
 
-%openocd -f board/ek-lm4f232.cfg -c init -c targets -c "halt" -c "flash write_image erase ${kk}" -c "verify_image ${kk}" -c "reset run" -c shutdown
+Recebe como argumentos os parâmetros de configuração ou comandos para a comunicação do JTAG. As opções disponíveis são:
 
+\begin{itemize}
+\item {file} - Aponta o arquivo de configuração.
+\item {debug} - Nível da mensagem de depuração.
+\item {command} - Executa um comando do OpenOCD.
+\end{itemize}
 
+Um exemplo de comando utilizado com a ferramenta, pode ser visto no Algoritmo \ref{openocdcli}, \ref{lm4f232cfg} e \ref{tiicdicfg}.
+
+\lstinputlisting[caption={Linha de comando do OpenOCD},label=openocdcli]{openocdcli.txt}.
+
+%%/usr/share/openocd/scripts/board/ek-lm4f232.cfg
+\lstinputlisting[caption={board/ek-lm4f232.cfg},label=lm4f232cfg]{ek-lm4f232.cfg}
+
+%/usr/share/openocd/scripts/interface/ti-icdi.cfg
+\lstinputlisting[caption={interface/ti-icdi.cfg},label=tiicdicfg]{ti-icdi.cfg}
+
+%/usr/share/openocd/scripts/target/stellaris.cfg
+
+Onde \$\{bin\} é definido pelo caminho do arquivo de código de máquina e os valores de PID e VID pelo \textit{usbutils}.
+Para criar o arquivo de configuração do OpenOCD, é necessário o conhecimento das características e do funcionamento do hardware.
 
 \section{Fluxo de trabalho}
 
@@ -301,7 +320,7 @@ Após isso, uma tela de configuração será aberta, podendo ser configurado da 
 
 Após realizar as configurações, basta aplica-las e em seguida executar o lançamento com o botão Execute. Tendo isso realizado, será aberto um console onde todos os dados de gravação serão mostrados (\figref{fig:runavrdude} e \figref{fig:runopenocd}).
 
-Com as configurações salvas no lançador do código, as mesmas ficam reservadas num arquivo conhecido como *.kdev4, responsável por gerenciar os arquivos de configuração, permitindo que os próximos lançamento sempre utilizem as mesmas configurações, além de permitir outras configurações de lançamento em paralelo.
+Com as configurações salvas no lançador do código, as mesmas ficam reservadas em um arquivo conhecido como *.kdev4, responsável por gerenciar os arquivos de configuração, permitindo que os próximos lançamento sempre utilizem as mesmas configurações, além de permitir outras configurações de lançamento em paralelo.
 
 \begin{figure}[!htb]
   \centering
