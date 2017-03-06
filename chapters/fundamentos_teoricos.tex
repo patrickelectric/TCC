@@ -4,7 +4,7 @@ O desenvolvimento para sistemas embarcados necessita de uma interface para desen
 
 \section{Sistema embarcado}
 
-Numa visão ampla, o sistema embarcado pode ser definida como qualquer sistema que realiza uma tarefa especifica, independe do custo energético ou computacional\cite{barr2006programming}. Dentro desta categoria, pode-se listar alguns exemplos:
+Em uma visão ampla, o sistema embarcado pode ser definida como qualquer sistema que realiza uma tarefa especifica, independe do custo energético ou computacional\cite{barr2006programming}. Dentro desta categoria, pode-se listar alguns exemplos:
 
 \begin{itemize}
 \item \textbf{VANT} (Veículo Aéreo Não Tripulado) - Com crescimento exponencial nos últimos anos, atualmente se encontra com inúmeras propostas em suas utilizações.
@@ -82,7 +82,7 @@ Após a revolução dos dispositivos móveis onde a maioria das pessoas começar
 
 \section{Sistemas de Carregamento}
 
-Responsáveis pelo envio do código de maquina para o sistema embarcado, os sistemas de carregamento são de suma importância para o desenvolvimento e testes práticos, podendo ser caracterizados pela programação externa e interna.
+Responsáveis pelo envio do código de máquina para o sistema embarcado, os sistemas de carregamento são de suma importância para o desenvolvimento e testes práticos, podendo ser caracterizados pela programação externa e interna.
 
 \subsection{Bootloader}
 
@@ -90,7 +90,7 @@ A vantagem de se utilizar um sistema de carregamento de boot\footnote{Processo n
 a gravação do programa principal com a assistência de um software primário, conhecido como \textit{bootloader}. Um microcontrolador
 com este sistema, também pode ser denominado de auto-programável (programação interna), pois possui as dependências necessárias para realizar o próprio processo de programação.
 
-Para entender melhor o funcionamento, pode-se utilizar uma maquina de estados para detalhar o \textit{bootloader} utilizado nos microcontroladores AVR (\figref{fig:sm_bootloader}), e uma descrição dos estados na \tabref{tab:bootloader}.
+Para entender melhor o funcionamento, pode-se utilizar uma máquina de estados para detalhar o \textit{bootloader} utilizado nos microcontroladores AVR (\figref{fig:sm_bootloader}), e uma descrição dos estados na \tabref{tab:bootloader}.
 
 \begin{figure*}[ht!]
   \centering
@@ -165,7 +165,7 @@ A programação via um hardware especializado é geralmente concebida, dentro do
 \abreviatura{OpenOCD}{\textit{Open On Chip Debugger}}
 
 \subsection{JTAG}
-A realização da programação externa, utiliza um hardware especializado que permiti a programação do processador, independente do software que já em execução.
+A realização da programação externa, utiliza um hardware especializado que permiti a programação do processador, independente do software que consta em execução.
 
 Com o avanço na miniaturização dos circuitos integrados e o aumento da densidade de componentes nos circuitos impressos, foi necessária o desenvolvimento de novos métodos para realização de testes de integridade.
 
@@ -183,7 +183,7 @@ O JTAG comunica principalmente com dois tipos de registradores, o registrador de
 
 \subsection{OpenOCD}
 
-Realizar a depuração do hardware é diferente de uma aplicação comum, o código é executado em um sistema limitado, podendo não ter o suporte para logs, despejo de memória entre outros.
+Realizar a depuração do hardware é diferente de uma aplicação comum, o código é executado em um sistema limitado, podendo não ter o suporte para registros, despejo de memória, entre outros.
 
 Utilizando o JTAG, é possível ter acesso aos estados dos pinos, memó-\\ria e instruções em execução. Para visualizar e interpretar os dados recebidos do JTAG, é geralmente utilizado uma ferramenta conhecida como GDB (\textit{GNU Project debugger}). Contudo, para a comunicação do computador com o JTAG, realizando a depuração do sistema embarcado, é utilizado outro software, providenciando uma camada de abstração para o GDB via o protocolo do \textit{gdbserver}, como o \textit{OpenOCD} (Algoritmo 2.1). Este é mantido pela comunidade de código aberto, tendo um suporte a uma vasta gama de JTAGs.
 
@@ -202,7 +202,7 @@ para programar em C, C++, Perl, Python, PHP, Java, Fortran, Ruby, Ada, Pascal, S
 configuração para compilação como cmake, qmake e make.
 
 Diferente de outras \textit{IDEs} que propõem as mesmas soluções que o KDevelop, este é inteiramente desenvolvido
-com foco em performance e numa agradável experiência do usuário, permitindo o desenvolvimento e adesão de projetos na \textit{IDE} (\textit{Integrated Development Environment}) sem restringir outros ambientes de desenvolvimento, utilizando toda a informação disponível nos sistemas assistencialistas de configuração de compilação, como fonte das dependências e de informações sobre o projeto adicionado. Para um programador comum de código aberto, o KDevelop se apresenta como uma ótima opção.
+com foco em performance em uma agradável experiência do usuário, permitindo o desenvolvimento e adesão de projetos na \textit{IDE} (\textit{Integrated Development Environment}) sem restringir outros ambientes de desenvolvimento, utilizando toda a informação disponível nos sistemas assistencialistas de configuração de compilação, como fonte das dependências e de informações sobre o projeto adicionado. Para um programador comum de código aberto, o KDevelop se apresenta como uma ótima opção.
 
 \abreviatura{IDE}{\textit{Integrated Development Environment}}
 
