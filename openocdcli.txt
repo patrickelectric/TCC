@@ -1,0 +1,2 @@
+openocd -f board/ek-lm4f232.cfg -c init -c targets -c "halt" -c "flash write_image erase ${bin}" \
+-c "verify_image ${bin}" -c "reset run" -c shutdown
