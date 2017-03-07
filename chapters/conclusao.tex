@@ -3,7 +3,7 @@ Finalizada a fase de desenvolvimento da ferramenta, uma fase de testes foi inici
 
 \section{Ambiente Experimental}
 
-Todas as placas foram programas com o plugin desenvolvido utilizando um computador com o sistema operacional Linux, com o SDK do Arduino versão 1.6.10. A versão do KDevelop utilizado com o plugin foi a 5.0.0, contendo as atualizações da versão do QT 5.8 assim como uma boa parte do código migrado para C++11.
+Todas as placas foram programadas com o plugin desenvolvido, utilizando um computador com o sistema operacional Linux, com o Arduino \textit{toolkit} versão 1.6.10. A versão do KDevelop utilizado com o plugin foi a 5.0.0, contendo as atualizações da versão do QT 5.8 assim como uma boa parte do código migrado para C++11.
 
 \subsection{Hardware Utilizado}
 
@@ -16,9 +16,9 @@ O Arduino Mega possui um processador ATmega2560, com 10 entradas analógicas a m
 
 O Arduino Nano Por ser uma placa de desenvolvimento completa, com um tamanho de aproximadamente um quarto do Arduino UNO, se tornou muito popular pela mobilidade e facilidade de desenvolvimento, assim como o \textit{pinout}\footnote{ Referencia utilizada para equidistância entre os pinos ou conexões.} ideal para ser encaixado em uma \textit{protoboard}\footnote{Matriz de contato, utilizada para realizar ensaios de circuitos, contem contatos e conexões para montagem.}. Além disso, alguns modelos tem dois pinos a mais de entrada analógica comparado com o Arduino Pro Mini e Arduino UNO.
 
-Desenvolvido para aplicações com pouco espaço e para instalações permanentes, o Arduino pro mini utiliza um processador ATmega328,  diferente de outras placas da Arduino, está não possui um hardware assistencialista para a realização do \textit{upload} do processador na própria placa, logo, tal artefato, necessita ser conectado na placa para realizar a sua programação, apesar disso, contem as demais características do Arduino UNO.
+Desenvolvido para aplicações com pouco espaço e para instalações permanentes, o Arduino pro mini utiliza um processador ATmega328,  diferente de outras placas da Arduino, está não possui um hardware assistencialista para a realização do carregamento no processador na própria placa, logo, tal artefato, necessita ser conectado para realizar a sua programação, apesar disso, contem as demais características do Arduino UNO.
 
-Sendo a placa de desenvolvimento de lançamento comemorativa do lançamento oficial do arduino, o Arduino UNO utiliza o processador ATmega328P, sendo a primeira que utiliza USB para realizar o \textit{upload} do código de máquina para o processador via \textit{bootloader}. Contem 6 entradas analógicas, 14 pinos digitais, 6 pinos de \textit{PWM}, 1kb de \textit{SRAM}, 2kb de \textit{EEPROM}, 32kb de flash e 1 serial em hardware. Muito similar ao Arduino Nano, porém, conta com duas portas analógicas a menos.
+Sendo a placa de desenvolvimento de lançamento comemorativa do lançamento oficial do Arduino 1.0, o Arduino UNO utiliza o processador ATmega328P, sendo a primeira que utiliza USB para realizar o \textit{upload} do código de máquina para o processador via \textit{bootloader}. Contem 6 entradas analógicas, 14 pinos digitais, 6 pinos de \textit{PWM}, 1kb de \textit{SRAM}, 2kb de \textit{EEPROM}, 32kb de flash e 1 serial em hardware. Muito similar ao Arduino Nano, porém, conta com duas portas analógicas a menos.
 
 \abreviatura{SRAM}{\textit{{Static Random Access Memory}}}
 \abreviatura{EEPROM}{\textit{Electrically-Erasable Programmable Read-Only Memory}}
@@ -55,7 +55,7 @@ A realização dos testes para interface gráfica foram feitos com os seguintes 
 \subitem Não é possível para o usuário selecionar portas incorretas (bluetooth, mouse, teclado), pois os hardware selecionados são identificados pelo valor de PID (\textit{Product ID}) e VID (\textit{Vendor ID}) do dispositivo USB.
 
 \item  \textit{Configure Launchs}
-\subitem Por se tratar de um menu de configuração mais avançada, foi optado por permitir ao usuário mais liberdade nas opções, podendo editar todas as opções de forma textual. A Liberdade na configuração das expressões acarreta em uma certa responsabilidade do usuário, consequentemente, podendo acarretar em erros se os termos forem mais empregados.
+\subitem Por se tratar de um menu de configuração mais avançada, foi optado por permitir ao usuário mais liberdade nas opções, podendo editar todas as opções de forma textual. A Liberdade na configuração das expressões acarreta em uma certa responsabilidade do usuário, consequentemente, podendo acarretar em erros se os termos forem mal empregados.
 \subitem As configurações determinadas pela própria ferramenta do Arduino podem ser escolhidas e editadas, podendo acarretar nos problemas ditos anteriormente.
 
 \end{itemize}
@@ -74,13 +74,13 @@ Também foi feito teste com outro código, Algoritmo 6.2, que tem como função 
 sin(x) = \sum_{k=0}^{n} (-1)^k * \frac{x^{2*k+1}}{(2*k+1)!}
 \label{eq:sin} 
 \end{equation}
-\lstinputlisting[language=C++,caption={sin.ino},label=sin]{sin.ino}.
+\lstinputlisting[language=C++,caption={sin.ino},label=sin]{sin.ino}
 O resultado para o seno de $\frac{\pi}{4}$ utilizando uma soma de 20 termos foi o valor $0.7071066856$, enquanto o valor real é $0.7071067811..$ mostrando uma solução com 
 $99.9999865\%$ de precisão.
 
 Foi realizado um teste utilizando C++11 para provar o funcionamento das bibliotecas STL e função mais novas da linguagem. O Algoritmo 6.3 mostra o código utilizado.
 
-\lstinputlisting[language=C++,caption={cpp.ino},label=cpp]{cpp.ino}.
+\lstinputlisting[language=C++,caption={cpp.ino},label=cpp]{cpp.ino}
 
 O resultado foi a contagem dos itens da lista, mostrando o id de cada item\footnote{\textit{Printing list.. 0,1,2,3,4,5,6,7,8,9}}.
 
@@ -102,25 +102,22 @@ Entre os sistemas suportados, o \textit{OpenOCD} é o único que tem suporte a d
 Certos problemas foram encontrados durante o procedimento de depuração, fazendo com que o KDevelop finalizasse com erro. Tal problema foi reportado e é conhecido pela comunidade nas utilizações do KDevelop para depuração remota, futuras versões do programa irão corrigir o problema.
 
 \chapter{Conclusão}
-Dentro do período de desenvolvimento, o plugin alcançou todas as expectativas traçadas,
-permitindo a gravação dos sistemas embarcados utilizando o KDevelop, mesmo necessitando algumas modificações para ficar
-totalmente integrado ao fluxo de trabalho.
+Dentro do período de desenvolvimento, o plugin alcançou todas as expectativas traçadas, permitindo a gravação dos sistemas embarcados utilizando o KDevelop, mesmo necessitando de algumas modificações para ficar totalmente integrado ao fluxo de trabalho.
 
-A integração com o KDevelop foi realizada com sucesso, necessitando que o usuário configure algumas variáveis para permitir identificar o hardware utilizado pelo mesmo, tanto o processador quanto o hardware especialista ou assistencialista na realização do envio do código binário.
+A integração com o KDevelop foi realizada com sucesso, necessitando que o usuário configure algumas variáveis para permitir a identificação do hardware utilizado pelo mesmo, tanto o processador quanto o hardware especialista ou assistencialista na realização do envio do código binário.
 
 O código fonte do projeto desenvolvido pode ser encontrado no \textit{mirror} do \textit{GitHub} (\url{https://github.com/KDE/kdev-embedded/tree/master}) ou no repositório oficial do \textit{phabricator} (\url{https://phabricator.kde.org/source/kdev-embedded/browse/master/}).
 
-Tendo em vista que com o suporte para as placas da \textit{Arduino} e do sistema \textit{OpenOCD} realizado, ainda é necessário mais alguns trabalhos relacionados a áreas especificas.
+Tendo em vista que o suporte para as placas da \textit{Arduino} e do sistema \textit{OpenOCD} realizado, ainda é necessário mais alguns trabalhos relacionados a áreas especificas.
 
-As interfaces desenvolvidas foram trabalhadas para serem a mais ami-gáveis e altamente configuráveis na medida do possível, contudo, ainda é necessário um polimento e melhor desenvolvimento tanto da interface do plugin quanto do KDevelop, para permitir uma melhor integração com o usuário, facilitando algumas configurações básicas como a já existentes no \textit{eclipse IDE} para \textit{debug} remoto.
+As interfaces desenvolvidas foram feitas para serem a mais amigáveis e altamente configuráveis na medida do possível, contudo, ainda é necessário um polimento e melhor desenvolvimento tanto da interface do plugin quanto do KDevelop, para permitir uma melhor integração com o usuário, facilitando algumas configurações básicas como a já existentes no \textit{eclipse IDE} para \textit{debug} remoto.
 
 Mesmo o instalador sendo completamente funcional, identificando ver-sões instaladas no sistema operacional e
 permitindo ao usuário realizar a instalação automática das dependências, com a ajuda da interface gráfica disponível pelo plugin, o mesmo não é de muita ajuda para os usuários avançados.
 
-A integração do plugin desenvolvido com os demais plugins do KDevelop necessita ser melhor integrado e aprimorada, permitindo desta
-forma a integração com os gerenciadores de montagem de software.
+A integração do plugin desenvolvido com os demais no KDevelop necessita ser melhor integrado e aprimorada, permitindo desta forma a integração com os gerenciadores de montagem de software.
 
-Atualmente o plugin utiliza uma biblioteca desenvolvida pela comunidade do KDE conhecida como \textit{Solid}, onde permite uma boa integração com o \textit{hardwre} do computador onde o mesmo está sendo executado. Contudo o mesmo tem problemas para identificação de gravadores que não utilizam um adaptador Adaptador Serial-USB, dificultando sua utilização. 
+Atualmente o plugin utiliza uma biblioteca desenvolvida pela comunidade do KDE conhecida como \textit{Solid}, onde permite uma boa integração com o \textit{hardwre} do computador. Contudo o mesmo tem problemas para identificação de gravadores que não utilizam um adaptador Serial-USB, dificultando sua utilização. 
 
 Como proposta de solução, é utilizar os valores de PID e VID dos dispositivos conhecidos na realização da gravação, podendo ser obtidos através das bibliotecas do \textit{OpenOCD}, para melhorar sua utilização na detecção de hardware.
 
