@@ -6,21 +6,23 @@ Diferente de muitas outras interfaces de desenvolvimento, o KDevelop permite ao 
 As seguintes ferramentas foram utilizadas para desenvolvimento do projeto.
 \begin{itemize}
  \item \textbf{KDevelop}: Editor de código para desenvolvimento do plugin e na realização de debug.
- \item \textbf{QT}: Kit de ferramentas e bibliotecas para desenvolvimento de software.
+ \item \textbf{QT Framework}: Kit de ferramentas e bibliotecas para desenvolvimento de software.
  \item \textbf{KDE Framework}: Coleção de ferramentas e bibliotecas do KDE.
  \item \textbf{Avrdude}: Programa de carregamento de código para microcontroladores AVR.
  \item \textbf{OpenOCD}: Ferramenta para comunicação de programadores.
- \item \textbf{Placas de desenvolvimento}: Arduino mini, nano, mega, due, uno para testes de suporte utilizando avrdude. Stellaris LM4F232 para testes utilizando o OpenOCD.
+ \item \textbf{Placas de desenvolvimento}: Arduino mini, nano, mega, due, uno para testes de suporte utilizando avrdude e Stellaris como EK-LM4F232 para testes utilizando o OpenOCD.
 \end{itemize}
 
-Com o objetivo do trabalho de seguir a filosofia GNU \cite{filosofia}, todos as ferramentas utilizadas para o desenvolvimento do plugin são de código aberto e totalmente gratuitas para qualquer um que queira replicar, modificar e contribuir com o projeto.
+O trabalho segue a filosofia GNU \cite{filosofia}, onde, todas as ferramentas utilizadas para o desenvolvimento do plugin são de código aberto e totalmente gratuitas para qualquer um que queira replicar, modificar e contribuir com o projeto.
 
 
 \subsection{Arduino \textit{toolkit}}
+O Arduino \textit{toolkit} possui inúmeras bibliotecas e arquivos de configuração, contendo informações como \textit{bootloader}, configurações de registradores, pinos, funções, entre outros.
 
-O conjunto de ferramentas do Arduino foram utilizados para extração das opções de configuração, podendo dar destaque ao arquivo boards.txt 
+O \textit{toolkit} foi utilizado para extração das opções de configuração, podendo dar destaque ao arquivo \textit{boards.txt}.
 
-\lstinputlisting[caption={Parte de boards.txt},label=boardstxt]{boards.txt}
+\lstinputlisting[caption={Parte referente ao Arduino nano de boards.txt},label=boardstxt]{boards.txt}
+
 Dentro deste arquivo se pode extrair várias informações pertinentes para o sistema.
 
 \begin{itemize}
@@ -36,7 +38,7 @@ Dentro deste arquivo se pode extrair várias informações pertinentes para o si
 \item \textit{bootloader.unlock\_bits} - Bits para desbloquear o \textit{bootloader} na realização de escrita.
 
 \item \textit{bootloader.lock\_bits} - Bits para bloquear o \textit{bootloader} na realização de escrita.
-\subitem Tanto o \textit{unlock\_bits} quanto o \textit{lock\_bits} controla a programação externa, utilizando um sistema especializado, como ISP (\textit{In-Circuit Serial Programmer}), JTAG, entre outros \cite{fuseSettings}. 
+\subitem Tanto o \textit{unlock\_bits} quanto o \textit{lock\_bits} controla a programação externa como ISP (\textit{In-Circuit Serial Programmer}), JTAG, entre outros \cite{fuseSettings}. 
 \abreviatura{ISP}{\textit{In-Circuit Serial Programmer}}
 
 \item \textit{build.f\_cpu} - Clock do processador programado, configurado via \textit{bootloader}.
@@ -155,7 +157,7 @@ O menu de acesso (\figref{fig:kdevelopMenu}), foi desenvolvido para realizar dua
 
 \subsection{Arduino Setup}
 
-Realiza a configuração inicial do plugin no sistema, permitindo ao usuário escolher uma versão do kit de ferramentas do \textit{Arduino} para utilizar ou a instalação automática do kit pelo plugin.
+Realiza a configuração inicial do plugin no sistema, permitindo ao usuário escolher uma versão do kit de ferramenta do \textit{Arduino} para utilizar ou a instalação automática do kit pelo plugin.
 
 Primeiramente foi definido um diagrama inicial de estados para facilitar a compreensão da configuração (\figref{fig:ftwstate}).
 
@@ -166,7 +168,7 @@ Primeiramente foi definido um diagrama inicial de estados para facilitar a compr
 
 \subitem \textbf{\textit{Download} (Down)}: É realizado a comunicação com o servidor oficial resultando no download das ferramentas necessárias (\figref{fig:kdevelopinstaller21}).
 
-\subitem \textbf{\textit{Install}}: Após o \textit{download} é realizado a decomposição e instalação do conjunto de ferramentas (\figref{fig:kdevelopinstaller22}).
+\subitem \textbf{Install}: Após o \textit{download} é realizado a decomposição e instalação do conjunto de ferramentas (\figref{fig:kdevelopinstaller22}).
 
 \item \textbf{\textit{End Configuration} (EndConf)}: Tela final, resulta após a escolha de um \textit{toolkit} previamente instalado ou após a conclusão da instalação automática (\figref{fig:kdevelopinstaller3}).
 \end{itemize}
@@ -264,7 +266,7 @@ Além do desenvolvimento do software, permitindo seu uso como projetado inicialm
 
 \subsection{Integração e compilação do projeto}
 
-Para o usuário realizar compilação, é necessário importar um projeto: Project $\rightarrow$ Open / Import Project... e importe um projeto com um sistema de compilação suportado pelo KDevelop, seguindo o fluxo de trabalho do KDevelop (\figref{fig:importproject}).
+Para o usuário realizar a compilação, é necessário importar um projeto: Project $\rightarrow$ Open / Import Project... e importar um projeto com um sistema de compilação suportado pelo KDevelop, seguindo o fluxo de trabalho do KDevelop (\figref{fig:importproject}).
 
 \begin{figure}[!htb]
   \centering
@@ -289,7 +291,7 @@ Após o projeto ser importado com sucesso, será possível visualizar o mesmo no
   \end{minipage}
 \end{figure}
 
-Depois de ter realizado a importação com sucesso, é necessário realizar a compilação para gerar o binário que será enviado pro processador, realizando o processo de compilação, basta clicar no botão \textit{Build} da interface do KDevelop, após isso, o menu de projeto se atualizado, podendo ser possível visualizar o arquivo com o código de máquina (\figref{fig:projects2}).
+Depois de ter realizado a importação com sucesso, é necessário realizar a compilação para gerar o binário que será enviado para o processador, realizando o processo de compilação, basta clicar no botão \textit{Build} da interface do KDevelop, após isso, o menu de projeto se atualizado, podendo ser possível visualizar o arquivo com o código de máquina (\figref{fig:projects2}).
 
 \subsection{Lançamento}
 
@@ -338,7 +340,7 @@ Com as configurações salvas no lançador do código, as mesmas ficam reservada
 
 \subsection{Depuração}
 
-A depuração pode ser utilizada as próprias ferramentas do KDevelop, permitindo uma conexão com o servidor do GDB pela porta padrão, tal configuração foi testada utilizando a implementação do \textit{OpenOCD} (\figref{fig:openocddebug}).
+A depuração pode ser realizada utilizando as próprias ferramentas do KDevelop, permitindo uma conexão com o servidor do GDB pela porta padrão, tal configuração foi testada utilizando a implementação do \textit{OpenOCD} (\figref{fig:openocddebug}).
 
 \begin{figure}[!htb]
   \centering
