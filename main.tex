@@ -70,6 +70,21 @@ frame=bt
 \newcommand{\tabref}[1]{{Tabela \ref{#1}}} % Para destacar uma parte a ser trabalhada
 %\newcommand{\ABNTbibliographyname}{REFERÊNCIAS} % Necessário para abnTeX 0.8.2
 
+
+%hack of doom to section*work
+
+
+\usepackage{etoolbox}
+% \patchcmd{<cmd>}{<search>}{<replace>}{<success>}{<failure>}
+\patchcmd{\section}{\centering}{}{}{}
+
+\let\flushleftsection\section% Copy updated non-centered definition of \section
+\newcommand{\sectionscenter}{\let\section\centeredsection}% Switch to centered \section
+\newcommand{\sectionsleft}{\let\section\flushleftsection}% Switch to flush left \section
+\newcommand{\sectionsright}{\let\section\flushrightsection}% Switch to flush left \section
+
+
+
 % facilitates the creation of memory maps. Start address at the bottom, end address at the top.
 % syntax: \memsection{end address}{start address}{height in lines}{text in box}
 \newcommand{\memsection}[4]{
