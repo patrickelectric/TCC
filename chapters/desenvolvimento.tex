@@ -23,7 +23,12 @@ O \textit{toolkit} foi utilizado para extração das opções de configuração,
 
 \lstinputlisting[caption={Parte referente ao Arduino nano de boards.txt},label=boardstxt]{boards.txt}
 
-Dentro deste arquivo se pode extrair várias informações pertinentes para o sistema.
+Dentro deste arquivo se pode extrair várias informações pertinentes para o sistema, como:
+\\
+\\
+\sectionsleft{\textbf{Variáveis de carregamento}}
+
+As configurações para o \textit{bootloader}, hardware de comunicação e processador são:
 
 \begin{itemize}
 \item \textit{upload.tool} - Ferramenta para envio do código de máquina.
@@ -38,14 +43,28 @@ Dentro deste arquivo se pode extrair várias informações pertinentes para o si
 \item \textit{bootloader.unlock\_bits} - Bits para desbloquear o \textit{bootloader} na realização de escrita.
 
 \item \textit{bootloader.lock\_bits} - Bits para bloquear o \textit{bootloader} na realização de escrita.
-\subitem Tanto o \textit{unlock\_bits} quanto o \textit{lock\_bits} controla a programação externa como ISP (\textit{In-Circuit Serial Programmer}), JTAG, entre outros \cite{fuseSettings}. 
+
+\end{itemize}
+
+As categorias de \textit{upload} possuem as configurações utilizadas para o hardware de comunicação com o \textit{bootloader} e seu protocolo de comunicação.
+
+A categoria de \textit{bootloader} possui as configurações do mesmo assim como as ferramentas utilizadas para sua utilização. As variaveis \textit{unlock\_bits} quanto \textit{lock\_bits} contram o sistema de programação externa de processador, como ISP (\textit{In-Circuit Serial Programmer}), JTAG, entre outros \cite{fuseSettings}. 
 \abreviatura{ISP}{\textit{In-Circuit Serial Programmer}}
+\\
+\\
+\textbf{Variáveis de configuração do processador e compilação}
+
+O hardware da placa precisa ser configurado de acordo com as especificações do usuário, o arquivos boards.txt possui as variáveis para as opções de configuração.
+
+\begin{itemize}
 
 \item \textit{build.f\_cpu} - Clock do processador programado, configurado via \textit{bootloader}.
 
 \item \textit{build.board} - Nome da placa.
 
 \item \textit{build.core} - Tipo de hardware.
+
+\item \textit{build.mcu} - Processador utilizado\cite{ATmega48A}.
 
 \item \textit{build.variant} - Topologia do hardware.
 
@@ -56,20 +75,24 @@ Dentro deste arquivo se pode extrair várias informações pertinentes para o si
 \item \textit{upload.speed} - Velocidade da comunicação com o \textit{bootloader}.
 
 %http://archive.fabacademy.org/archives/2016/doc/fuses.html
-\item \textit{upload.low\_fuses}
-\item \textit{upload.high\_fuses}
-\item \textit{upload.extended\_fuses}
-\subitem Bytes com memória não volátil do processador, conhecidos como \textit{low\_fuses}, \textit{high\_fuses} e \textit{extended\_fuses}. Estes são responsáveis por determinar o comportamento do processador. Podendo controlar o consumo energético, geração de clock, tempo de boot, tipo de clock, pino de reinicialização, modo de depuração, modo de programação, falhas de operação, monitor da tensão de alimentação, entre outros\cite{fuseSettings}\cite{fuses}.
+\item \textit{upload.low\_fuses} - Bits menos significativos de configuração do comportamento do hardware.
+
+\item \textit{upload.high\_fuses} - Bits mais significativos de configuração do comportamento do hardware.
+
+\item \textit{upload.extended\_fuses} - Bits estendidos de configuração do comportamento do hardware.
 
 \item \textit{upload.bootloader\_file} - Nome do arquivo que contem o código de máquina do sistema de \textit{bootloader}.
 
-\item \textit{build.mcu} - Processador utilizado\cite{ATmega48A}.
-
 \end{itemize}
 
-Estas informações são de suma importância para a utilização da ferramenta de carregamento de código, \textit{avrdude}.
+As categorias \textit{build} são configurações para o processo de compilação, especificando o processador, tipo de placa e clock. A categoria upload é responsável pelas limitações do tamanho do código de maquina da aplicação, sua velocidade de transmissão para o processador, o local do código de maquina do \textit{bootloader} e as configurações de programação do processador, realizada pelos \textit{fuses}. 
 
-Nesta ferramenta, várias opções são necessárias para programar o sistema embarcado, dentro destas, pode-se destacar.
+Os Bytes com memória não volátil do processador, conhecidos como \textit{low\_fuses}, \textit{high\_fuses} e \textit{extended\_fuses}, tem como responsabilidade determinar o comportamento do processador. Estes podem controlar o consumo energético, geração de clock, tempo de boot, tipo de clock, pino de reinicialização, modo de depuração, modo de programação, falhas de operação, monitor da tensão de alimentação, entre outros\cite{fuseSettings}\cite{fuses}.
+\\
+\\
+\textbf{AVRDUDE}
+
+Ferramenta responsável para programar maioria das placas da Arduino, possui várias opções necessárias para programar o sistema embarcado, dentro destas, pode-se destacar.
 
 \begin{itemize}
 \item \textit{partno} - Processador utilizado.
@@ -103,7 +126,7 @@ Recebe como argumentos os parâmetros de configuração ou comandos para a comun
 
 Um exemplo de comando utilizado com a ferramenta, pode ser visto no Algoritmo \ref{openocdcli}, \ref{lm4f232cfg} e \ref{tiicdicfg}.
 
-\lstinputlisting[caption={Linha de comando do OpenOCD},label=openocdcli]{openocdcli.txt}.
+\lstinputlisting[caption={Linha de comando do OpenOCD},label=openocdcli]{openocdcli.txt}
 
 %%/usr/share/openocd/scripts/board/ek-lm4f232.cfg
 \lstinputlisting[caption={board/ek-lm4f232.cfg},label=lm4f232cfg]{ek-lm4f232.cfg}
