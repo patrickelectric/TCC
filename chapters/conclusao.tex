@@ -39,7 +39,7 @@ O processador LX4f232H (Cortex-M4) se trata de um processador da arquitetura ARM
 
 \section{Testes Realizados}
 
-Todos os testes foram realizados utilizando o \textit{commit-id}\footnote{Identificação utilizando \textit{SHA-1 hash} do conteúdo do commit, data, mensagem de log, id do commit anterior, entre outros.} 716f4cb474-\\f45557345e64762cb029d90874d96f.
+Todos os testes foram realizados utilizando a mesma versão do projeto\footnote{\textit{commit-id} 16f4cb474f45557345e64762cb029d90874d96f.}.
 
 \subsection{Interface}
 A realização dos testes para interface gráfica foram feitos com os seguintes itens.
@@ -75,8 +75,8 @@ sin(x) = \sum_{k=0}^{n} (-1)^k * \frac{x^{2*k+1}}{(2*k+1)!}
 \label{eq:sin} 
 \end{equation}
 \lstinputlisting[language=C++,caption={sin.ino},label=sin]{sin.ino}
-O resultado para o seno de $\frac{\pi}{4}$ utilizando uma soma de 20 termos foi o valor $0.7071066856$, enquanto o valor real é $0.7071067811..$ mostrando uma solução com 
-$99.9999865\%$ de precisão.
+0.7853981852531
+O resultado para o seno de $\frac{\pi}{4}$ utilizando uma soma de 20 termos foi o valor $0.7071066856$, enquanto o valor mais próximo em 32 bits seria $0.7071067690$
 
 Foi realizado um teste utilizando C++11 para provar o funcionamento das bibliotecas STL e função mais novas da linguagem. O Algoritmo 6.3 mostra o código utilizado.
 
