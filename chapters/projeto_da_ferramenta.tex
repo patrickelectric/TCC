@@ -7,11 +7,11 @@
 KDE é conhecido por utilizar as ferramentas e bibliotecas disponibilizadas pela \textit{QT Project}\footnote{Empresa desenvolvedora  de software, famosa pelas suas bibliotecas e \textit{IDEs} de desenvolvimento} na realização do desenvolvimento dos seus projetos. O conhecimento inicial de como utilizar tais ferramentas é de grande valia para o projeto no desenvolvimento da proposta.
 
 
-\section{Requisitos funcionais}
+\section{Requisitos}
 
 O usuário deve ser capaz de utilizar o plugin para realizar a programa-\\ção de sistemas embarcados, com a ajuda de um \textit{bootloader}, ou utilizando programadores direto no hardware. Além de ser possível programar, dependendo do caso, o desenvolvedor seria capaz de utilizar o plugin para a realização da depuração do projeto dentro do próprio sistema em desenvolvimento, caso o sistema utilizado por suportar tal comportamento.
 
-A escolha do Arduino se deu pelo fato de sua fácil aquisição, baixo preço e alta popularidade dentre a comunidade civil como um dos microcontroladores mais populares, desta forma, é um bom primeiro passo para a realização da estrutura de software a ser desenvolvida para o plugin.
+A escolha do Arduino foi realizada pela sua fácil aquisição, baixo preço e alta popularidade dentre a comunidade civil como um dos microcontroladores mais populares, desta forma, é um bom primeiro passo para a realização da estrutura de software a ser desenvolvida para o plugin.
 
 O sistema deve ter as seguintes funcionalidades para exercer um bom funcionamento para o usuário.
 \begin{itemize}
@@ -27,7 +27,6 @@ O sistema deve ter as seguintes funcionalidades para exercer um bom funcionament
 \item Avisar sobre erros e problemas durante a ocorrência de alguma etapa para o usuário.	
 \end{itemize}
 
-\section{Requisitos não funcionais}
 Algumas propriedades e restrições do sistema são vitais para seu funcionamento.
 \begin{itemize}
 \item O sistema deve executar sem acarretar em uma falha durante a execução.
@@ -38,7 +37,7 @@ Algumas propriedades e restrições do sistema são vitais para seu funcionament
 
 \section{Plataformas suportadas}
 
-Neste projeto, como versão inicial, será suportado as plataformas mais populares da Arduino, validando o suporte para outras placas com processadores AVR da plataforma, e os sistemas que utilizam \textit{OpenOCD}\footnote{Utilizando majoritariamente em placas com processadores ARM (Arduino DUE, STM32, entre outros).}, outros suportes podem vir a ser adicionados em futuras versões.
+Neste projeto, como versão inicial, será suportado as plataformas mais populares da Arduino, validando o suporte para placas com processadores AVR da plataforma, e os sistemas que utilizam \textit{OpenOCD}\footnote{Utilizando majoritariamente em placas com processadores ARM (Arduino DUE, STM32, entre outros).}, resultando num sistema que pode ser utilizado em todas as placas da Arduino\footnote{Com processadores ARM e AVR.}. Outros suportes para sistemas de carregamento podem vir a ser adicionados em futuras versões.
 
 
 %Em futuras versões mais  ferramentas deverão ser adicionados,

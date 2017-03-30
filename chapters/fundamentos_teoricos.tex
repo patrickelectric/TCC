@@ -8,7 +8,7 @@ Em uma visão ampla, o sistema embarcado pode ser definida como qualquer sistema
 
 \begin{itemize}
 \item \textbf{VANT} (Veículo Aéreo Não Tripulado) - Com crescimento exponencial nos últimos anos, atualmente se encontra com inúmeras propostas em suas utilizações.
-\item \textbf{Roteador} - Extremamente populare no acesso da internet. Muitos contem uma arquitetura computacional completa , processador, memória e sistema operacional como o \textit{OpenWrt}\cite{openwrt}.
+\item \textbf{Roteador} - Extremamente populares no acesso da internet. Muitos contem uma arquitetura computacional completa , processador, memória e sistema operacional como o \textit{OpenWrt}\cite{openwrt}.
 \item \textbf{GPS} (\textit{Global Positioning System}) - Com um sistema de processamento, podendo realizar filtragem, fusionamento, estimação e comunicação em inúmeros protocolos.
 \item \textbf{Televisões} - Os modelos dos últimos anos tiveram como foco principal a extensão da televisão como ambiente de entretenimento, permitindo conexão com internet, instalação de aplicativos e serviços online de entretimento e informação.
 \item \textbf{Câmeras de vigilância} - Alguns tipos permitem o acesso via internet, utilizando uma eletrônica embarcada com sistemas operacional e periféricos de rede.
@@ -61,7 +61,7 @@ sistemas permitem o uso de osciladores externos, possibilitando o aumento da fre
 
 Se nas ultimas décadas, o acesso a computadores se tornou facilitado, nas próximas que estão por vir, o uso e aquisição de sistemas computacionais não será um mero luxo, mas sim uma inevitabilidade\cite{gates1995estrada}. Boa parte dos objetos terá um processador, se não, um sistema computacional simples. Pode-se notar muitas etiquetas de RFID (\textit{Rafio Frequency Identification}) e cada vez mais modernas \cite{ricci2008design}, podendo conter sistemas computacionais complexos.
 
-\abreviatura{RFID}{\textit{Rafio Frequency Identification}}
+\abreviatura{RFID}{\textit{Radio Frequency Identification}}
 
 \subsection{Microprocessador}
 
@@ -104,13 +104,13 @@ Para entender melhor o funcionamento, pode-se utilizar uma máquina de estados p
     \node[state]         (E) [left of=D]        {$exe\_com$};
     \node[state]         (F) [right of=B]       {$run\_prg$};
 
-    \path (A) edge              node {}      (B)
-          (B) edge              node {sim}   (C)
-              edge              node {não}   (F)
-          (C) edge              node {}      (D)
+    \path (A) edge              node {sucesso}      (B)
+          (B) edge              node [above] {sim}  (C)
+              edge              node {não}          (F)
+          (C) edge              node [above] {sim}  (D)
           (D) edge              node {correto}      (E)
               edge [bend right] node [above] {erro} (C)
-          (E) edge [bend right] node [below] {}     (C);
+          (E) edge [bend right] node [below] {sucesso} (C);
   \end{tikzpicture}
   \caption[Máquina de estados do avr \textit{bootloader}]{\label{fig:sm_bootloader}}{Máquina de estados
   do avr \textit{bootloader},\\Fonte: \textit{AVR109: Self Programming - ATMEL}.}
@@ -211,7 +211,7 @@ o código fonte do mesmo, permitindo, a utilização de \textit{plugins} que nã
 forma o apoio e uso de sistemas proprietários desenvolvidos, mantendo sigiloso o trabalho intelectual.
 
 \section{Tipos de ferramenta}
-Das ferramentas disponibilizadas para o desenvolvimento destas a Plicações possuem algumas limitações tais como, preço, licença, configuração entre outros, podendo ser classificadas conforme as seguintes categorias:
+Das ferramentas disponibilizadas para o desenvolvimento destas apli-\\cações possuem algumas limitações tais como, preço, licença, configuração entre outros, podendo ser classificadas conforme as seguintes categorias:
 
 \begin{itemize}
  \item \textbf{Ferramentas proprietárias}: Ferramentas de desenvolvimento que utilizam software e hardware desenvolvido pelo mesmo fabricante, não dando suporte a outros periféricos que não pertencem a mesma distribuidora ou parceira, limitando a liberdade de desenvolvimento. Outras permitem o desenvolvimento limitado para cada tipo de licença, como, por exemplo: Limitação de tamanho de código\cite{simplicity}, diferente licenças para utilizar opções de compilação otimizada (-O2 e -OS do GCC, C++11/14)\cite{armdeveloper} ou até mesmo opções para utilizar o algumas partes do processador\footnote{neon, mfloat-abi e mfpu dos processadores ARM, permitindo execução de cálculo matricial ou com ponto flutuante em hardware.}\cite{neon}. A utilização de ferramentas proprietárias são majoritariamente usadas.
@@ -221,3 +221,16 @@ Das ferramentas disponibilizadas para o desenvolvimento destas a Plicações pos
 \end{itemize}
 
 \abreviatura{GIT}{\textit{Global Information Tracker}}
+
+\section{Ferramentas Utilizadas}
+As seguintes ferramentas foram utilizadas para desenvolvimento do projeto.
+\begin{itemize}
+ \item \textbf{KDevelop}: Editor de código para desenvolvimento do plugin e na realização de debug.
+ \item \textbf{QT Framework}: Kit de ferramentas e bibliotecas para desenvolvimento de software.
+ \item \textbf{KDE Framework}: Coleção de ferramentas e bibliotecas do KDE.
+ \item \textbf{Avrdude}: Programa de carregamento de código para microcontroladores AVR.
+ \item \textbf{OpenOCD}: Ferramenta para comunicação de programadores.
+ \item \textbf{Placas de desenvolvimento}: Arduino mini, nano, mega, due, uno para testes de suporte utilizando avrdude e Stellaris como EK-LM4F232 para testes utilizando o OpenOCD.
+\end{itemize}
+
+O trabalho segue a filosofia GNU \cite{filosofia}, onde, todas as ferramentas utilizadas para o desenvolvimento do plugin são de código aberto e totalmente gratuitas para qualquer um que queira replicar, modificar e contribuir com o projeto.

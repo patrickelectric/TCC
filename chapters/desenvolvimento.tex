@@ -2,20 +2,6 @@
 
 Diferente de muitas outras interfaces de desenvolvimento, o KDevelop permite ao usuário incorporar qualquer projeto de software na IDE, contanto que siga alguns padrões já estabelecidos. Boa parte das configurações utilizadas no projeto são oriundas dos gerenciadores de compilação, minimizando o trabalho do usuário.
 
-\section{Ferramentas Utilizadas}
-As seguintes ferramentas foram utilizadas para desenvolvimento do projeto.
-\begin{itemize}
- \item \textbf{KDevelop}: Editor de código para desenvolvimento do plugin e na realização de debug.
- \item \textbf{QT Framework}: Kit de ferramentas e bibliotecas para desenvolvimento de software.
- \item \textbf{KDE Framework}: Coleção de ferramentas e bibliotecas do KDE.
- \item \textbf{Avrdude}: Programa de carregamento de código para microcontroladores AVR.
- \item \textbf{OpenOCD}: Ferramenta para comunicação de programadores.
- \item \textbf{Placas de desenvolvimento}: Arduino mini, nano, mega, due, uno para testes de suporte utilizando avrdude e Stellaris como EK-LM4F232 para testes utilizando o OpenOCD.
-\end{itemize}
-
-O trabalho segue a filosofia GNU \cite{filosofia}, onde, todas as ferramentas utilizadas para o desenvolvimento do plugin são de código aberto e totalmente gratuitas para qualquer um que queira replicar, modificar e contribuir com o projeto.
-
-
 \subsection{Arduino \textit{toolkit}}
 O Arduino \textit{toolkit} possui inúmeras bibliotecas e arquivos de configuração, contendo informações como \textit{bootloader}, configurações de registradores, pinos, funções, entre outros.
 
@@ -85,7 +71,7 @@ O hardware da placa precisa ser configurado de acordo com as especificações do
 
 \end{itemize}
 
-As categorias \textit{build} são configurações para o processo de compilação, especificando o processador, tipo de placa e clock. A categoria upload é responsável pelas limitações do tamanho do código de maquina da aplicação, sua velocidade de transmissão para o processador, o local do código de maquina do \textit{bootloader} e as configurações de programação do processador, realizada pelos \textit{fuses}. 
+As categorias \textit{build} são configurações para o processo de compilação, especificando o processador, tipo de placa e clock. A categoria \textit{upload} é responsável pelas limitações do tamanho do código de máquina da aplicação, sua velocidade de transmissão para o processador, o local do código de maquina do \textit{bootloader} e as configurações de programação do processador, realizada pelos \textit{fuses}. 
 
 Os bytes com memória não volátil do processador, conhecidos como \textit{low\_fuses}, \textit{high\_fuses} e \textit{extended\_fuses}, tem como responsabilidade determinar o comportamento do processador. Estes podem controlar o consumo energético, geração de clock, tempo de boot, tipo de clock, pino de reinicialização, modo de depuração, modo de programação, falhas de operação, monitor da tensão de alimentação, entre outros\cite{fuseSettings}\cite{fuses}.
 \\
@@ -139,7 +125,7 @@ Um exemplo de comando utilizado com a ferramenta, pode ser visto no Algoritmo \r
 Onde \$\{bin\} é definido pelo caminho do arquivo de código de máquina e os valores de PID e VID pelo \textit{usbutils}.
 Para criar o arquivo de configuração do OpenOCD, é necessário o conhecimento das características e do funcionamento do hardware.
 
-\section{Fluxo de trabalho}
+ \section{Fluxo de trabalho}
 
 A interface de projeto existente no KDevelop permite que boa parte das especificações de projeto fiquem no sistema de geração automatizada\footnote{Entre eles pode se destacar os mais utilizados são o \textit{Makefile}, \textit{CMakefile} e \textit{WAF}.}, permitindo o desenvolvimento de software sem a integração do projeto com o KDevelop para sua utilização.
 \iffalse
@@ -202,18 +188,18 @@ Primeiramente foi definido um diagrama inicial de estados para facilitar a compr
     \tikzstyle{every state}=[fill=blue,draw=none,text=white]
 
 	%First-Time Configuration
-    \node[state]         (A)                    {$FirstTimeConf.$}; 
+    \node[state]         (A)                    {$FTC$};
     % Automactic Install
     \node[state]         (B) [right of=A]       {$Auto Inst.$};
     \node[state]         (C) [right of=B]       {$Down.$};
     \node[state]         (D) [below of=C]       {$Install$};
     \node[state]         (E) [below of=A]       {$EndConf$};
 
-    \path (A) edge              node {Existing Installation}      (E)
-	      (A) edge  [bend left]   node {Automatic Installation}      (B)
-          (B) edge              node {}      (C)
-          (C) edge              node {}      (D)
-          (D) edge              node {}      (E);
+    \path (A) edge              node {Instalação Existente}      (E)
+	      (A) edge  [bend left] node {Instalação Automatica}     (B)
+          (B) edge              node {Iniciado}                  (C)
+          (C) edge              node {Finalizado}                (D)
+          (D) edge              node {Instalado}                 (E);
   \end{tikzpicture}
   \caption[Diagrama de estados do \textit{First-Time Wizard}]{Diagrama de estados do \textit{First-Time Wizard}}
   {\label{fig:ftwstate}}
@@ -343,7 +329,7 @@ Após isso, uma tela de configuração será aberta, podendo ser configurado da 
   \label{fig:openocd}
 \end{figure}
 
-Após realizar as configurações, basta aplica-las e em seguida executar o lançamento com o botão Execute. Tendo isso realizado, será aberto um console onde todos os dados de gravação serão mostrados (\figref{fig:runavrdude} e \figref{fig:runopenocd}).
+Após realizar as configurações, basta aplicar e em seguida executar o lançamento com o botão Execute. Tendo isso realizado, será aberto um console onde todos os dados de gravação serão mostrados (\figref{fig:runavrdude} e \figref{fig:runopenocd}).
 
 Com as configurações salvas no lançador do código, as mesmas ficam reservadas em um arquivo conhecido como *.kdev4, responsável por gerenciar os arquivos de configuração, permitindo que os próximos lançamento sempre utilizem as mesmas configurações, além de permitir outras configurações de lançamento em paralelo.
 
