@@ -1,4 +1,4 @@
-\chapter{Estado da Arte}
+\subsection{IDE Existentes}
 As interfaces mais populares para desenvolvimento em sistemas embarcados são majoritariamente desenvolvidas sobre IDEs de programação genéricas e utilizadas para os mais variados fins, e dentre estas, muitas são desenvolvidas utilizando a linguagem de programação JAVA, conhecida por ser uma linguagem de baixo desempenho por ser executado pela JVM (\textit{Java Virtual Machine})\cite{javaisbad}.
 
 \abreviatura{JVM}{Java Virtual Machine}
@@ -11,7 +11,6 @@ Outras duas interfaces de código aberto utilizadas para sistemas embarcados sã
 derivado pela empresa conhecida como \textit{Texas Instruments}. Baseados na linguagem de programação JAVA, possibilitam uma
 integração com plugins relativamente fácil, podendo ser expandidas de acordo com o desenvolvedor e a disponibilidade das mesmas.
 
-\section{IDE Existentes}
 Dentro das opções de IDEs disponíveis, pode-se destacar (Tabela \ref{ides}):
 %\itodo{[EXPANDIR DESCRIÇÃO]}
 \iffalse
@@ -93,9 +92,9 @@ Dentro das opções de IDEs disponíveis, pode-se destacar (Tabela \ref{ides}):
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 \begin{table}[]
-\centering
 \caption{IDE existentes}
 \label{ides}
+\hspace*{-1cm}
 \begin{tabular}{@{}llll@{}}
 \toprule
 Nome                  & Processadores                                          & Código  & Valor              \\ \midrule
@@ -122,7 +121,7 @@ Maioria das IDEs citadas são de código fechado e pagas, impossibilitando sua m
 
 
 \iffalse
-\section{Dificuldades}
+\subsection{Dificuldades}
 Pela constante evolução no mundo de sistemas embarcados, cada empresa acaba criando se próprio padrão de desenvolvimento para os
 usuários, tendo o intuito de ajuda-los, acaba prejudicando o trabalho dos desenvolvedores com conhecimento avançado. Tal conhecimento não se trata de um arquitetura de hardware especifica, ou da abstração de software utilizada pelo fabricando para não resultar no uso de software a nível de registrador, mas sim o conhecimento sobre como o processo de gravação é realizado de forma intrínseca na visão de hardware e software integrados.
 

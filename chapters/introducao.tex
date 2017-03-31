@@ -1,13 +1,13 @@
 \chapter{Introdução}
-Nos últimos 40 anos existiram várias predições para o futuro da humanidade: conceitos como IoT (\textit{Internet Of Things})\cite{gates1995estrada} e ambiente ubíquo\cite{weiser1991computer} foram criados, propostas tecnológicas como a \textit{lei de Moore}\footnote{Citação famosa utilizada por Gordon Earle Moore, que tinha como proposta a duplicação do numero de transistores a cada 18 meses} eram ditas como garantidas pelas grandes empresas de tecnologia. Contudo, muitos desafios acabaram prejudicando a execução destas predições, como, por exemplo, a barreira de potência\cite{Patterson:2008:COD:1502247} e a limitação de densidade energética\cite{paradiso2005energy}.
+Nos últimos 40 anos existiram várias predições para o futuro da humanidade: conceitos como IoT (\textit{Internet Of Things}) \cite{gates1995estrada} e ambiente ubíquo \cite{weiser1991computer} foram criados, propostas tecnológicas como a \textit{lei de Moore}\footnote{Citação famosa utilizada por Gordon Earle Moore, que tinha como proposta a duplicação do numero de transistores a cada 18 meses} eram ditas como garantidas pelas grandes empresas de tecnologia. Contudo, muitos desafios acabaram prejudicando a execução destas predições, como, por exemplo, a barreira de potência \cite{Patterson:2008:COD:1502247} e a limitação de densidade energética \cite{paradiso2005energy}.
 %http://www.singularity.com/charts/page70.html
 
-Hoje, o avanço tecnológico permitiu a miniaturização dos processadores com um custo de aquisição de grandezas menores que os das décadas anteriores\cite{nordhaus2007two}, possibilitando a pequenas empresas e até mesmo pessoas comuns o acesso a sistemas computacionais com alto processamento. Contudo, mesmo	 sendo possível, as ferramentas existentes para permitir o desenvolvimento de aplicações para os sistemas embarcados, são geralmente pagas (\textit{IAR Embedded Workbench}\footnote{Não existe versão gratuita\cite{buyiar}.}), limitadas (\textit{MDK Microcontroller Development Kit}\footnote{Versão gratuita com limite de código de 32 Kbytes.}) ou com poucos recursos (\textit{Platformio}\footnote{Sem depuração embutida.}).
+Hoje, o avanço tecnológico permitiu a miniaturização dos processadores com um custo de aquisição de grandezas menores que os das décadas anteriores \cite{nordhaus2007two}, possibilitando a pequenas empresas e até mesmo pessoas comuns o acesso a sistemas computacionais com alto processamento. Contudo, mesmo	 sendo possível, as ferramentas existentes para permitir o desenvolvimento de aplicações para os sistemas embarcados, são geralmente pagas (\textit{IAR Embedded Workbench}\footnote{Não existe versão gratuita \cite{buyiar}.}), limitadas (\textit{MDK Microcontroller Development Kit}\footnote{Versão gratuita com limite de código de 32 Kbytes.}) ou com poucos recursos (\textit{Platformio}\footnote{Sem depuração embutida.}).
 %http://www2.keil.com/mdk5
 
 A comunidade dos desenvolvedores de software para sistemas embarcados tende a utilizar inúmeras ferramentas para resolver os desafios de projeto, geralmente embutidas em uma IDE (\textit{Integrated Development Environment}), permitindo funções básicas, por exemplo, depuração, comunicação, gravação, entre outros.
 
-Algumas IDEs tendem a resolver mais de um problema ao mesmo tempo, resultando em um sistema complexo que abstrai as \textit{threads}\footnote{Um programa executado em paralelo.\cite{Patterson:2008:COD:1502247}} que executam em segundo plano. Tendo como resultado uma ocupação maior dos núcleos de processador da máquina de trabalho, atrapalhando sua utilização.
+Algumas IDEs tendem a resolver mais de um problema ao mesmo tempo, resultando em um sistema complexo que abstrai as \textit{threads}\footnote{Processos executadas concorrencialmente \cite{Patterson:2008:COD:1502247}.} que executam em segundo plano. Tendo como resultado uma ocupação maior dos núcleos de processador da máquina de trabalho, atrapalhando sua utilização.
 
 \iffalse
 O intuito deste trabalho é a realização de um sistema para possibilitar aos desenvolvedores a programação de sistemas embarcados, sem a necessidade de utilizar sistemas assistencialistas que possam limitar a evolução do trabalho ou a utilização do produto final concebido.
@@ -17,9 +17,9 @@ O intuito deste trabalho é a realização de um sistema para possibilitar aos d
 
 Com o avanço tecnológico e a evolução do hardware heterogêneo\footnote{Sistemas com GPU (\textit{Graphic Processor Unit}), CPU (\textit{Central Processor Unit}) e outros periféricos.}, muitos dos sistemas disponíveis para desenvolvimento não seguem um padrão estabelecido no carregamento de código (gravador, protocolo, \textit{bootloader} e etc.), além disso, as empresas acabam criando alternativas aos padrões já
 %https://community.nxp.com/thread/389162
- existentes no mercado ou opções limitadas nas IDEs, como, por exemplo, DebugWire\cite{debugwire}, hardware exclusivo de depuração LPC\cite{nxp}, suporte limitado de depuradores\cite{kiledebug} entre outros, dificultando ou restringindo o desenvolvimento do usuário.
+ existentes no mercado ou opções limitadas nas IDEs, como, por exemplo, DebugWire \cite{debugwire}, hardware exclusivo de depuração LPC \cite{nxp}, suporte limitado de depuradores \cite{kiledebug} entre outros, dificultando ou restringindo o desenvolvimento do usuário.
 
-Usualmente, as ferramentas utilizadas para o desenvolvimento são de código fechado, distribuídas numa versão binária, restringindo a modificação do software pelo usuário e personalizações do desenvolvimento. No desenvolvimento das tecnologias emergentes, a personalização da ferramenta é essencial para permitir sua evolução, evitando a espera do suporte dentro dos sistemas proprietários, desta forma, muitas empresas acabam aderindo aos software de código aberto pela sua agilidade na adesão de novas tecnologias, podendo-se destacar Microsoft\cite{microsoftn1}, Intel, Samsung, IBM e Renesas\cite{topskernel}.
+Usualmente, as ferramentas utilizadas para o desenvolvimento são de código fechado, distribuídas numa versão binária, restringindo a modificação do software pelo usuário e personalizações do desenvolvimento. No desenvolvimento das tecnologias emergentes, a personalização da ferramenta é essencial para permitir sua evolução, evitando a espera do suporte dentro dos sistemas proprietários, desta forma, muitas empresas acabam aderindo aos software de código aberto pela sua agilidade na adesão de novas tecnologias, podendo-se destacar Microsoft \cite{microsoftn1}, Intel, Samsung, IBM e Renesas \cite{topskernel}.
 
 \abreviatura{CPU}{\textit{Central Processor Unit}}
 \abreviatura{GPU}{\textit{Graphic Processor Unit}}
@@ -54,7 +54,7 @@ O objetivo geral deve responder as seguintes perguntas:
 Deve ser escrito em tempo infinitivo (por exemplo: ampliar, capacitar, entre outros) e redigido com claridade. O objetivo precisa ser alcançável, não pode ser genérico, de forma que o projeto não consiga resolver (ex: terminar com a fome no mundo). Por outro lado deve ser ousado, capaz de sinalizar mudanças mais profundas que poderão ser alcançadas pelo projeto a médio e longo prazo.
 \fi
 
-\section{Metodologia}
+\section{Atividades do desenvolvimento}
 \label{ss:objetivosespecificos}
 Para realizar os objetivos, os seguintes passos são listados:
 \begin{enumerate}
@@ -77,8 +77,7 @@ Para realizar os objetivos, os seguintes passos são listados:
 \section{Estrutura do Trabalho}
 
 \begin{enumerate}
-\item \textbf{Fundamentos teóricos} - Revisão dos assuntos abordados e necessários, fundamentais para realização do projeto.
-\item \textbf{Estado da arte} - Comparação dos sistemas existentes que abordam o assunto e tentam aplicar uma proposta de solução.
+\item \textbf{Tecnologias relacionadas} - Revisão dos assuntos abordados e comparação dos sistemas existentes.
 \item \textbf{Projeto da ferramenta} - Rascunhos iniciais de interface e arquitetura de software.
 \item \textbf{Desenvolvimento} - Relato do trabalho realizado, contendo informações do projeto e seu andamento.
 \item \textbf{Experimento e resultados} - Exposição dos resultados.

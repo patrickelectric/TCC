@@ -5,7 +5,7 @@ Diferente de muitas outras interfaces de desenvolvimento, o KDevelop permite ao 
 \subsection{Arduino \textit{toolkit}}
 O Arduino \textit{toolkit} possui inúmeras bibliotecas e arquivos de configuração, contendo informações como \textit{bootloader}, configurações de registradores, pinos, funções, entre outros.
 
-O \textit{toolkit} foi utilizado para extração das opções de configuração, podendo dar destaque ao arquivo \textit{boards.txt}.
+O \textit{toolkit} foi utilizado para extração das opções de configuração, podendo dar destaque ao arquivo \textit{boards.txt} que contem informações pertinentes das placas da Arduino.
 
 \lstinputlisting[caption={Parte referente ao Arduino nano de boards.txt},label=boardstxt]{boards.txt}
 
@@ -17,18 +17,18 @@ Dentro deste arquivo se pode extrair várias informações pertinentes para o si
 As configurações para o \textit{bootloader}, hardware de comunicação e processador são:
 
 \begin{itemize}
-\item \textit{upload.tool} - Ferramenta para envio do código de máquina.
+\item \textit{upload.tool} - Ferramenta para envio do código de máquina (linha 3).
 
-\item \textit{upload.protocol} - Protocolo de comunicação com o \textit{bootloader}.
+\item \textit{upload.protocol} - Protocolo de comunicação com o \textit{bootloader} (linha 4).
 %http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
 
 %http://www.avrfreaks.net/forum/self-programming-and-lock-bits
 
-\item \textit{bootloader.tool} - Ferramenta responsável pela comunicação com o \textit{bootloader}.
+\item \textit{bootloader.tool} - Ferramenta responsável pela comunicação com o \textit{bootloader} (linha 6).
 
-\item \textit{bootloader.unlock\_bits} - Bits para desbloquear o \textit{bootloader} na realização de escrita.
+\item \textit{bootloader.unlock\_bits} - Bits para desbloquear o \textit{bootloader} na realização de escrita (linha 7).
 
-\item \textit{bootloader.lock\_bits} - Bits para bloquear o \textit{bootloader} na realização de escrita.
+\item \textit{bootloader.lock\_bits} - Bits para bloquear o \textit{bootloader} na realização de escrita (linha 8).
 
 \end{itemize}
 
@@ -44,36 +44,36 @@ O hardware da placa precisa ser configurado de acordo com as especificações do
 
 \begin{itemize}
 
-\item \textit{build.f\_cpu} - Clock do processador programado, configurado via \textit{bootloader}.
+\item \textit{build.f\_cpu} - Clock do processador programado (linha 10), configurado via \textit{bootloader}.
 
-\item \textit{build.board} - Nome da placa.
+\item \textit{build.board} - Nome da placa (linha 11).
 
-\item \textit{build.core} - Tipo de hardware.
+\item \textit{build.core} - Tipo de hardware (linha 12).
 
-\item \textit{build.mcu} - Processador utilizado\cite{ATmega48A}.
+\item \textit{build.variant} - Topologia do hardware (linha 13).
 
-\item \textit{build.variant} - Topologia do hardware.
+\item \textit{build.mcu} - Processador utilizado \cite{ATmega48A} (linha 28/43).
 
-\item \textit{upload.maximum\_size} - Espaço livre na \textit{flash}, descontando \textit{bootloader}.
+\item \textit{upload.maximum\_size} - Espaço livre na \textit{flash}, descontando \textit{bootloader} (linha 19/34).
 
-\item \textit{upload.maximum\_data\_size} - Espaço livre na \textit{RAM}.
+\item \textit{upload.maximum\_data\_size} - Espaço livre na \textit{RAM} (linha 20/35).
 
-\item \textit{upload.speed} - Velocidade da comunicação com o \textit{bootloader}.
+\item \textit{upload.speed} - Velocidade da comunicação com o \textit{bootloader} (linha 21/36).
 
 %http://archive.fabacademy.org/archives/2016/doc/fuses.html
-\item \textit{upload.low\_fuses} - Bits menos significativos de configuração do comportamento do hardware.
+\item \textit{upload.low\_fuses} - Bits menos significativos de configuração do comportamento do hardware (linha 23/38).
 
-\item \textit{upload.high\_fuses} - Bits mais significativos de configuração do comportamento do hardware.
+\item \textit{upload.high\_fuses} - Bits mais significativos de configuração do comportamento do hardware (linha 24/39).
 
-\item \textit{upload.extended\_fuses} - Bits estendidos de configuração do comportamento do hardware.
+\item \textit{upload.extended\_fuses} - Bits estendidos de configuração do comportamento do hardware (linha 25/40).
 
-\item \textit{upload.bootloader\_file} - Nome do arquivo que contem o código de máquina do sistema de \textit{bootloader}.
+\item \textit{upload.bootloader\_file} - Nome do arquivo que contem o código de máquina do sistema de \textit{bootloader} (linha 26/41).
 
 \end{itemize}
 
 As categorias \textit{build} são configurações para o processo de compilação, especificando o processador, tipo de placa e clock. A categoria \textit{upload} é responsável pelas limitações do tamanho do código de máquina da aplicação, sua velocidade de transmissão para o processador, o local do código de maquina do \textit{bootloader} e as configurações de programação do processador, realizada pelos \textit{fuses}. 
 
-Os bytes com memória não volátil do processador, conhecidos como \textit{low\_fuses}, \textit{high\_fuses} e \textit{extended\_fuses}, tem como responsabilidade determinar o comportamento do processador. Estes podem controlar o consumo energético, geração de clock, tempo de boot, tipo de clock, pino de reinicialização, modo de depuração, modo de programação, falhas de operação, monitor da tensão de alimentação, entre outros\cite{fuseSettings}\cite{fuses}.
+Os bytes com memória não volátil do processador, conhecidos como \textit{low\_fuses}, \textit{high\_fuses} e \textit{extended\_fuses}, tem como responsabilidade determinar o comportamento do processador. Estes podem controlar o consumo energético, geração de clock, tempo de boot, tipo de clock, pino de reinicialização, modo de depuração, modo de programação, falhas de operação, monitor da tensão de alimentação, entre outros  \cite{fuseSettings} \cite{fuses}.
 \\
 \\
 \textbf{AVRDUDE}
@@ -135,16 +135,7 @@ Esta flexibilidade de integração de projetos no KDevelop acrescenta um grau de
 
 \section{Desenvolvimento do software}
 
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=0.85\textwidth]{figuras/uml.png}
-  \caption[UML proposto]{UML proposto para desenvolvimento do plugin.}
-  \label{fig:uml}
-\end{figure}
-
-\abreviatura{UML}{Unified Modeling Language}
-
-O plugin (\figref{fig:uml}) foi integrado no KDevelop (\figref{fig:kdevelop}) via a utilização de ferramentas básicas de desenvolvimento para o mesmo (\textit{kdevplatform}). Nesta seção, será demonstrando as interfaces desenvolvidas e sua integração com o KDevelop.
+O plugin foi integrado no KDevelop (\figref{fig:kdevelop}) via a utilização de ferramentas básicas de desenvolvimento para o mesmo (\textit{kdevplatform}). Nesta seção, será demonstrando as interfaces desenvolvidas e sua integração com o KDevelop.
 
 \begin{figure}[!htb]
   \centering
@@ -175,7 +166,7 @@ Primeiramente foi definido um diagrama inicial de estados para facilitar a compr
 
 \item \textbf{\textit{Automatic Instalation} (AutoInst)}: Tela resultante da escolha da instalação automática na configuração inicial do \textbf{\textit{First-Time Configuration}}. Essa, separada em duas etapas, \textit{Download} e \textit{Install}.
 
-\subitem \textbf{\textit{Download} (Down)}: É realizado a comunicação com o servidor oficial resultando no download das ferramentas necessárias (\figref{fig:kdevelopinstaller21}).
+\subitem \textbf{\textit{Download} (Down)}: É realizado a comunicação com o servidor oficial, utilizado um nome randômico durante o download por segurança para o instalador (\figref{fig:kdevelopinstaller21}).
 
 \subitem \textbf{Install}: Após o \textit{download} é realizado a decomposição e instalação do conjunto de ferramentas (\figref{fig:kdevelopinstaller22}).
 

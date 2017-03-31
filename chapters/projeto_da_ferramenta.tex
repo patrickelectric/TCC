@@ -9,9 +9,9 @@ KDE é conhecido por utilizar as ferramentas e bibliotecas disponibilizadas pela
 
 \section{Requisitos}
 
-O usuário deve ser capaz de utilizar o plugin para realizar a programa-\\ção de sistemas embarcados, com a ajuda de um \textit{bootloader}, ou utilizando programadores direto no hardware. Além de ser possível programar, dependendo do caso, o desenvolvedor seria capaz de utilizar o plugin para a realização da depuração do projeto dentro do próprio sistema em desenvolvimento, caso o sistema utilizado por suportar tal comportamento.
+O usuário deve ser capaz de utilizar o plugin para realizar a programa-\\ção de sistemas embarcados, com a ajuda de um \textit{bootloader}, ou utilizando carregadores de código especializado do hardware. Além de ser possível programar, dependendo do caso, o desenvolvedor seria capaz de utilizar o plugin para a realização da depuração do projeto dentro do próprio sistema em desenvolvimento, caso o sistema utilizado por suportar tal comportamento.
 
-A escolha do Arduino foi realizada pela sua fácil aquisição, baixo preço e alta popularidade dentre a comunidade civil como um dos microcontroladores mais populares, desta forma, é um bom primeiro passo para a realização da estrutura de software a ser desenvolvida para o plugin.
+A escolha do Arduino como plataforma alvo foi realizada pela sua fácil aquisição, baixo preço e alta popularidade dentre a comunidade civil como um dos microcontroladores mais populares, desta forma, é um bom primeiro passo para a realização da estrutura de software a ser desenvolvida para o plugin.
 
 O sistema deve ter as seguintes funcionalidades para exercer um bom funcionamento para o usuário.
 \begin{itemize}
@@ -30,14 +30,30 @@ O sistema deve ter as seguintes funcionalidades para exercer um bom funcionament
 Algumas propriedades e restrições do sistema são vitais para seu funcionamento.
 \begin{itemize}
 \item O sistema deve executar sem acarretar em uma falha durante a execução.
-\item A instalação de ferramentas devem ser feitas sem a permissão de administrador.
-\item O programa deve executar sem vazamento de memória.
-\item Durante a instalação das dependências, deve ser utilizado nomes randômicos durante o download por segurança, evitando a manipulação do arquivo por terceiros.
+\item A instalação de ferramentas podem ser feitas sem a permissão de administrador.
+\item O programa deve executar sem vazamento de memória \cite{Patterson:2008:COD:1502247}.
+\item Evitar a manipulação do arquivo por terceiros durante a instalação das dependências.
 \end{itemize}
 
 \section{Plataformas suportadas}
 
 Neste projeto, como versão inicial, será suportado as plataformas mais populares da Arduino, validando o suporte para placas com processadores AVR da plataforma, e os sistemas que utilizam \textit{OpenOCD}\footnote{Utilizando majoritariamente em placas com processadores ARM (Arduino DUE, STM32, entre outros).}, resultando num sistema que pode ser utilizado em todas as placas da Arduino\footnote{Com processadores ARM e AVR.}. Outros suportes para sistemas de carregamento podem vir a ser adicionados em futuras versões.
+
+
+\section{Estrutura do software}
+
+Foi desenvolvido um diagrama de classes (\figref{fig:uml}) que demonstra a proposta de software do plugin. A estrutura do Arduino \textit{toolkit} necessita de certas classes ou funções especiais para sua integração com a proposta do trabalho, além disso, certas classes foram feitas para as interfaces com foco nos usuários menos experientes. Outras camadas têm como proposta uma abstração para as placas de desenvolvimento, lidando com muitas variações de processador e configurações de hardware. 
+
+Esta proposta inicial de UML seria realizada como prova de conceito da integração do KDevelop para sistemas embarcados, desta forma, necessitando de modificações para a criação de classes mais abstratas, permitindo uma melhor incorporação de outras ferramentas de desenvolvimento.o.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figuras/uml.png}
+  \caption[UML proposto]{Representação do plugin proposto através do diagrama de classes UML.}
+  \label{fig:uml}
+\end{figure}
+
+\abreviatura{UML}{Unified Modeling Language}
 
 
 %Em futuras versões mais  ferramentas deverão ser adicionados,

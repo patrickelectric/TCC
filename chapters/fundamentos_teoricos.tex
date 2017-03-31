@@ -1,14 +1,14 @@
-\chapter{Fundamentos teóricos}
+\chapter{Tecnologias relacionadas}
 
 O desenvolvimento para sistemas embarcados necessita de uma interface para desenvolvimento do código fonte, um compilador para geração do código de máquina a partir do código fonte e um sistema de carregamento do código de máquina para o sistema embarcado.
 
 \section{Sistema embarcado}
 
-Em uma visão ampla, o sistema embarcado pode ser definida como qualquer sistema que realiza uma tarefa especifica, independe do custo energético ou computacional\cite{barr2006programming}. Dentro desta categoria, pode-se listar alguns exemplos:
+Em uma visão ampla, o sistema embarcado pode ser definida como qualquer sistema que realiza uma tarefa especifica, independe do custo energético ou computacional \cite{barr2006programming}. Dentro desta categoria, pode-se listar alguns exemplos:
 
 \begin{itemize}
 \item \textbf{VANT} (Veículo Aéreo Não Tripulado) - Com crescimento exponencial nos últimos anos, atualmente se encontra com inúmeras propostas em suas utilizações.
-\item \textbf{Roteador} - Extremamente populares no acesso da internet. Muitos contem uma arquitetura computacional completa , processador, memória e sistema operacional como o \textit{OpenWrt}\cite{openwrt}.
+\item \textbf{Roteador} - Extremamente populares no acesso da internet. Muitos contem uma arquitetura computacional completa , processador, memória e sistema operacional como o \textit{OpenWrt} \cite{openwrt}.
 \item \textbf{GPS} (\textit{Global Positioning System}) - Com um sistema de processamento, podendo realizar filtragem, fusionamento, estimação e comunicação em inúmeros protocolos.
 \item \textbf{Televisões} - Os modelos dos últimos anos tiveram como foco principal a extensão da televisão como ambiente de entretenimento, permitindo conexão com internet, instalação de aplicativos e serviços online de entretimento e informação.
 \item \textbf{Câmeras de vigilância} - Alguns tipos permitem o acesso via internet, utilizando uma eletrônica embarcada com sistemas operacional e periféricos de rede.
@@ -17,7 +17,9 @@ Em uma visão ampla, o sistema embarcado pode ser definida como qualquer sistema
 \abreviatura{VANT}{\textit{Veículo Aéreo Não Tripulado}}
 \abreviatura{GPS}{\textit{Global Positioning System}}
 
-As definições de sistemas embarcados foram modificadas ao passar do tempo, como, por exemplo, o baixo processamento, que se tornou inapropriada ao passar dos anos\cite{aiimpacts}.
+\iffalse
+As definições de sistemas embarcados foram modificadas ao passar do tempo, como, por exemplo, o baixo processamento, que se tornou inapropriada ao passar dos anos \cite{aiimpacts}.
+\fi
 
 \iffalse
 A evolução do hardware, diminuiu o tamanho e preço de aquisição dos processados, permitiu praticamente a qualquer desenvolvedor de
@@ -30,12 +32,12 @@ voltados para interação no mundo físico via atuadores e tendo como entrada in
 podem se destacar: Controle de combustível, controladora de VANTs, impressora 3D e etc.}
 \fi
 
-\section{Distinção entre sistemas}
+\section{Sistemas utilizados}
 Dentro da área de sistemas embarcados, por envolver uma ampla gama de periféricos, utilizações, finalidades, pode-se resumir a certas categorias de destaque em relação a unidade principal de processamento, destacando:
 
 \subsection{Microcontrolador}
 
-Um microcontrolador é definido como um sistema completo, sendo geralmente autossuficiente em relação aos periféricos necessários para realizar seu funcionamento. O processador, memória, periféricos de entrada e saída (\textit{ADC} (\textit{Analog-to-Digital Converter}), \textit{PWM} (\textit{Pulse Width Modulation}), \textit{GPIO} (\textit{General Purpose Input/Output}), entre outros) e oscilador na mesma pastilha de silício (\figref{fig:ricv}), barateando os custos de sua confecção, permitindo a popularização dos mesmos na industria e na comunidade DIY (Do It Yourself)/Makers\footnote{Cultura de desenvolvimento tecnológico próprio, derivado do movimento \textit{DIY}, sendo conhecido pela construção, modificação e manutenção pessoal.}. Estes mesmos
+Um microcontrolador é definido como um sistema completo, sendo geralmente autossuficiente em relação aos periféricos necessários para realizar seu funcionamento \cite{ibrahim2006microcontroller}. O processador, memória, periféricos de entrada e saída (\textit{ADC} (\textit{Analog-to-Digital Converter}), \textit{PWM} (\textit{Pulse Width Modulation}), \textit{GPIO} (\textit{General Purpose Input/Output}), entre outros) e oscilador na mesma pastilha de silício (\figref{fig:ricv}), barateando os custos de sua confecção, permitindo a popularização dos mesmos na industria e na comunidade DIY (Do It Yourself)/Makers\footnote{Cultura de desenvolvimento tecnológico próprio, derivado do movimento \textit{DIY}, sendo conhecido pela construção, modificação e manutenção pessoal.}. Estes mesmos
 sistemas permitem o uso de osciladores externos, possibilitando o aumento da frequência de \textit{clock}\footnote{Sinal temporal periódico que determina a atualização dos registrados do sistema.} e como consequência um acréscimo no MIPS (Milhões de Instruções Por Segundo).
 
 \abreviatura{DIY}{\textit{Do It Yourself}}
@@ -51,7 +53,7 @@ sistemas permitem o uso de osciladores externos, possibilitando o aumento da fre
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.5\textwidth]{figuras/riscv.jpg}
-    \caption[Microcontrolador na pastilha de silício.]{Microcontrolador 32 bits baseado na arquitetura \textit{RISCV} (\textit{Reduced Instruction Set Computing - V}) com periféricos como (\textit{ADC}, \textit{DAC} (\textit{Digital-to-Analog Converter}), \textit{GPIO} e memória \textit{RAM} (\textit{Random Access Memory})), Fonte: onchip\cite{onchip}.}
+    \caption[Microcontrolador na pastilha de silício.]{Microcontrolador 32 bits baseado na arquitetura \textit{RISCV} (\textit{Reduced Instruction Set Computing - V}) com periféricos como (\textit{ADC}, \textit{DAC} (\textit{Digital-to-Analog Converter}), \textit{GPIO} e memória \textit{RAM} (\textit{Random Access Memory})), Fonte: onchip \cite{onchip}.}
   \label{fig:ricv}
 \end{figure}
 
@@ -59,25 +61,25 @@ sistemas permitem o uso de osciladores externos, possibilitando o aumento da fre
 \abreviatura{RAM}{\textit{Random Access Memory}}
 \abreviatura{RISCV}{\textit{Reduced Instruction Set Computing - V}}
 
-Se nas ultimas décadas, o acesso a computadores se tornou facilitado, nas próximas que estão por vir, o uso e aquisição de sistemas computacionais não será um mero luxo, mas sim uma inevitabilidade\cite{gates1995estrada}. Boa parte dos objetos terá um processador, se não, um sistema computacional simples. Pode-se notar muitas etiquetas de RFID (\textit{Rafio Frequency Identification}) e cada vez mais modernas \cite{ricci2008design}, podendo conter sistemas computacionais complexos.
+Se nas ultimas décadas, o acesso a computadores se tornou facilitado, nas próximas que estão por vir, o uso e aquisição de sistemas computacionais não será um mero luxo, mas sim uma inevitabilidade \cite{gates1995estrada}. Boa parte dos objetos terá um processador, se não, um sistema computacional simples. Pode-se notar muitas etiquetas de RFID (\textit{Rafio Frequency Identification}) e cada vez mais modernas  \cite{ricci2008design}, podendo conter sistemas computacionais complexos.
 
 \abreviatura{RFID}{\textit{Radio Frequency Identification}}
 
 \subsection{Microprocessador}
 
-Parte principal de um sistema computacional, com o objetivo de decodificar e executar as instruções de código de máquina existente na memória\cite{Patterson:2008:COD:1502247}. A tabela que é interpretada, denominada por conjunto de instruções, contem todos os padrões binários possíveis a serem decodificados, resultando em sinais lógicos para a eletrônica que o executará, podendo realizar comparações, somas, multiplexações e leituras/escritas na memória.
+Parte principal de um sistema computacional, com o objetivo de decodificar e executar as instruções de código de máquina existente na memória \cite{Patterson:2008:COD:1502247}. A tabela que é interpretada, denominada por conjunto de instruções, contem todos os padrões binários possíveis a serem decodificados, resultando em sinais lógicos para a eletrônica que o executará, podendo realizar comparações, somas, multiplexações e leituras/escritas na memória.
 
 Com o passar dos anos, o poder de processamento permitiu que sistemas simples possam ter grande valor intelectual agregado, podendo utilizar como exemplo o termostato da Google, vendido atualmente por \$250, que realiza um aprendizado de máquina\footnote{"Campo de estudo que dá aos computadores a habilidade de aprender sem serem explicitamente programados`` -  Arthur Samuel, 1945.}, proporcionando ao aparelho um melhor gerenciamento da temperatura do ambiente, realizando uma economia energética e uma melhora na qualidade de vida do usuário.
 
 \subsection{SoC (\textit{System on a chip})}
 
-Atualmente o termo é empregado a circuitos com uma vasta quantidade de sistemas integrados, podendo citar  \textit{GPU} (\textit{Graphics Processing Unit}), \textit{USB} (\textit{Universal Serial Bus}), módulos de rede, rádio e outros sistemas mais avançados.
+Atualmente o termo é empregado a um circuito impresso	com uma vasta quantidade de sistemas integrados, podendo citar  \textit{GPU} (\textit{Graphics Processing Unit}), \textit{USB} (\textit{Universal Serial Bus}), módulos de rede, rádio e outros sistemas mais avançados \cite{furber2000arm}.
 
 \abreviatura{GPU}{\textit{Graphics Processing Unit}}
 \abreviatura{USB}{\textit{Universal Serial Bus}}
 
 Nesta categoria, pode-se destacar o desenvolvimento dos sistemas desenvolvidos pela fabricante ARM, tendo ultrapassado a Intel como a maior produtora de processamentos do mundo.
-Após a revolução dos dispositivos móveis\cite{morearm} onde a maioria das pessoas começaram a utilizar \textit{smartphones}, acarretando na substituição do uso de computadores para realizar as suas rotinas pessoais digitais diárias. Esta revolução, está fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
+Após a revolução dos dispositivos móveis \cite{morearm} onde a maioria das pessoas começaram a utilizar \textit{smartphones}, acarretando na substituição do uso de computadores para realizar as suas rotinas pessoais digitais diárias. Esta revolução, está fazendo uma grande modificação no ambiente de desenvolvimento das grandes empresas, permitindo o desenvolvimento de hardware sem a necessidade de empresas altamente especializadas para desenvolvimento, tornando um foco de desenvolvimento genérico e macroscópico.
 
 \section{Sistemas de Carregamento}
 
@@ -156,7 +158,7 @@ O \textit{bootloader}, por ser uma peça de software essencial dos sistemas auto
 %é importante
 Alguns processadores, que se encontram em estados indevidos ou não planejados, podem apresentar um mal funcionamento do sistema do \textit{bootloader}. Para resolver este tipo de problema é utilizado uma ferramenta de hardware especializado, limpando toda a memória e gravando o programa. A mesma também é necessário para realizar a gravação do \textit{bootloader} pela primeira vez no processador, após isso, o próprio \textit{bootloader} pode se reprogramar ou atualizar.
 
-A programação via um hardware especializado é geralmente concebida, dentro dos softwares livres, com o OpenOCD (\textit{Open On Chip Debugger})\cite{openocd}, realizando a interface de software na comunicação com o hardware especializado como o JTAG (\textit{Joint Test Action Group}).
+A programação via um hardware especializado é geralmente concebida, dentro dos softwares livres, com o OpenOCD (\textit{Open On Chip Debugger})  \cite{openocd}, realizando a interface de software na comunicação com o hardware especializado como o JTAG (\textit{Joint Test Action Group}).
 
 \abreviatura{JTAG}{\textit{Joint Test Action Group}}
 \abreviatura{OpenOCD}{\textit{Open On Chip Debugger}}
@@ -187,7 +189,7 @@ Utilizando o JTAG, é possível ter acesso aos estados dos pinos, memó-\\ria e 
 \lstinputlisting[caption={[Resultado]OpenOCD respondendo ao GDB},name=teste]{openocd.txt}
 
 \section{KDevelop}
-O plugin proposto foi desenvolvido sobre a plataforma conhecida como KDevelop,\cite{kdevelop} pertencente a organização \textit{KDE},
+O plugin proposto foi desenvolvido sobre a plataforma conhecida como KDevelop, \cite{kdevelop} pertencente a organização \textit{KDE},
 sendo um conceito de \textit{IDE} para programação.
 
 Concebido utilizando as tecnologias de código aberto mais modernas, como C++14, QT 5.8, entre outras bibliotecas e ferramentas
@@ -214,7 +216,7 @@ forma o apoio e uso de sistemas proprietários desenvolvidos, mantendo sigiloso 
 Das ferramentas disponibilizadas para o desenvolvimento destas apli-\\cações possuem algumas limitações tais como, preço, licença, configuração entre outros, podendo ser classificadas conforme as seguintes categorias:
 
 \begin{itemize}
- \item \textbf{Ferramentas proprietárias}: Ferramentas de desenvolvimento que utilizam software e hardware desenvolvido pelo mesmo fabricante, não dando suporte a outros periféricos que não pertencem a mesma distribuidora ou parceira, limitando a liberdade de desenvolvimento. Outras permitem o desenvolvimento limitado para cada tipo de licença, como, por exemplo: Limitação de tamanho de código\cite{simplicity}, diferente licenças para utilizar opções de compilação otimizada (-O2 e -OS do GCC, C++11/14)\cite{armdeveloper} ou até mesmo opções para utilizar o algumas partes do processador\footnote{neon, mfloat-abi e mfpu dos processadores ARM, permitindo execução de cálculo matricial ou com ponto flutuante em hardware.}\cite{neon}. A utilização de ferramentas proprietárias são majoritariamente usadas.
+ \item \textbf{Ferramentas proprietárias}: Ferramentas de desenvolvimento que utilizam software e hardware desenvolvido pelo mesmo fabricante, não dando suporte a outros periféricos que não pertencem a mesma distribuidora ou parceira, limitando a liberdade de desenvolvimento. Outras permitem o desenvolvimento limitado para cada tipo de licença, como, por exemplo: Limitação de tamanho de código \cite{simplicity}, diferente licenças para utilizar opções de compilação otimizada (-O2 e -OS do GCC, C++11/14) \cite{armdeveloper} ou até mesmo opções para utilizar o algumas partes do processador\footnote{neon, mfloat-abi e mfpu dos processadores ARM, permitindo execução de cálculo matricial ou com ponto flutuante em hardware.} \cite{neon}. A utilização de ferramentas proprietárias são majoritariamente usadas.
 
  \item \textbf{Ferramentas de código aberto}: Utilizadas por uma parte dos desenvolvedores, fornece acesso total as suas funcionalidades, possibilitando modificações e aperfeiçoamentos nos mínimos detalhes. Estas interfaces permitem o desenvolvimento com uma experiência mais assistencialista, por possuir uma comunidade grande de desenvolvedores que disponibiliza suporte por e-mail ou grupos de chat. Contudo, por estar em constante evolução, sua documentação pode estar defasada ou inexistente.
 
@@ -228,6 +230,7 @@ As seguintes ferramentas foram utilizadas para desenvolvimento do projeto.
  \item \textbf{KDevelop}: Editor de código para desenvolvimento do plugin e na realização de debug.
  \item \textbf{QT Framework}: Kit de ferramentas e bibliotecas para desenvolvimento de software.
  \item \textbf{KDE Framework}: Coleção de ferramentas e bibliotecas do KDE.
+ \item \textbf{Arduino \textit{toolkit}}: Conjunto de ferramentas para Arduino, contém o Avrdude.
  \item \textbf{Avrdude}: Programa de carregamento de código para microcontroladores AVR.
  \item \textbf{OpenOCD}: Ferramenta para comunicação de programadores.
  \item \textbf{Placas de desenvolvimento}: Arduino mini, nano, mega, due, uno para testes de suporte utilizando avrdude e Stellaris como EK-LM4F232 para testes utilizando o OpenOCD.
